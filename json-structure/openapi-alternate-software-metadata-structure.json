@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-alternate-software-metadata-structure.json",
+  "name": "AlternateSoftwareMetadata",
+  "description": "Details about a beta appliance software update.",
+  "type": "object",
+  "properties": {
+    "Version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The appliance software version."
+        }
+      ]
+    }
+  }
+}

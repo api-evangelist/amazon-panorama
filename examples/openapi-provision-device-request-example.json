@@ -1,0 +1,6 @@
+{
+  "Description": "example-string",
+  "Name": "my-resource",
+  "NetworkingConfiguration": "example-string",
+  "Tags": "example-string"
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-network-payload-structure.json",
+  "name": "NetworkPayload",
+  "description": "The network configuration for a device.",
+  "type": "object",
+  "properties": {
+    "Ethernet0": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EthernetPayload"
+        },
+        {
+          "description": "Settings for Ethernet port 0."
+        }
+      ]
+    },
+    "Ethernet1": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EthernetPayload"
+        },
+        {
+          "description": "Settings for Ethernet port 1."
+        }
+      ]
+    },
+    "Ntp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NtpPayload"
+        },
+        {
+          "description": "Network time protocol (NTP) server settings."
+        }
+      ]
+    }
+  }
+}

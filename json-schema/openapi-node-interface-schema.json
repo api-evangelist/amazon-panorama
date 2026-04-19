@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-node-interface-schema.json",
+  "title": "NodeInterface",
+  "description": "A node interface.",
+  "type": "object",
+  "properties": {
+    "Inputs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputPortList"
+        },
+        {
+          "description": "The node interface's inputs."
+        }
+      ]
+    },
+    "Outputs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OutputPortList"
+        },
+        {
+          "description": "The node interface's outputs."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Inputs",
+    "Outputs"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-create-package-response-schema.json",
+  "title": "CreatePackageResponse",
+  "description": "CreatePackageResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageArn"
+        },
+        {
+          "description": "The package's ARN."
+        }
+      ]
+    },
+    "PackageId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageId"
+        },
+        {
+          "description": "The package's ID."
+        }
+      ]
+    },
+    "StorageLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StorageLocation"
+        },
+        {
+          "description": "The package's storage location."
+        }
+      ]
+    }
+  },
+  "required": [
+    "StorageLocation"
+  ]
+}

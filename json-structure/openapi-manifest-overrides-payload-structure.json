@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-manifest-overrides-payload-structure.json",
+  "name": "ManifestOverridesPayload",
+  "description": "Parameter overrides for an application instance. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the overrides document.",
+  "type": "object",
+  "properties": {
+    "PayloadData": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ManifestOverridesPayloadData"
+        },
+        {
+          "description": "The overrides document."
+        }
+      ]
+    }
+  }
+}

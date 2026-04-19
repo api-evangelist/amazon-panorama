@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-package-import-job-input-config-structure.json",
+  "name": "PackageImportJobInputConfig",
+  "description": "A configuration for a package import job.",
+  "type": "object",
+  "properties": {
+    "PackageVersionInputConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageVersionInputConfig"
+        },
+        {
+          "description": "The package version's input configuration."
+        }
+      ]
+    }
+  }
+}

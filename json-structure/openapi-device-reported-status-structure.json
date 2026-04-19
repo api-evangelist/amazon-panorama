@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-device-reported-status-structure.json",
+  "name": "DeviceReportedStatus",
+  "description": "DeviceReportedStatus schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "STOPPING",
+    "STOPPED",
+    "STOP_ERROR",
+    "REMOVAL_FAILED",
+    "REMOVAL_IN_PROGRESS",
+    "STARTING",
+    "RUNNING",
+    "INSTALL_ERROR",
+    "LAUNCHED",
+    "LAUNCH_ERROR",
+    "INSTALL_IN_PROGRESS"
+  ]
+}

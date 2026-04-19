@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-job-resource-tags-structure.json",
+  "name": "JobResourceTags",
+  "description": "Tags for a job.",
+  "type": "object",
+  "properties": {
+    "ResourceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobResourceType"
+        },
+        {
+          "description": "The job's type."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The job's tags."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ResourceType",
+    "Tags"
+  ]
+}

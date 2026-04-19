@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-job-schema.json",
+  "title": "Job",
+  "description": "A job for a device.",
+  "type": "object",
+  "properties": {
+    "DeviceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceId"
+        },
+        {
+          "description": "The target device's ID."
+        }
+      ]
+    },
+    "JobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobId"
+        },
+        {
+          "description": "The job's ID."
+        }
+      ]
+    }
+  }
+}

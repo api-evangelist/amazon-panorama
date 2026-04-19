@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-update-progress-schema.json",
+  "title": "UpdateProgress",
+  "description": "UpdateProgress schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "PENDING",
+    "IN_PROGRESS",
+    "VERIFYING",
+    "REBOOTING",
+    "DOWNLOADING",
+    "COMPLETED",
+    "FAILED"
+  ]
+}

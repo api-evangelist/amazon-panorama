@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-static-ip-connection-info-structure.json",
+  "name": "StaticIpConnectionInfo",
+  "description": "A static IP configuration.",
+  "type": "object",
+  "properties": {
+    "DefaultGateway": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DefaultGateway"
+        },
+        {
+          "description": "The connection's default gateway."
+        }
+      ]
+    },
+    "Dns": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DnsList"
+        },
+        {
+          "description": "The connection's DNS address."
+        }
+      ]
+    },
+    "IpAddress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IpAddress"
+        },
+        {
+          "description": "The connection's IP address."
+        }
+      ]
+    },
+    "Mask": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Mask"
+        },
+        {
+          "description": "The connection's DNS mask."
+        }
+      ]
+    }
+  },
+  "required": [
+    "DefaultGateway",
+    "Dns",
+    "IpAddress",
+    "Mask"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-ethernet-status-schema.json",
+  "title": "EthernetStatus",
+  "description": "A device's Ethernet status.",
+  "type": "object",
+  "properties": {
+    "ConnectionStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NetworkConnectionStatus"
+        },
+        {
+          "description": "The device's connection status."
+        }
+      ]
+    },
+    "HwAddress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HwAddress"
+        },
+        {
+          "description": "The device's physical address."
+        }
+      ]
+    },
+    "IpAddress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IpAddress"
+        },
+        {
+          "description": "The device's IP address."
+        }
+      ]
+    }
+  }
+}

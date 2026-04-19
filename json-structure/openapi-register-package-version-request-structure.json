@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-register-package-version-request-structure.json",
+  "name": "RegisterPackageVersionRequest",
+  "description": "RegisterPackageVersionRequest schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "MarkLatest": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MarkLatestPatch"
+        },
+        {
+          "description": "Whether to mark the new version as the latest version."
+        }
+      ]
+    },
+    "OwnerAccount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageOwnerAccount"
+        },
+        {
+          "description": "An owner account."
+        }
+      ]
+    }
+  }
+}

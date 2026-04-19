@@ -1,0 +1,17 @@
+{
+  "ApplicationInstanceId": "resource-abc123",
+  "ApplicationInstanceIdToReplace": "resource-abc123",
+  "Arn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "CreatedTime": "example-string",
+  "DefaultRuntimeContextDevice": "example-string",
+  "DefaultRuntimeContextDeviceName": "my-resource",
+  "Description": "example-string",
+  "HealthStatus": "active",
+  "LastUpdatedTime": "example-string",
+  "Name": "my-resource",
+  "RuntimeContextStates": "example-string",
+  "RuntimeRoleArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "Status": "active",
+  "StatusDescription": "active",
+  "Tags": "example-string"
+}

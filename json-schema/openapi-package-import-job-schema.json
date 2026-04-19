@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-package-import-job-schema.json",
+  "title": "PackageImportJob",
+  "description": "A job to import a package version.",
+  "type": "object",
+  "properties": {
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreatedTime"
+        },
+        {
+          "description": "When the job was created."
+        }
+      ]
+    },
+    "JobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobId"
+        },
+        {
+          "description": "The job's ID."
+        }
+      ]
+    },
+    "JobType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageImportJobType"
+        },
+        {
+          "description": "The job's type."
+        }
+      ]
+    },
+    "LastUpdatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LastUpdatedTime"
+        },
+        {
+          "description": "When the job was updated."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageImportJobStatus"
+        },
+        {
+          "description": "The job's status."
+        }
+      ]
+    },
+    "StatusMessage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageImportJobStatusMessage"
+        },
+        {
+          "description": "The job's status message."
+        }
+      ]
+    }
+  }
+}

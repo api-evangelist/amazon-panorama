@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-default-runtime-context-device-structure.json",
+  "name": "DefaultRuntimeContextDevice",
+  "description": "DefaultRuntimeContextDevice schema from Amazon Panorama",
+  "type": "string",
+  "pattern": "^[a-zA-Z0-9\\-\\_]+$"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-signal-application-instance-node-instances-request-schema.json",
+  "title": "SignalApplicationInstanceNodeInstancesRequest",
+  "description": "SignalApplicationInstanceNodeInstancesRequest schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "NodeSignals": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeSignalList"
+        },
+        {
+          "description": "A list of signals."
+        }
+      ]
+    }
+  },
+  "required": [
+    "NodeSignals"
+  ]
+}

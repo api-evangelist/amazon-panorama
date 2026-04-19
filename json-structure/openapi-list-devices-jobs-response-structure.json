@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-list-devices-jobs-response-structure.json",
+  "name": "ListDevicesJobsResponse",
+  "description": "ListDevicesJobsResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "DeviceJobs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceJobList"
+        },
+        {
+          "description": "A list of jobs."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "A pagination token that's included if more results are available."
+        }
+      ]
+    }
+  }
+}

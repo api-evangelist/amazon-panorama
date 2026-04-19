@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-package-import-job-output-structure.json",
+  "name": "PackageImportJobOutput",
+  "description": "Results of a package import job.",
+  "type": "object",
+  "properties": {
+    "OutputS3Location": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OutPutS3Location"
+        },
+        {
+          "description": "The package's output location."
+        }
+      ]
+    },
+    "PackageId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageId"
+        },
+        {
+          "description": "The package's ID."
+        }
+      ]
+    },
+    "PackageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageVersion"
+        },
+        {
+          "description": "The package's version."
+        }
+      ]
+    },
+    "PatchVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackagePatchVersion"
+        },
+        {
+          "description": "The package's patch version."
+        }
+      ]
+    }
+  },
+  "required": [
+    "OutputS3Location",
+    "PackageId",
+    "PackageVersion",
+    "PatchVersion"
+  ]
+}

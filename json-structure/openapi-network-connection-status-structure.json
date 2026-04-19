@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-network-connection-status-structure.json",
+  "name": "NetworkConnectionStatus",
+  "description": "NetworkConnectionStatus schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "CONNECTED",
+    "NOT_CONNECTED",
+    "CONNECTING"
+  ]
+}

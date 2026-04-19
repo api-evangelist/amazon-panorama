@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-package-object-structure.json",
+  "name": "PackageObject",
+  "description": "A package object.",
+  "type": "object",
+  "properties": {
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageName"
+        },
+        {
+          "description": "The object's name."
+        }
+      ]
+    },
+    "PackageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageVersion"
+        },
+        {
+          "description": "The object's package version."
+        }
+      ]
+    },
+    "PatchVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackagePatchVersion"
+        },
+        {
+          "description": "The object's patch version."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Name",
+    "PackageVersion",
+    "PatchVersion"
+  ]
+}

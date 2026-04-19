@@ -1,0 +1,7 @@
+{
+  "Arn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "Certificates": "example-string",
+  "DeviceId": "resource-abc123",
+  "IotThingName": "my-resource",
+  "Status": "active"
+}

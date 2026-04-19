@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-provision-device-request-structure.json",
+  "name": "ProvisionDeviceRequest",
+  "description": "ProvisionDeviceRequest schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "A description for the device."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceName"
+        },
+        {
+          "description": "A name for the device."
+        }
+      ]
+    },
+    "NetworkingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NetworkPayload"
+        },
+        {
+          "description": "A networking configuration for the device."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "Tags for the device."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Name"
+  ]
+}

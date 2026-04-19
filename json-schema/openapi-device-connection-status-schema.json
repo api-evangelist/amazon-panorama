@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-device-connection-status-schema.json",
+  "title": "DeviceConnectionStatus",
+  "description": "DeviceConnectionStatus schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "ONLINE",
+    "OFFLINE",
+    "AWAITING_CREDENTIALS",
+    "NOT_AVAILABLE",
+    "ERROR"
+  ]
+}

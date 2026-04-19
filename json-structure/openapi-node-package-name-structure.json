@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-node-package-name-structure.json",
+  "name": "NodePackageName",
+  "description": "NodePackageName schema from Amazon Panorama",
+  "type": "string",
+  "pattern": "^[a-zA-Z0-9\\-\\_]+$"
+}

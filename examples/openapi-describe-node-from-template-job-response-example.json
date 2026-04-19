@@ -1,0 +1,14 @@
+{
+  "CreatedTime": "example-string",
+  "JobId": "resource-abc123",
+  "JobTags": "example-string",
+  "LastUpdatedTime": "example-string",
+  "NodeDescription": "example-string",
+  "NodeName": "my-resource",
+  "OutputPackageName": "my-resource",
+  "OutputPackageVersion": "1.0.0",
+  "Status": "active",
+  "StatusMessage": "active",
+  "TemplateParameters": "example-string",
+  "TemplateType": "standard"
+}

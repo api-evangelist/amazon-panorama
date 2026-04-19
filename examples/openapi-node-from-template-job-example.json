@@ -1,0 +1,8 @@
+{
+  "CreatedTime": "example-string",
+  "JobId": "resource-abc123",
+  "NodeName": "my-resource",
+  "Status": "active",
+  "StatusMessage": "active",
+  "TemplateType": "standard"
+}

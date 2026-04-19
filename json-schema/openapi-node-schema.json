@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-node-schema.json",
+  "title": "Node",
+  "description": "An application node that represents a camera stream, a model, code, or output.",
+  "type": "object",
+  "properties": {
+    "Category": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeCategory"
+        },
+        {
+          "description": "The node's category."
+        }
+      ]
+    },
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeStamp"
+        },
+        {
+          "description": "When the node was created."
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The node's description."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeName"
+        },
+        {
+          "description": "The node's name."
+        }
+      ]
+    },
+    "NodeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeId"
+        },
+        {
+          "description": "The node's ID."
+        }
+      ]
+    },
+    "OwnerAccount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageOwnerAccount"
+        },
+        {
+          "description": "The account ID of the node's owner."
+        }
+      ]
+    },
+    "PackageArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageArn"
+        },
+        {
+          "description": "The node's ARN."
+        }
+      ]
+    },
+    "PackageId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageId"
+        },
+        {
+          "description": "The node's package ID."
+        }
+      ]
+    },
+    "PackageName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageName"
+        },
+        {
+          "description": "The node's package name."
+        }
+      ]
+    },
+    "PackageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageVersion"
+        },
+        {
+          "description": "The node's package version."
+        }
+      ]
+    },
+    "PatchVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackagePatchVersion"
+        },
+        {
+          "description": "The node's patch version."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Category",
+    "CreatedTime",
+    "Name",
+    "NodeId",
+    "PackageId",
+    "PackageName",
+    "PackageVersion",
+    "PatchVersion"
+  ]
+}

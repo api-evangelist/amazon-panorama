@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-runtime-role-arn-schema.json",
+  "title": "RuntimeRoleArn",
+  "description": "RuntimeRoleArn schema from Amazon Panorama",
+  "type": "string",
+  "pattern": "^arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:role/.+$"
+}

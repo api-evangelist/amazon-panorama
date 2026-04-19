@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-storage-location-structure.json",
+  "name": "StorageLocation",
+  "description": "A storage location.",
+  "type": "object",
+  "properties": {
+    "BinaryPrefixLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Object"
+        },
+        {
+          "description": "The location's binary prefix."
+        }
+      ]
+    },
+    "Bucket": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Bucket"
+        },
+        {
+          "description": "The location's bucket."
+        }
+      ]
+    },
+    "GeneratedPrefixLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Object"
+        },
+        {
+          "description": "The location's generated prefix."
+        }
+      ]
+    },
+    "ManifestPrefixLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Object"
+        },
+        {
+          "description": "The location's manifest prefix."
+        }
+      ]
+    },
+    "RepoPrefixLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Object"
+        },
+        {
+          "description": "The location's repo prefix."
+        }
+      ]
+    }
+  },
+  "required": [
+    "BinaryPrefixLocation",
+    "Bucket",
+    "GeneratedPrefixLocation",
+    "ManifestPrefixLocation",
+    "RepoPrefixLocation"
+  ]
+}

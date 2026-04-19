@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-connection-type-schema.json",
+  "title": "ConnectionType",
+  "description": "ConnectionType schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "STATIC_IP",
+    "DHCP"
+  ]
+}

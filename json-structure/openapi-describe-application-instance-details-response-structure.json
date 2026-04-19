@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-describe-application-instance-details-response-structure.json",
+  "name": "DescribeApplicationInstanceDetailsResponse",
+  "description": "DescribeApplicationInstanceDetailsResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "ApplicationInstanceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationInstanceId"
+        },
+        {
+          "description": "The application instance's ID."
+        }
+      ]
+    },
+    "ApplicationInstanceIdToReplace": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationInstanceId"
+        },
+        {
+          "description": "The ID of the application instance that this instance replaced."
+        }
+      ]
+    },
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeStamp"
+        },
+        {
+          "description": "When the application instance was created."
+        }
+      ]
+    },
+    "DefaultRuntimeContextDevice": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DefaultRuntimeContextDevice"
+        },
+        {
+          "description": "The application instance's default runtime context device."
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The application instance's description."
+        }
+      ]
+    },
+    "ManifestOverridesPayload": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ManifestOverridesPayload"
+        },
+        {
+          "description": "Parameter overrides for the configuration manifest."
+        }
+      ]
+    },
+    "ManifestPayload": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ManifestPayload"
+        },
+        {
+          "description": "The application instance's configuration manifest."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationInstanceName"
+        },
+        {
+          "description": "The application instance's name."
+        }
+      ]
+    }
+  }
+}

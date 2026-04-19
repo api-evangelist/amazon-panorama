@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-port-type-structure.json",
+  "name": "PortType",
+  "description": "PortType schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "BOOLEAN",
+    "STRING",
+    "INT32",
+    "FLOAT32",
+    "MEDIA"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-create-package-request-schema.json",
+  "title": "CreatePackageRequest",
+  "description": "CreatePackageRequest schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "PackageName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageName"
+        },
+        {
+          "description": "A name for the package."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "Tags for the package."
+        }
+      ]
+    }
+  },
+  "required": [
+    "PackageName"
+  ]
+}

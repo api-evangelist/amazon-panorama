@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-package-list-item-structure.json",
+  "name": "PackageListItem",
+  "description": "A package summary.",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageArn"
+        },
+        {
+          "description": "The package's ARN."
+        }
+      ]
+    },
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeStamp"
+        },
+        {
+          "description": "When the package was created."
+        }
+      ]
+    },
+    "PackageId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageId"
+        },
+        {
+          "description": "The package's ID."
+        }
+      ]
+    },
+    "PackageName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageName"
+        },
+        {
+          "description": "The package's name."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The package's tags."
+        }
+      ]
+    }
+  }
+}

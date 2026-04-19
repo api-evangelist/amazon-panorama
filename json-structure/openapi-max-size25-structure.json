@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-max-size25-structure.json",
+  "name": "MaxSize25",
+  "description": "MaxSize25 schema from Amazon Panorama",
+  "type": "int32",
+  "minimum": 0,
+  "maximum": 25
+}

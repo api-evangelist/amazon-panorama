@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-describe-application-instance-details-request-structure.json",
+  "name": "DescribeApplicationInstanceDetailsRequest",
+  "description": "DescribeApplicationInstanceDetailsRequest schema from Amazon Panorama",
+  "type": "object",
+  "properties": {}
+}

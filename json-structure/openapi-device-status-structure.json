@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-device-status-structure.json",
+  "name": "DeviceStatus",
+  "description": "DeviceStatus schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "AWAITING_PROVISIONING",
+    "PENDING",
+    "SUCCEEDED",
+    "FAILED",
+    "ERROR",
+    "DELETING"
+  ]
+}

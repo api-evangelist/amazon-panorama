@@ -1,0 +1,16 @@
+{
+  "AssetName": "my-resource",
+  "Category": "example-string",
+  "CreatedTime": "example-string",
+  "Description": "example-string",
+  "LastUpdatedTime": "example-string",
+  "Name": "my-resource",
+  "NodeId": "resource-abc123",
+  "NodeInterface": "example-string",
+  "OwnerAccount": "example-string",
+  "PackageArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "PackageId": "resource-abc123",
+  "PackageName": "my-resource",
+  "PackageVersion": "1.0.0",
+  "PatchVersion": "1.0.0"
+}

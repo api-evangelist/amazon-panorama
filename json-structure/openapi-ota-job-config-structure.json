@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-ota-job-config-structure.json",
+  "name": "OTAJobConfig",
+  "description": "An over-the-air update (OTA) job configuration.",
+  "type": "object",
+  "properties": {
+    "AllowMajorVersionUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Whether to apply the update if it is a major version change."
+        }
+      ]
+    },
+    "ImageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageVersion"
+        },
+        {
+          "description": "The target version of the device software."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ImageVersion"
+  ]
+}

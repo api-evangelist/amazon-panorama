@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-create-job-for-devices-response-schema.json",
+  "title": "CreateJobForDevicesResponse",
+  "description": "CreateJobForDevicesResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "Jobs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobList"
+        },
+        {
+          "description": "A list of jobs."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Jobs"
+  ]
+}

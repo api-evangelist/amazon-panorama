@@ -1,0 +1,13 @@
+{
+  "ClientToken": "example-string",
+  "CreatedTime": "example-string",
+  "InputConfig": "example-string",
+  "JobId": "resource-abc123",
+  "JobTags": "example-string",
+  "JobType": "standard",
+  "LastUpdatedTime": "example-string",
+  "Output": "example-string",
+  "OutputConfig": "example-string",
+  "Status": "active",
+  "StatusMessage": "active"
+}

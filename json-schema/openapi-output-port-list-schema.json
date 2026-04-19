@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-output-port-list-schema.json",
+  "title": "OutputPortList",
+  "description": "OutputPortList schema from Amazon Panorama",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/NodeOutputPort"
+  }
+}

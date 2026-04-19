@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-describe-package-response-structure.json",
+  "name": "DescribePackageResponse",
+  "description": "DescribePackageResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageArn"
+        },
+        {
+          "description": "The package's ARN."
+        }
+      ]
+    },
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeStamp"
+        },
+        {
+          "description": "When the package was created."
+        }
+      ]
+    },
+    "PackageId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageId"
+        },
+        {
+          "description": "The package's ID."
+        }
+      ]
+    },
+    "PackageName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageName"
+        },
+        {
+          "description": "The package's name."
+        }
+      ]
+    },
+    "ReadAccessPrincipalArns": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrincipalArnsList"
+        },
+        {
+          "description": "ARNs of accounts that have read access to the package."
+        }
+      ]
+    },
+    "StorageLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StorageLocation"
+        },
+        {
+          "description": "The package's storage location."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The package's tags."
+        }
+      ]
+    },
+    "WriteAccessPrincipalArns": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrincipalArnsList"
+        },
+        {
+          "description": "ARNs of accounts that have write access to the package."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Arn",
+    "CreatedTime",
+    "PackageId",
+    "PackageName",
+    "StorageLocation",
+    "Tags"
+  ]
+}

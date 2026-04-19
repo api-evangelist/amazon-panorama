@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-device-connection-status-structure.json",
+  "name": "DeviceConnectionStatus",
+  "description": "DeviceConnectionStatus schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "ONLINE",
+    "OFFLINE",
+    "AWAITING_CREDENTIALS",
+    "NOT_AVAILABLE",
+    "ERROR"
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-describe-device-response-structure.json",
+  "name": "DescribeDeviceResponse",
+  "description": "DescribeDeviceResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "AlternateSoftwares": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AlternateSoftwares"
+        },
+        {
+          "description": "Beta software releases available for the device."
+        }
+      ]
+    },
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceArn"
+        },
+        {
+          "description": "The device's ARN."
+        }
+      ]
+    },
+    "Brand": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceBrand"
+        },
+        {
+          "description": "The device's maker."
+        }
+      ]
+    },
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreatedTime"
+        },
+        {
+          "description": "When the device was created."
+        }
+      ]
+    },
+    "CurrentNetworkingStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NetworkStatus"
+        },
+        {
+          "description": "The device's networking status."
+        }
+      ]
+    },
+    "CurrentSoftware": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CurrentSoftware"
+        },
+        {
+          "description": "The device's current software version."
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The device's description."
+        }
+      ]
+    },
+    "DeviceAggregatedStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceAggregatedStatus"
+        },
+        {
+          "description": "A device's aggregated status. Including the device's connection status, provisioning status, and lease status."
+        }
+      ]
+    },
+    "DeviceConnectionStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceConnectionStatus"
+        },
+        {
+          "description": "The device's connection status."
+        }
+      ]
+    },
+    "DeviceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceId"
+        },
+        {
+          "description": "The device's ID."
+        }
+      ]
+    },
+    "LatestAlternateSoftware": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LatestAlternateSoftware"
+        },
+        {
+          "description": "The most recent beta software release."
+        }
+      ]
+    },
+    "LatestDeviceJob": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LatestDeviceJob"
+        },
+        {
+          "description": "A device's latest job. Includes the target image version, and the job status."
+        }
+      ]
+    },
+    "LatestSoftware": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LatestSoftware"
+        },
+        {
+          "description": "The latest software version available for the device."
+        }
+      ]
+    },
+    "LeaseExpirationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LeaseExpirationTime"
+        },
+        {
+          "description": "The device's lease expiration time."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceName"
+        },
+        {
+          "description": "The device's name."
+        }
+      ]
+    },
+    "NetworkingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NetworkPayload"
+        },
+        {
+          "description": "The device's networking configuration."
+        }
+      ]
+    },
+    "ProvisioningStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceStatus"
+        },
+        {
+          "description": "The device's provisioning status."
+        }
+      ]
+    },
+    "SerialNumber": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceSerialNumber"
+        },
+        {
+          "description": "The device's serial number."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The device's tags."
+        }
+      ]
+    },
+    "Type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceType"
+        },
+        {
+          "description": "The device's type."
+        }
+      ]
+    }
+  }
+}

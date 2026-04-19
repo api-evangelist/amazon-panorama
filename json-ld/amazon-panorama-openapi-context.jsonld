@@ -1,0 +1,686 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "panorama": "https://panorama.amazonaws.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AccessDeniedException": "panorama:AccessDeniedException",
+    "AlternateSoftwareMetadata": "panorama:AlternateSoftwareMetadata",
+    "AlternateSoftwares": {
+      "@id": "panorama:AlternateSoftwares",
+      "@type": "xsd:string"
+    },
+    "ApplicationInstance": "panorama:ApplicationInstance",
+    "ApplicationInstanceArn": "panorama:ApplicationInstanceArn",
+    "ApplicationInstanceHealthStatus": "panorama:ApplicationInstanceHealthStatus",
+    "ApplicationInstanceId": {
+      "@id": "panorama:ApplicationInstanceId",
+      "@type": "xsd:string"
+    },
+    "ApplicationInstanceName": "panorama:ApplicationInstanceName",
+    "ApplicationInstanceStatus": "panorama:ApplicationInstanceStatus",
+    "ApplicationInstanceStatusDescription": "panorama:ApplicationInstanceStatusDescription",
+    "ApplicationInstances": {
+      "@id": "panorama:ApplicationInstances",
+      "@type": "xsd:string"
+    },
+    "Boolean": "panorama:Boolean",
+    "Bucket": {
+      "@id": "panorama:Bucket",
+      "@type": "xsd:string"
+    },
+    "BucketName": {
+      "@id": "panorama:BucketName",
+      "@type": "xsd:string"
+    },
+    "Certificates": {
+      "@id": "panorama:Certificates",
+      "@type": "xsd:string"
+    },
+    "ClientToken": {
+      "@id": "panorama:ClientToken",
+      "@type": "xsd:string"
+    },
+    "ConflictException": "panorama:ConflictException",
+    "ConnectionType": {
+      "@id": "panorama:ConnectionType",
+      "@type": "xsd:string"
+    },
+    "CreateApplicationInstanceRequest": "panorama:CreateApplicationInstanceRequest",
+    "CreateApplicationInstanceResponse": "panorama:CreateApplicationInstanceResponse",
+    "CreateJobForDevicesRequest": "panorama:CreateJobForDevicesRequest",
+    "CreateJobForDevicesResponse": "panorama:CreateJobForDevicesResponse",
+    "CreateNodeFromTemplateJobRequest": "panorama:CreateNodeFromTemplateJobRequest",
+    "CreateNodeFromTemplateJobResponse": "panorama:CreateNodeFromTemplateJobResponse",
+    "CreatePackageImportJobRequest": "panorama:CreatePackageImportJobRequest",
+    "CreatePackageImportJobResponse": "panorama:CreatePackageImportJobResponse",
+    "CreatePackageRequest": "panorama:CreatePackageRequest",
+    "CreatePackageResponse": "panorama:CreatePackageResponse",
+    "CreatedTime": {
+      "@id": "panorama:CreatedTime",
+      "@type": "xsd:string"
+    },
+    "CurrentSoftware": {
+      "@id": "panorama:CurrentSoftware",
+      "@type": "xsd:string"
+    },
+    "DefaultGateway": {
+      "@id": "panorama:DefaultGateway",
+      "@type": "xsd:string"
+    },
+    "DefaultRuntimeContextDevice": {
+      "@id": "panorama:DefaultRuntimeContextDevice",
+      "@type": "xsd:string"
+    },
+    "DeleteDeviceRequest": "panorama:DeleteDeviceRequest",
+    "DeleteDeviceResponse": "panorama:DeleteDeviceResponse",
+    "DeletePackageRequest": "panorama:DeletePackageRequest",
+    "DeletePackageResponse": "panorama:DeletePackageResponse",
+    "DeregisterPackageVersionRequest": "panorama:DeregisterPackageVersionRequest",
+    "DeregisterPackageVersionResponse": "panorama:DeregisterPackageVersionResponse",
+    "DescribeApplicationInstanceDetailsRequest": "panorama:DescribeApplicationInstanceDetailsRequest",
+    "DescribeApplicationInstanceDetailsResponse": "panorama:DescribeApplicationInstanceDetailsResponse",
+    "DescribeApplicationInstanceRequest": "panorama:DescribeApplicationInstanceRequest",
+    "DescribeApplicationInstanceResponse": "panorama:DescribeApplicationInstanceResponse",
+    "DescribeDeviceJobRequest": "panorama:DescribeDeviceJobRequest",
+    "DescribeDeviceJobResponse": "panorama:DescribeDeviceJobResponse",
+    "DescribeDeviceRequest": "panorama:DescribeDeviceRequest",
+    "DescribeDeviceResponse": "panorama:DescribeDeviceResponse",
+    "DescribeNodeFromTemplateJobRequest": "panorama:DescribeNodeFromTemplateJobRequest",
+    "DescribeNodeFromTemplateJobResponse": "panorama:DescribeNodeFromTemplateJobResponse",
+    "DescribeNodeRequest": "panorama:DescribeNodeRequest",
+    "DescribeNodeResponse": "panorama:DescribeNodeResponse",
+    "DescribePackageImportJobRequest": "panorama:DescribePackageImportJobRequest",
+    "DescribePackageImportJobResponse": "panorama:DescribePackageImportJobResponse",
+    "DescribePackageRequest": "panorama:DescribePackageRequest",
+    "DescribePackageResponse": "panorama:DescribePackageResponse",
+    "DescribePackageVersionRequest": "panorama:DescribePackageVersionRequest",
+    "DescribePackageVersionResponse": "panorama:DescribePackageVersionResponse",
+    "Description": {
+      "@id": "panorama:Description",
+      "@type": "xsd:string"
+    },
+    "DesiredState": {
+      "@id": "panorama:DesiredState",
+      "@type": "xsd:string"
+    },
+    "Device": "panorama:Device",
+    "DeviceAggregatedStatus": {
+      "@id": "panorama:DeviceAggregatedStatus",
+      "@type": "xsd:string"
+    },
+    "DeviceArn": {
+      "@id": "panorama:DeviceArn",
+      "@type": "xsd:string"
+    },
+    "DeviceBrand": "panorama:DeviceBrand",
+    "DeviceConnectionStatus": {
+      "@id": "panorama:DeviceConnectionStatus",
+      "@type": "xsd:string"
+    },
+    "DeviceId": {
+      "@id": "panorama:DeviceId",
+      "@type": "xsd:string"
+    },
+    "DeviceIdList": "panorama:DeviceIdList",
+    "DeviceJob": "panorama:DeviceJob",
+    "DeviceJobConfig": {
+      "@id": "panorama:DeviceJobConfig",
+      "@type": "xsd:string"
+    },
+    "DeviceJobList": "panorama:DeviceJobList",
+    "DeviceList": "panorama:DeviceList",
+    "DeviceName": {
+      "@id": "panorama:DeviceName",
+      "@type": "xsd:string"
+    },
+    "DeviceReportedStatus": {
+      "@id": "panorama:DeviceReportedStatus",
+      "@type": "xsd:string"
+    },
+    "DeviceSerialNumber": "panorama:DeviceSerialNumber",
+    "DeviceStatus": "panorama:DeviceStatus",
+    "DeviceType": {
+      "@id": "panorama:DeviceType",
+      "@type": "xsd:string"
+    },
+    "Dns": {
+      "@id": "panorama:Dns",
+      "@type": "xsd:string"
+    },
+    "DnsList": "panorama:DnsList",
+    "EthernetPayload": "panorama:EthernetPayload",
+    "EthernetStatus": "panorama:EthernetStatus",
+    "HwAddress": {
+      "@id": "panorama:HwAddress",
+      "@type": "xsd:string"
+    },
+    "ImageVersion": {
+      "@id": "panorama:ImageVersion",
+      "@type": "xsd:string"
+    },
+    "InputPortList": "panorama:InputPortList",
+    "InternalServerException": "panorama:InternalServerException",
+    "IotThingName": {
+      "@id": "panorama:IotThingName",
+      "@type": "xsd:string"
+    },
+    "IpAddress": {
+      "@id": "panorama:IpAddress",
+      "@type": "xsd:string"
+    },
+    "IpAddressOrServerName": "panorama:IpAddressOrServerName",
+    "Job": "panorama:Job",
+    "JobId": {
+      "@id": "panorama:JobId",
+      "@type": "xsd:string"
+    },
+    "JobList": "panorama:JobList",
+    "JobResourceTags": "panorama:JobResourceTags",
+    "JobResourceType": "panorama:JobResourceType",
+    "JobTagsList": "panorama:JobTagsList",
+    "JobType": {
+      "@id": "panorama:JobType",
+      "@type": "xsd:string"
+    },
+    "LastUpdatedTime": {
+      "@id": "panorama:LastUpdatedTime",
+      "@type": "xsd:string"
+    },
+    "LatestAlternateSoftware": {
+      "@id": "panorama:LatestAlternateSoftware",
+      "@type": "xsd:string"
+    },
+    "LatestDeviceJob": {
+      "@id": "panorama:LatestDeviceJob",
+      "@type": "xsd:string"
+    },
+    "LatestSoftware": {
+      "@id": "panorama:LatestSoftware",
+      "@type": "xsd:string"
+    },
+    "LeaseExpirationTime": {
+      "@id": "panorama:LeaseExpirationTime",
+      "@type": "xsd:string"
+    },
+    "ListApplicationInstanceDependenciesRequest": "panorama:ListApplicationInstanceDependenciesRequest",
+    "ListApplicationInstanceDependenciesResponse": "panorama:ListApplicationInstanceDependenciesResponse",
+    "ListApplicationInstanceNodeInstancesRequest": "panorama:ListApplicationInstanceNodeInstancesRequest",
+    "ListApplicationInstanceNodeInstancesResponse": "panorama:ListApplicationInstanceNodeInstancesResponse",
+    "ListApplicationInstancesRequest": "panorama:ListApplicationInstancesRequest",
+    "ListApplicationInstancesResponse": "panorama:ListApplicationInstancesResponse",
+    "ListDevicesJobsRequest": "panorama:ListDevicesJobsRequest",
+    "ListDevicesJobsResponse": "panorama:ListDevicesJobsResponse",
+    "ListDevicesRequest": "panorama:ListDevicesRequest",
+    "ListDevicesResponse": "panorama:ListDevicesResponse",
+    "ListDevicesSortBy": "panorama:ListDevicesSortBy",
+    "ListNodeFromTemplateJobsRequest": "panorama:ListNodeFromTemplateJobsRequest",
+    "ListNodeFromTemplateJobsResponse": "panorama:ListNodeFromTemplateJobsResponse",
+    "ListNodesRequest": "panorama:ListNodesRequest",
+    "ListNodesResponse": "panorama:ListNodesResponse",
+    "ListPackageImportJobsRequest": "panorama:ListPackageImportJobsRequest",
+    "ListPackageImportJobsResponse": "panorama:ListPackageImportJobsResponse",
+    "ListPackagesRequest": "panorama:ListPackagesRequest",
+    "ListPackagesResponse": "panorama:ListPackagesResponse",
+    "ListTagsForResourceRequest": "panorama:ListTagsForResourceRequest",
+    "ListTagsForResourceResponse": "panorama:ListTagsForResourceResponse",
+    "ManifestOverridesPayload": {
+      "@id": "panorama:ManifestOverridesPayload",
+      "@type": "xsd:string"
+    },
+    "ManifestOverridesPayloadData": "panorama:ManifestOverridesPayloadData",
+    "ManifestPayload": {
+      "@id": "panorama:ManifestPayload",
+      "@type": "xsd:string"
+    },
+    "ManifestPayloadData": "panorama:ManifestPayloadData",
+    "MarkLatestPatch": "panorama:MarkLatestPatch",
+    "Mask": {
+      "@id": "panorama:Mask",
+      "@type": "xsd:string"
+    },
+    "MaxConnections": {
+      "@id": "panorama:MaxConnections",
+      "@type": "xsd:string"
+    },
+    "MaxSize25": "panorama:MaxSize25",
+    "NameFilter": "panorama:NameFilter",
+    "NetworkConnectionStatus": "panorama:NetworkConnectionStatus",
+    "NetworkPayload": "panorama:NetworkPayload",
+    "NetworkStatus": "panorama:NetworkStatus",
+    "NextToken": {
+      "@id": "panorama:NextToken",
+      "@type": "xsd:string"
+    },
+    "Node": "panorama:Node",
+    "NodeAssetName": "panorama:NodeAssetName",
+    "NodeCategory": "panorama:NodeCategory",
+    "NodeFromTemplateJob": "panorama:NodeFromTemplateJob",
+    "NodeFromTemplateJobList": "panorama:NodeFromTemplateJobList",
+    "NodeFromTemplateJobStatus": "panorama:NodeFromTemplateJobStatus",
+    "NodeFromTemplateJobStatusMessage": "panorama:NodeFromTemplateJobStatusMessage",
+    "NodeId": {
+      "@id": "panorama:NodeId",
+      "@type": "xsd:string"
+    },
+    "NodeInputPort": "panorama:NodeInputPort",
+    "NodeInstance": "panorama:NodeInstance",
+    "NodeInstanceId": {
+      "@id": "panorama:NodeInstanceId",
+      "@type": "xsd:string"
+    },
+    "NodeInstanceStatus": "panorama:NodeInstanceStatus",
+    "NodeInstances": {
+      "@id": "panorama:NodeInstances",
+      "@type": "xsd:string"
+    },
+    "NodeInterface": {
+      "@id": "panorama:NodeInterface",
+      "@type": "xsd:string"
+    },
+    "NodeName": {
+      "@id": "panorama:NodeName",
+      "@type": "xsd:string"
+    },
+    "NodeOutputPort": "panorama:NodeOutputPort",
+    "NodePackageArn": "panorama:NodePackageArn",
+    "NodePackageId": "panorama:NodePackageId",
+    "NodePackageName": "panorama:NodePackageName",
+    "NodePackagePatchVersion": "panorama:NodePackagePatchVersion",
+    "NodePackageVersion": "panorama:NodePackageVersion",
+    "NodeSignal": "panorama:NodeSignal",
+    "NodeSignalList": "panorama:NodeSignalList",
+    "NodeSignalValue": "panorama:NodeSignalValue",
+    "NodesList": "panorama:NodesList",
+    "NtpPayload": "panorama:NtpPayload",
+    "NtpServerList": "panorama:NtpServerList",
+    "NtpServerName": {
+      "@id": "panorama:NtpServerName",
+      "@type": "xsd:string"
+    },
+    "NtpStatus": {
+      "@id": "panorama:NtpStatus",
+      "@type": "xsd:string"
+    },
+    "OTAJobConfig": {
+      "@id": "panorama:OTAJobConfig",
+      "@type": "xsd:string"
+    },
+    "Object": "panorama:Object",
+    "ObjectKey": {
+      "@id": "panorama:ObjectKey",
+      "@type": "xsd:string"
+    },
+    "OutPutS3Location": "panorama:OutPutS3Location",
+    "OutputPortList": "panorama:OutputPortList",
+    "PackageImportJob": "panorama:PackageImportJob",
+    "PackageImportJobInputConfig": "panorama:PackageImportJobInputConfig",
+    "PackageImportJobList": "panorama:PackageImportJobList",
+    "PackageImportJobOutput": "panorama:PackageImportJobOutput",
+    "PackageImportJobOutputConfig": "panorama:PackageImportJobOutputConfig",
+    "PackageImportJobStatus": "panorama:PackageImportJobStatus",
+    "PackageImportJobStatusMessage": "panorama:PackageImportJobStatusMessage",
+    "PackageImportJobType": "panorama:PackageImportJobType",
+    "PackageList": "panorama:PackageList",
+    "PackageListItem": "panorama:PackageListItem",
+    "PackageObject": "panorama:PackageObject",
+    "PackageObjects": {
+      "@id": "panorama:PackageObjects",
+      "@type": "xsd:string"
+    },
+    "PackageOwnerAccount": "panorama:PackageOwnerAccount",
+    "PackageVersionInputConfig": {
+      "@id": "panorama:PackageVersionInputConfig",
+      "@type": "xsd:string"
+    },
+    "PackageVersionOutputConfig": {
+      "@id": "panorama:PackageVersionOutputConfig",
+      "@type": "xsd:string"
+    },
+    "PackageVersionStatus": "panorama:PackageVersionStatus",
+    "PackageVersionStatusDescription": "panorama:PackageVersionStatusDescription",
+    "PortDefaultValue": "panorama:PortDefaultValue",
+    "PortName": "panorama:PortName",
+    "PortType": "panorama:PortType",
+    "PrincipalArn": "panorama:PrincipalArn",
+    "PrincipalArnsList": "panorama:PrincipalArnsList",
+    "ProvisionDeviceRequest": "panorama:ProvisionDeviceRequest",
+    "ProvisionDeviceResponse": "panorama:ProvisionDeviceResponse",
+    "Region": {
+      "@id": "panorama:Region",
+      "@type": "xsd:string"
+    },
+    "RegisterPackageVersionRequest": "panorama:RegisterPackageVersionRequest",
+    "RegisterPackageVersionResponse": "panorama:RegisterPackageVersionResponse",
+    "RemoveApplicationInstanceRequest": "panorama:RemoveApplicationInstanceRequest",
+    "RemoveApplicationInstanceResponse": "panorama:RemoveApplicationInstanceResponse",
+    "ReportedRuntimeContextState": "panorama:ReportedRuntimeContextState",
+    "ReportedRuntimeContextStates": "panorama:ReportedRuntimeContextStates",
+    "ResourceArn": "panorama:ResourceArn",
+    "ResourceNotFoundException": "panorama:ResourceNotFoundException",
+    "RuntimeContextName": {
+      "@id": "panorama:RuntimeContextName",
+      "@type": "xsd:string"
+    },
+    "RuntimeRoleArn": {
+      "@id": "panorama:RuntimeRoleArn",
+      "@type": "xsd:string"
+    },
+    "S3Location": {
+      "@id": "panorama:S3Location",
+      "@type": "xsd:string"
+    },
+    "ServiceQuotaExceededException": "panorama:ServiceQuotaExceededException",
+    "SignalApplicationInstanceNodeInstancesRequest": "panorama:SignalApplicationInstanceNodeInstancesRequest",
+    "SignalApplicationInstanceNodeInstancesResponse": "panorama:SignalApplicationInstanceNodeInstancesResponse",
+    "SortOrder": "panorama:SortOrder",
+    "StaticIpConnectionInfo": {
+      "@id": "panorama:StaticIpConnectionInfo",
+      "@type": "xsd:string"
+    },
+    "StatusFilter": "panorama:StatusFilter",
+    "StorageLocation": {
+      "@id": "panorama:StorageLocation",
+      "@type": "xsd:string"
+    },
+    "TagKey": "panorama:TagKey",
+    "TagKeyList": "panorama:TagKeyList",
+    "TagMap": "panorama:TagMap",
+    "TagResourceRequest": "panorama:TagResourceRequest",
+    "TagResourceResponse": "panorama:TagResourceResponse",
+    "TagValue": "panorama:TagValue",
+    "TemplateKey": "panorama:TemplateKey",
+    "TemplateParametersMap": "panorama:TemplateParametersMap",
+    "TemplateType": {
+      "@id": "panorama:TemplateType",
+      "@type": "xsd:string"
+    },
+    "TemplateValue": "panorama:TemplateValue",
+    "TimeStamp": "panorama:TimeStamp",
+    "Token": "panorama:Token",
+    "UntagResourceRequest": "panorama:UntagResourceRequest",
+    "UntagResourceResponse": "panorama:UntagResourceResponse",
+    "UpdateCreatedTime": "panorama:UpdateCreatedTime",
+    "UpdateDeviceMetadataRequest": "panorama:UpdateDeviceMetadataRequest",
+    "UpdateDeviceMetadataResponse": "panorama:UpdateDeviceMetadataResponse",
+    "UpdateProgress": "panorama:UpdateProgress",
+    "ValidationException": "panorama:ValidationException",
+    "Version": {
+      "@id": "panorama:Version",
+      "@type": "xsd:string"
+    },
+    "AllowMajorVersionUpdate": {
+      "@id": "panorama:AllowMajorVersionUpdate",
+      "@type": "xsd:string"
+    },
+    "ApplicationInstanceIdToReplace": {
+      "@id": "panorama:ApplicationInstanceIdToReplace",
+      "@type": "xsd:string"
+    },
+    "Arn": {
+      "@id": "panorama:Arn",
+      "@type": "xsd:string"
+    },
+    "AssetName": {
+      "@id": "panorama:AssetName",
+      "@type": "xsd:string"
+    },
+    "BinaryPrefixLocation": {
+      "@id": "panorama:BinaryPrefixLocation",
+      "@type": "xsd:string"
+    },
+    "Brand": {
+      "@id": "panorama:Brand",
+      "@type": "xsd:string"
+    },
+    "Category": {
+      "@id": "panorama:Category",
+      "@type": "xsd:string"
+    },
+    "ConnectionStatus": {
+      "@id": "panorama:ConnectionStatus",
+      "@type": "xsd:string"
+    },
+    "CurrentNetworkingStatus": {
+      "@id": "panorama:CurrentNetworkingStatus",
+      "@type": "xsd:string"
+    },
+    "CurrentStatus": {
+      "@id": "panorama:CurrentStatus",
+      "@type": "xsd:string"
+    },
+    "DefaultRuntimeContextDeviceName": {
+      "@id": "panorama:DefaultRuntimeContextDeviceName",
+      "@type": "xsd:string"
+    },
+    "DefaultValue": {
+      "@id": "panorama:DefaultValue",
+      "@type": "xsd:string"
+    },
+    "DeviceIds": {
+      "@id": "panorama:DeviceIds",
+      "@type": "xsd:string"
+    },
+    "DeviceJobs": {
+      "@id": "panorama:DeviceJobs",
+      "@type": "xsd:string"
+    },
+    "DeviceReportedTime": {
+      "@id": "panorama:DeviceReportedTime",
+      "@type": "xsd:string"
+    },
+    "Devices": {
+      "@id": "panorama:Devices",
+      "@type": "xsd:string"
+    },
+    "Ethernet0": {
+      "@id": "panorama:Ethernet0",
+      "@type": "xsd:string"
+    },
+    "Ethernet0Status": {
+      "@id": "panorama:Ethernet0Status",
+      "@type": "xsd:string"
+    },
+    "Ethernet1": {
+      "@id": "panorama:Ethernet1",
+      "@type": "xsd:string"
+    },
+    "Ethernet1Status": {
+      "@id": "panorama:Ethernet1Status",
+      "@type": "xsd:string"
+    },
+    "GeneratedPrefixLocation": {
+      "@id": "panorama:GeneratedPrefixLocation",
+      "@type": "xsd:string"
+    },
+    "HealthStatus": {
+      "@id": "panorama:HealthStatus",
+      "@type": "xsd:string"
+    },
+    "InputConfig": {
+      "@id": "panorama:InputConfig",
+      "@type": "xsd:string"
+    },
+    "Inputs": {
+      "@id": "panorama:Inputs",
+      "@type": "xsd:string"
+    },
+    "IsLatestPatch": {
+      "@id": "panorama:IsLatestPatch",
+      "@type": "xsd:string"
+    },
+    "JobTags": {
+      "@id": "panorama:JobTags",
+      "@type": "xsd:string"
+    },
+    "Jobs": {
+      "@id": "panorama:Jobs",
+      "@type": "xsd:string"
+    },
+    "ManifestPrefixLocation": {
+      "@id": "panorama:ManifestPrefixLocation",
+      "@type": "xsd:string"
+    },
+    "MarkLatest": {
+      "@id": "panorama:MarkLatest",
+      "@type": "xsd:string"
+    },
+    "Name": {
+      "@id": "panorama:Name",
+      "@type": "xsd:string"
+    },
+    "NetworkingConfiguration": {
+      "@id": "panorama:NetworkingConfiguration",
+      "@type": "xsd:string"
+    },
+    "NodeDescription": {
+      "@id": "panorama:NodeDescription",
+      "@type": "xsd:string"
+    },
+    "NodeFromTemplateJobs": {
+      "@id": "panorama:NodeFromTemplateJobs",
+      "@type": "xsd:string"
+    },
+    "NodeSignals": {
+      "@id": "panorama:NodeSignals",
+      "@type": "xsd:string"
+    },
+    "Nodes": {
+      "@id": "panorama:Nodes",
+      "@type": "xsd:string"
+    },
+    "Ntp": {
+      "@id": "panorama:Ntp",
+      "@type": "xsd:string"
+    },
+    "NtpServers": {
+      "@id": "panorama:NtpServers",
+      "@type": "xsd:string"
+    },
+    "Output": {
+      "@id": "panorama:Output",
+      "@type": "xsd:string"
+    },
+    "OutputConfig": {
+      "@id": "panorama:OutputConfig",
+      "@type": "xsd:string"
+    },
+    "OutputPackageName": {
+      "@id": "panorama:OutputPackageName",
+      "@type": "xsd:string"
+    },
+    "OutputPackageVersion": {
+      "@id": "panorama:OutputPackageVersion",
+      "@type": "xsd:string"
+    },
+    "OutputS3Location": {
+      "@id": "panorama:OutputS3Location",
+      "@type": "xsd:string"
+    },
+    "Outputs": {
+      "@id": "panorama:Outputs",
+      "@type": "xsd:string"
+    },
+    "OwnerAccount": {
+      "@id": "panorama:OwnerAccount",
+      "@type": "xsd:string"
+    },
+    "PackageArn": {
+      "@id": "panorama:PackageArn",
+      "@type": "xsd:string"
+    },
+    "PackageId": {
+      "@id": "panorama:PackageId",
+      "@type": "xsd:string"
+    },
+    "PackageImportJobs": {
+      "@id": "panorama:PackageImportJobs",
+      "@type": "xsd:string"
+    },
+    "PackageName": {
+      "@id": "panorama:PackageName",
+      "@type": "xsd:string"
+    },
+    "PackagePatchVersion": {
+      "@id": "panorama:PackagePatchVersion",
+      "@type": "xsd:string"
+    },
+    "PackageVersion": {
+      "@id": "panorama:PackageVersion",
+      "@type": "xsd:string"
+    },
+    "Packages": {
+      "@id": "panorama:Packages",
+      "@type": "xsd:string"
+    },
+    "PatchVersion": {
+      "@id": "panorama:PatchVersion",
+      "@type": "xsd:string"
+    },
+    "PayloadData": {
+      "@id": "panorama:PayloadData",
+      "@type": "xsd:string"
+    },
+    "ProvisioningStatus": {
+      "@id": "panorama:ProvisioningStatus",
+      "@type": "xsd:string"
+    },
+    "ReadAccessPrincipalArns": {
+      "@id": "panorama:ReadAccessPrincipalArns",
+      "@type": "xsd:string"
+    },
+    "RegisteredTime": {
+      "@id": "panorama:RegisteredTime",
+      "@type": "xsd:string"
+    },
+    "RepoPrefixLocation": {
+      "@id": "panorama:RepoPrefixLocation",
+      "@type": "xsd:string"
+    },
+    "ResourceType": {
+      "@id": "panorama:ResourceType",
+      "@type": "xsd:string"
+    },
+    "RuntimeContextStates": {
+      "@id": "panorama:RuntimeContextStates",
+      "@type": "xsd:string"
+    },
+    "SerialNumber": {
+      "@id": "panorama:SerialNumber",
+      "@type": "xsd:string"
+    },
+    "Signal": {
+      "@id": "panorama:Signal",
+      "@type": "xsd:string"
+    },
+    "Status": {
+      "@id": "panorama:Status",
+      "@type": "xsd:string"
+    },
+    "StatusDescription": {
+      "@id": "panorama:StatusDescription",
+      "@type": "xsd:string"
+    },
+    "StatusMessage": {
+      "@id": "panorama:StatusMessage",
+      "@type": "xsd:string"
+    },
+    "Tags": {
+      "@id": "panorama:Tags",
+      "@type": "xsd:string"
+    },
+    "TemplateParameters": {
+      "@id": "panorama:TemplateParameters",
+      "@type": "xsd:string"
+    },
+    "Type": {
+      "@id": "panorama:Type",
+      "@type": "xsd:string"
+    },
+    "WriteAccessPrincipalArns": {
+      "@id": "panorama:WriteAccessPrincipalArns",
+      "@type": "xsd:string"
+    }
+  }
+}

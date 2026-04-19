@@ -1,0 +1,391 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: AWS Panorama
+  description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a 
+    href="https://docs.aws.amazon.com/panorama/la
+  tags:
+  - Amazon Panorama
+  - AWS
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AWS_SIGV4_AUTH: AWS_SIGV4_AUTH
+capability:
+  consumes:
+  - type: http
+    namespace: openapi.yml
+    baseUri: http://panorama.{region}.amazonaws.com
+    description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Ref
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{AWS_SIGV4_AUTH}}'
+      placement: header
+    resources:
+    - name: default
+      path: /default
+      description: Default operations for AWS Panorama
+      operations:
+      - name: ListApplicationInstances
+        method: GET
+        description: ListApplicationInstances
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: deviceId
+          in: query
+          type: string
+          required: false
+          description: The application instances' device ID.
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: The maximum number of application instances to return in one page of results.
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: Specify the pagination token from a previous request to retrieve the next page of results.
+        - name: statusFilter
+          in: query
+          type: string
+          required: false
+          description: Only include instances with a specific status.
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+      - name: CreateApplicationInstance
+        method: POST
+        description: CreateApplicationInstance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data: {}
+      - name: ListDevicesJobs
+        method: GET
+        description: ListDevicesJobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: DeviceId
+          in: query
+          type: string
+          required: false
+          description: Filter results by the job's target device ID.
+        - name: MaxResults
+          in: query
+          type: integer
+          required: false
+          description: The maximum number of device jobs to return in one page of results.
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Specify the pagination token from a previous request to retrieve the next page of results.
+      - name: CreateJobForDevices
+        method: POST
+        description: CreateJobForDevices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data: {}
+      - name: ListNodeFromTemplateJobs
+        method: GET
+        description: ListNodeFromTemplateJobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: MaxResults
+          in: query
+          type: integer
+          required: false
+          description: The maximum number of node from template jobs to return in one page of results.
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Specify the pagination token from a previous request to retrieve the next page of results.
+      - name: CreateNodeFromTemplateJob
+        method: POST
+        description: CreateNodeFromTemplateJob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data: {}
+      - name: ListPackages
+        method: GET
+        description: ListPackages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+          required: false
+          description: The maximum number of packages to return in one page of results.
+        - name: nextToken
+          in: query
+          type: string
+          required: false
+          description: Specify the pagination token from a previous request to retrieve the next page of results.
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+      - name: CreatePackage
+        method: POST
+        description: CreatePackage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data: {}
+      - name: ListPackageImportJobs
+        method: GET
+        description: ListPackageImportJobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: MaxResults
+          in: query
+          type: integer
+          required: false
+          description: The maximum number of package import jobs to return in one page of results.
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Specify the pagination token from a previous request to retrieve the next page of results.
+      - name: CreatePackageImportJob
+        method: POST
+        description: CreatePackageImportJob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data: {}
+      - name: DescribeDevice
+        method: GET
+        description: DescribeDevice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: DeviceId
+          in: path
+          type: string
+          required: true
+          description: The device's ID.
+      - name: UpdateDeviceMetadata
+        method: PUT
+        description: UpdateDeviceMetadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: DeviceId
+          in: path
+          type: string
+          required: true
+          description: The device's ID.
+        body:
+          type: json
+          data: {}
+      - name: DeleteDevice
+        method: DELETE
+        description: DeleteDevice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: DeviceId
+          in: path
+          type: string
+          required: true
+          description: The device's ID.
+      - name: DeletePackage
+        method: DELETE
+        description: DeletePackage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ForceDelete
+          in: query
+          type: boolean
+          required: false
+          description: Delete the package even if it has artifacts stored in its access point. Deletes the package's artifa
+        - name: PackageId
+          in: path
+          type: string
+          required: true
+          description: The package's ID.
+      - name: RegisterPackageVersion
+        method: PUT
+        description: RegisterPackageVersion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: PackageId
+          in: path
+          type: string
+          required: true
+          description: A package ID.
+        - name: PackageVersion
+          in: path
+          type: string
+          required: true
+          description: A package version.
+        - name: PatchVersion
+          in: path
+          type: string
+          required: true
+          description: A patch version.
+        body:
+          type: json
+          data: {}
+      - name: DeregisterPackageVersion
+        method: DELETE
+        description: DeregisterPackageVersion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: OwnerAccount
+          in: query
+          type: string
+          required: false
+          description: An owner account.
+        - name: PackageId
+          in: path
+          type: string
+          required: true
+          description: A package ID.
+        - name: PackageVersion
+          in: path
+          type: string
+          required: true
+          description: A package version.
+        - name: PatchVersion
+          in: path
+          type: string
+          required: true
+          description: A patch version.
+        - name: UpdatedLatestPatchVersion
+          in: query
+          type: string
+          required: false
+          description: If the version was marked latest, the new version to maker as latest.
+      - name: DescribeApplicationInstance
+        method: GET
+        description: DescribeApplicationInstance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ApplicationInstanceId
+          in: path
+          type: string
+          required: true
+          description: The application instance's ID.
+      - name: RemoveApplicationInstance
+        method: DELETE
+        description: RemoveApplicationInstance
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ApplicationInstanceId
+          in: path
+          type: string
+          required: true
+          description: An application instance ID.
+      - name: DescribeApplicationInstanceDetails
+        method: GET
+        description: DescribeApplicationInstanceDetails
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ApplicationInstanceId
+          in: path
+          type: string
+          required: true
+          description: The application instance's ID.
+      - name: DescribeDeviceJob
+        method: GET
+        description: DescribeDeviceJob
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: JobId
+          in: path
+          type: string
+          required: true
+          description: The job's ID.

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-application-instance-status-structure.json",
+  "name": "ApplicationInstanceStatus",
+  "description": "ApplicationInstanceStatus schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "DEPLOYMENT_PENDING",
+    "DEPLOYMENT_REQUESTED",
+    "DEPLOYMENT_IN_PROGRESS",
+    "DEPLOYMENT_ERROR",
+    "DEPLOYMENT_SUCCEEDED",
+    "REMOVAL_PENDING",
+    "REMOVAL_REQUESTED",
+    "REMOVAL_IN_PROGRESS",
+    "REMOVAL_FAILED",
+    "REMOVAL_SUCCEEDED",
+    "DEPLOYMENT_FAILED"
+  ]
+}

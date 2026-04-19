@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-list-application-instance-dependencies-response-structure.json",
+  "name": "ListApplicationInstanceDependenciesResponse",
+  "description": "ListApplicationInstanceDependenciesResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "A pagination token that's included if more results are available."
+        }
+      ]
+    },
+    "PackageObjects": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageObjects"
+        },
+        {
+          "description": "A list of package objects."
+        }
+      ]
+    }
+  }
+}

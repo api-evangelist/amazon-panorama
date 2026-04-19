@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-node-category-structure.json",
+  "name": "NodeCategory",
+  "description": "NodeCategory schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "BUSINESS_LOGIC",
+    "ML_MODEL",
+    "MEDIA_SOURCE",
+    "MEDIA_SINK"
+  ]
+}

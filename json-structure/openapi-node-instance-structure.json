@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-node-instance-structure.json",
+  "name": "NodeInstance",
+  "description": "A node instance.",
+  "type": "object",
+  "properties": {
+    "CurrentStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeInstanceStatus"
+        },
+        {
+          "description": "The instance's current status."
+        }
+      ]
+    },
+    "NodeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeId"
+        },
+        {
+          "description": "The node's ID."
+        }
+      ]
+    },
+    "NodeInstanceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeInstanceId"
+        },
+        {
+          "description": "The instance's ID."
+        }
+      ]
+    },
+    "NodeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeName"
+        },
+        {
+          "description": "The instance's name."
+        }
+      ]
+    },
+    "PackageName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageName"
+        },
+        {
+          "description": "The instance's package name."
+        }
+      ]
+    },
+    "PackagePatchVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackagePatchVersion"
+        },
+        {
+          "description": "The instance's package patch version."
+        }
+      ]
+    },
+    "PackageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageVersion"
+        },
+        {
+          "description": "The instance's package version."
+        }
+      ]
+    }
+  },
+  "required": [
+    "CurrentStatus",
+    "NodeInstanceId"
+  ]
+}

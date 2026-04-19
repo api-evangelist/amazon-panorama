@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-device-brand-structure.json",
+  "name": "DeviceBrand",
+  "description": "DeviceBrand schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "AWS_PANORAMA",
+    "LENOVO"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-ntp-status-schema.json",
+  "title": "NtpStatus",
+  "description": "Details about an NTP server connection.",
+  "type": "object",
+  "properties": {
+    "ConnectionStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NetworkConnectionStatus"
+        },
+        {
+          "description": "The connection's status."
+        }
+      ]
+    },
+    "IpAddress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IpAddress"
+        },
+        {
+          "description": "The IP address of the server."
+        }
+      ]
+    },
+    "NtpServerName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NtpServerName"
+        },
+        {
+          "description": "The domain name of the server."
+        }
+      ]
+    }
+  }
+}

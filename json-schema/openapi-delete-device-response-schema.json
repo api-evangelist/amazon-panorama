@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-delete-device-response-schema.json",
+  "title": "DeleteDeviceResponse",
+  "description": "DeleteDeviceResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "DeviceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceId"
+        },
+        {
+          "description": "The device's ID."
+        }
+      ]
+    }
+  }
+}

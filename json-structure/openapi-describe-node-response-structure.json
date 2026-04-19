@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-describe-node-response-structure.json",
+  "name": "DescribeNodeResponse",
+  "description": "DescribeNodeResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "AssetName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeAssetName"
+        },
+        {
+          "description": "The node's asset name."
+        }
+      ]
+    },
+    "Category": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeCategory"
+        },
+        {
+          "description": "The node's category."
+        }
+      ]
+    },
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeStamp"
+        },
+        {
+          "description": "When the node was created."
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The node's description."
+        }
+      ]
+    },
+    "LastUpdatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeStamp"
+        },
+        {
+          "description": "When the node was updated."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeName"
+        },
+        {
+          "description": "The node's name."
+        }
+      ]
+    },
+    "NodeId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeId"
+        },
+        {
+          "description": "The node's ID."
+        }
+      ]
+    },
+    "NodeInterface": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeInterface"
+        },
+        {
+          "description": "The node's interface."
+        }
+      ]
+    },
+    "OwnerAccount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageOwnerAccount"
+        },
+        {
+          "description": "The account ID of the node's owner."
+        }
+      ]
+    },
+    "PackageArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageArn"
+        },
+        {
+          "description": "The node's ARN."
+        }
+      ]
+    },
+    "PackageId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageId"
+        },
+        {
+          "description": "The node's package ID."
+        }
+      ]
+    },
+    "PackageName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageName"
+        },
+        {
+          "description": "The node's package name."
+        }
+      ]
+    },
+    "PackageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageVersion"
+        },
+        {
+          "description": "The node's package version."
+        }
+      ]
+    },
+    "PatchVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackagePatchVersion"
+        },
+        {
+          "description": "The node's patch version."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Category",
+    "CreatedTime",
+    "Description",
+    "LastUpdatedTime",
+    "Name",
+    "NodeId",
+    "NodeInterface",
+    "OwnerAccount",
+    "PackageId",
+    "PackageName",
+    "PackageVersion",
+    "PatchVersion"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-device-type-structure.json",
+  "name": "DeviceType",
+  "description": "DeviceType schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "PANORAMA_APPLIANCE_DEVELOPER_KIT",
+    "PANORAMA_APPLIANCE"
+  ]
+}

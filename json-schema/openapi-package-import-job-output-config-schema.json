@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-package-import-job-output-config-schema.json",
+  "title": "PackageImportJobOutputConfig",
+  "description": "An output configuration for a package import job.",
+  "type": "object",
+  "properties": {
+    "PackageVersionOutputConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageVersionOutputConfig"
+        },
+        {
+          "description": "The package version's output configuration."
+        }
+      ]
+    }
+  }
+}

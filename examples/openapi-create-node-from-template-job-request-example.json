@@ -1,0 +1,9 @@
+{
+  "JobTags": "example-string",
+  "NodeDescription": "example-string",
+  "NodeName": "my-resource",
+  "OutputPackageName": "my-resource",
+  "OutputPackageVersion": "1.0.0",
+  "TemplateParameters": "example-string",
+  "TemplateType": "standard"
+}

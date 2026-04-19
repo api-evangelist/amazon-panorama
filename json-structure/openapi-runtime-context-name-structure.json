@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-runtime-context-name-structure.json",
+  "name": "RuntimeContextName",
+  "description": "RuntimeContextName schema from Amazon Panorama",
+  "type": "string",
+  "pattern": "^.+$"
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-job-resource-type-structure.json",
+  "name": "JobResourceType",
+  "description": "JobResourceType schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "PACKAGE"
+  ]
+}

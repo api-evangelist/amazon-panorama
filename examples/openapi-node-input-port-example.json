@@ -1,0 +1,7 @@
+{
+  "DefaultValue": "example-string",
+  "Description": "example-string",
+  "MaxConnections": "example-string",
+  "Name": "my-resource",
+  "Type": "standard"
+}

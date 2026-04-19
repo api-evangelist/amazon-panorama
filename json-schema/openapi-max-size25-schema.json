@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-max-size25-schema.json",
+  "title": "MaxSize25",
+  "description": "MaxSize25 schema from Amazon Panorama",
+  "type": "integer",
+  "minimum": 0,
+  "maximum": 25
+}

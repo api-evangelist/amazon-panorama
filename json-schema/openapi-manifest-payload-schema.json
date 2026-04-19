@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-manifest-payload-schema.json",
+  "title": "ManifestPayload",
+  "description": "A application verion's manifest file. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the application manifest (<code>graph.json</code>). This file is located in the <code>graphs</code> folder in your application source.",
+  "type": "object",
+  "properties": {
+    "PayloadData": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ManifestPayloadData"
+        },
+        {
+          "description": "The application manifest."
+        }
+      ]
+    }
+  }
+}

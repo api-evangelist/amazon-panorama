@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-provision-device-response-schema.json",
+  "title": "ProvisionDeviceResponse",
+  "description": "ProvisionDeviceResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceArn"
+        },
+        {
+          "description": "The device's ARN."
+        }
+      ]
+    },
+    "Certificates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Certificates"
+        },
+        {
+          "description": "The device's configuration bundle."
+        }
+      ]
+    },
+    "DeviceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceId"
+        },
+        {
+          "description": "The device's ID."
+        }
+      ]
+    },
+    "IotThingName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IotThingName"
+        },
+        {
+          "description": "The device's IoT thing name."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceStatus"
+        },
+        {
+          "description": "The device's status."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Arn",
+    "Status"
+  ]
+}

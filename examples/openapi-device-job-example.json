@@ -1,0 +1,7 @@
+{
+  "CreatedTime": "example-string",
+  "DeviceId": "resource-abc123",
+  "DeviceName": "my-resource",
+  "JobId": "resource-abc123",
+  "JobType": "standard"
+}

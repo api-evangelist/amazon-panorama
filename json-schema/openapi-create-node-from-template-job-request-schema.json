@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-create-node-from-template-job-request-schema.json",
+  "title": "CreateNodeFromTemplateJobRequest",
+  "description": "CreateNodeFromTemplateJobRequest schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "JobTags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobTagsList"
+        },
+        {
+          "description": "Tags for the job."
+        }
+      ]
+    },
+    "NodeDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "A description for the node."
+        }
+      ]
+    },
+    "NodeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeName"
+        },
+        {
+          "description": "A name for the node."
+        }
+      ]
+    },
+    "OutputPackageName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageName"
+        },
+        {
+          "description": "An output package name for the node."
+        }
+      ]
+    },
+    "OutputPackageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageVersion"
+        },
+        {
+          "description": "An output package version for the node."
+        }
+      ]
+    },
+    "TemplateParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateParametersMap"
+        },
+        {
+          "description": "Template parameters for the node."
+        }
+      ]
+    },
+    "TemplateType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateType"
+        },
+        {
+          "description": "The type of node."
+        }
+      ]
+    }
+  },
+  "required": [
+    "NodeName",
+    "OutputPackageName",
+    "OutputPackageVersion",
+    "TemplateParameters",
+    "TemplateType"
+  ]
+}

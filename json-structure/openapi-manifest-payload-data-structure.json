@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-manifest-payload-data-structure.json",
+  "name": "ManifestPayloadData",
+  "description": "ManifestPayloadData schema from Amazon Panorama",
+  "type": "string",
+  "pattern": "^.+$"
+}

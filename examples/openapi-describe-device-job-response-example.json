@@ -1,0 +1,11 @@
+{
+  "CreatedTime": "example-string",
+  "DeviceArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "DeviceId": "resource-abc123",
+  "DeviceName": "my-resource",
+  "DeviceType": "standard",
+  "ImageVersion": "1.0.0",
+  "JobId": "resource-abc123",
+  "JobType": "standard",
+  "Status": "active"
+}

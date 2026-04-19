@@ -1,0 +1,5 @@
+{
+  "ConnectionStatus": "active",
+  "IpAddress": "example-string",
+  "NtpServerName": "my-resource"
+}

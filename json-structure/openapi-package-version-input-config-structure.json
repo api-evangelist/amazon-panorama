@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-package-version-input-config-structure.json",
+  "name": "PackageVersionInputConfig",
+  "description": "A package version input configuration.",
+  "type": "object",
+  "properties": {
+    "S3Location": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Location"
+        },
+        {
+          "description": "A location in Amazon S3."
+        }
+      ]
+    }
+  },
+  "required": [
+    "S3Location"
+  ]
+}

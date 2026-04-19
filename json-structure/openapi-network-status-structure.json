@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-network-status-structure.json",
+  "name": "NetworkStatus",
+  "description": "The network status of a device.",
+  "type": "object",
+  "properties": {
+    "Ethernet0Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EthernetStatus"
+        },
+        {
+          "description": "The status of Ethernet port 0."
+        }
+      ]
+    },
+    "Ethernet1Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EthernetStatus"
+        },
+        {
+          "description": "The status of Ethernet port 1."
+        }
+      ]
+    },
+    "LastUpdatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LastUpdatedTime"
+        },
+        {
+          "description": "When the network status changed."
+        }
+      ]
+    },
+    "NtpStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NtpStatus"
+        },
+        {
+          "description": "Details about a network time protocol (NTP) server connection."
+        }
+      ]
+    }
+  }
+}

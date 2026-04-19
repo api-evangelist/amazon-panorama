@@ -1,0 +1,6 @@
+{
+  "DesiredState": "example-string",
+  "DeviceReportedStatus": "active",
+  "DeviceReportedTime": "example-string",
+  "RuntimeContextName": "my-resource"
+}

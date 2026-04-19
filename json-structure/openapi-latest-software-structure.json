@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-latest-software-structure.json",
+  "name": "LatestSoftware",
+  "description": "LatestSoftware schema from Amazon Panorama",
+  "type": "string"
+}

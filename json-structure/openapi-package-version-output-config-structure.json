@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-package-version-output-config-structure.json",
+  "name": "PackageVersionOutputConfig",
+  "description": "A package version output configuration.",
+  "type": "object",
+  "properties": {
+    "MarkLatest": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MarkLatestPatch"
+        },
+        {
+          "description": "Indicates that the version is recommended for all users."
+        }
+      ]
+    },
+    "PackageName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageName"
+        },
+        {
+          "description": "The output's package name."
+        }
+      ]
+    },
+    "PackageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageVersion"
+        },
+        {
+          "description": "The output's package version."
+        }
+      ]
+    }
+  },
+  "required": [
+    "PackageName",
+    "PackageVersion"
+  ]
+}

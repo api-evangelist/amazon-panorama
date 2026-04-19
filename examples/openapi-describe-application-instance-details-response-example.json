@@ -1,0 +1,10 @@
+{
+  "ApplicationInstanceId": "resource-abc123",
+  "ApplicationInstanceIdToReplace": "resource-abc123",
+  "CreatedTime": "example-string",
+  "DefaultRuntimeContextDevice": "example-string",
+  "Description": "example-string",
+  "ManifestOverridesPayload": "resource-abc123",
+  "ManifestPayload": "example-string",
+  "Name": "my-resource"
+}

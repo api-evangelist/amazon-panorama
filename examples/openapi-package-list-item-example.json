@@ -1,0 +1,7 @@
+{
+  "Arn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "CreatedTime": "example-string",
+  "PackageId": "resource-abc123",
+  "PackageName": "my-resource",
+  "Tags": "example-string"
+}

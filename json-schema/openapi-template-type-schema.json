@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-template-type-schema.json",
+  "title": "TemplateType",
+  "description": "TemplateType schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "RTSP_CAMERA_STREAM"
+  ]
+}

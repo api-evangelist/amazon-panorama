@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-out-put-s3-location-structure.json",
+  "name": "OutPutS3Location",
+  "description": "The location of an output object in Amazon S3.",
+  "type": "object",
+  "properties": {
+    "BucketName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketName"
+        },
+        {
+          "description": "The object's bucket."
+        }
+      ]
+    },
+    "ObjectKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ObjectKey"
+        },
+        {
+          "description": "The object's key."
+        }
+      ]
+    }
+  },
+  "required": [
+    "BucketName",
+    "ObjectKey"
+  ]
+}

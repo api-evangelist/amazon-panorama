@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-create-application-instance-response-schema.json",
+  "title": "CreateApplicationInstanceResponse",
+  "description": "CreateApplicationInstanceResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "ApplicationInstanceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationInstanceId"
+        },
+        {
+          "description": "The application instance's ID."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ApplicationInstanceId"
+  ]
+}

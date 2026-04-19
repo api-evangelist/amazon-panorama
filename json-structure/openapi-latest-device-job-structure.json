@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-latest-device-job-structure.json",
+  "name": "LatestDeviceJob",
+  "description": "Returns information about the latest device job.",
+  "type": "object",
+  "properties": {
+    "ImageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageVersion"
+        },
+        {
+          "description": "The target version of the device software."
+        }
+      ]
+    },
+    "JobType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobType"
+        },
+        {
+          "description": "The job's type."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdateProgress"
+        },
+        {
+          "description": "Status of the latest device job."
+        }
+      ]
+    }
+  }
+}

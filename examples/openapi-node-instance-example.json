@@ -1,0 +1,9 @@
+{
+  "CurrentStatus": "active",
+  "NodeId": "resource-abc123",
+  "NodeInstanceId": "resource-abc123",
+  "NodeName": "my-resource",
+  "PackageName": "my-resource",
+  "PackagePatchVersion": "1.0.0",
+  "PackageVersion": "1.0.0"
+}

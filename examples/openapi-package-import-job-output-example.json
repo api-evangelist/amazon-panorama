@@ -1,0 +1,6 @@
+{
+  "OutputS3Location": "example-string",
+  "PackageId": "resource-abc123",
+  "PackageVersion": "1.0.0",
+  "PatchVersion": "1.0.0"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-create-package-import-job-response-structure.json",
+  "name": "CreatePackageImportJobResponse",
+  "description": "CreatePackageImportJobResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "JobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobId"
+        },
+        {
+          "description": "The job's ID."
+        }
+      ]
+    }
+  },
+  "required": [
+    "JobId"
+  ]
+}

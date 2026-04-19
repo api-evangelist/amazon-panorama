@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-ethernet-payload-structure.json",
+  "name": "EthernetPayload",
+  "description": "A device's network configuration.",
+  "type": "object",
+  "properties": {
+    "ConnectionType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConnectionType"
+        },
+        {
+          "description": "How the device gets an IP address."
+        }
+      ]
+    },
+    "StaticIpConnectionInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StaticIpConnectionInfo"
+        },
+        {
+          "description": "Network configuration for a static IP connection."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ConnectionType"
+  ]
+}

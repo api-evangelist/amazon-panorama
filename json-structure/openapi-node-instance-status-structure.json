@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-node-instance-status-structure.json",
+  "name": "NodeInstanceStatus",
+  "description": "NodeInstanceStatus schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "RUNNING",
+    "ERROR",
+    "NOT_AVAILABLE",
+    "PAUSED"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-reported-runtime-context-state-structure.json",
+  "name": "ReportedRuntimeContextState",
+  "description": "An application instance's state.",
+  "type": "object",
+  "properties": {
+    "DesiredState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DesiredState"
+        },
+        {
+          "description": "The application's desired state."
+        }
+      ]
+    },
+    "DeviceReportedStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceReportedStatus"
+        },
+        {
+          "description": "The application's reported status."
+        }
+      ]
+    },
+    "DeviceReportedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeStamp"
+        },
+        {
+          "description": "When the device reported the application's state."
+        }
+      ]
+    },
+    "RuntimeContextName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuntimeContextName"
+        },
+        {
+          "description": "The device's name."
+        }
+      ]
+    }
+  },
+  "required": [
+    "DesiredState",
+    "DeviceReportedStatus",
+    "DeviceReportedTime",
+    "RuntimeContextName"
+  ]
+}

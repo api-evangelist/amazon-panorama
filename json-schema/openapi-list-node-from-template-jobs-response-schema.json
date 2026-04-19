@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-list-node-from-template-jobs-response-schema.json",
+  "title": "ListNodeFromTemplateJobsResponse",
+  "description": "ListNodeFromTemplateJobsResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "A pagination token that's included if more results are available."
+        }
+      ]
+    },
+    "NodeFromTemplateJobs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeFromTemplateJobList"
+        },
+        {
+          "description": "A list of jobs."
+        }
+      ]
+    }
+  },
+  "required": [
+    "NodeFromTemplateJobs"
+  ]
+}

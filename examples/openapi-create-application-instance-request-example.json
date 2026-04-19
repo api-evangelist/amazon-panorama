@@ -1,0 +1,10 @@
+{
+  "ApplicationInstanceIdToReplace": "resource-abc123",
+  "DefaultRuntimeContextDevice": "example-string",
+  "Description": "example-string",
+  "ManifestOverridesPayload": "resource-abc123",
+  "ManifestPayload": "example-string",
+  "Name": "my-resource",
+  "RuntimeRoleArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "Tags": "example-string"
+}

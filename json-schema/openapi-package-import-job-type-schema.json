@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-package-import-job-type-schema.json",
+  "title": "PackageImportJobType",
+  "description": "PackageImportJobType schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "NODE_PACKAGE_VERSION",
+    "MARKETPLACE_NODE_PACKAGE_VERSION"
+  ]
+}

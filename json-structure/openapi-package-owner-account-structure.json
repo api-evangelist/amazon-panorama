@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-package-owner-account-structure.json",
+  "name": "PackageOwnerAccount",
+  "description": "PackageOwnerAccount schema from Amazon Panorama",
+  "type": "string",
+  "pattern": "^[0-9a-z\\_]+$"
+}

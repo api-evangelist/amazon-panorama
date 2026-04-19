@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-create-node-from-template-job-response-structure.json",
+  "name": "CreateNodeFromTemplateJobResponse",
+  "description": "CreateNodeFromTemplateJobResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "JobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobId"
+        },
+        {
+          "description": "The job's ID."
+        }
+      ]
+    }
+  },
+  "required": [
+    "JobId"
+  ]
+}

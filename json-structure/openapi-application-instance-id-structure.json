@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-application-instance-id-structure.json",
+  "name": "ApplicationInstanceId",
+  "description": "ApplicationInstanceId schema from Amazon Panorama",
+  "type": "string",
+  "pattern": "^[a-zA-Z0-9\\-\\_]+$"
+}

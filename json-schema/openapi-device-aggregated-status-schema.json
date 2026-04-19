@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-device-aggregated-status-schema.json",
+  "title": "DeviceAggregatedStatus",
+  "description": "DeviceAggregatedStatus schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "ERROR",
+    "AWAITING_PROVISIONING",
+    "PENDING",
+    "FAILED",
+    "DELETING",
+    "ONLINE",
+    "OFFLINE",
+    "LEASE_EXPIRED",
+    "UPDATE_NEEDED",
+    "REBOOTING"
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-device-schema.json",
+  "title": "Device",
+  "description": "A device.",
+  "type": "object",
+  "properties": {
+    "Brand": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceBrand"
+        },
+        {
+          "description": "The device's maker."
+        }
+      ]
+    },
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreatedTime"
+        },
+        {
+          "description": "When the device was created."
+        }
+      ]
+    },
+    "CurrentSoftware": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CurrentSoftware"
+        },
+        {
+          "description": "A device's current software."
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "A description for the device."
+        }
+      ]
+    },
+    "DeviceAggregatedStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceAggregatedStatus"
+        },
+        {
+          "description": "A device's aggregated status. Including the device's connection status, provisioning status, and lease status."
+        }
+      ]
+    },
+    "DeviceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceId"
+        },
+        {
+          "description": "The device's ID."
+        }
+      ]
+    },
+    "LastUpdatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LastUpdatedTime"
+        },
+        {
+          "description": "When the device was updated."
+        }
+      ]
+    },
+    "LatestDeviceJob": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LatestDeviceJob"
+        },
+        {
+          "description": "A device's latest job. Includes the target image version, and the update job status."
+        }
+      ]
+    },
+    "LeaseExpirationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LeaseExpirationTime"
+        },
+        {
+          "description": "The device's lease expiration time."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceName"
+        },
+        {
+          "description": "The device's name."
+        }
+      ]
+    },
+    "ProvisioningStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceStatus"
+        },
+        {
+          "description": "The device's provisioning status."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The device's tags."
+        }
+      ]
+    },
+    "Type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceType"
+        },
+        {
+          "description": "The device's type."
+        }
+      ]
+    }
+  }
+}

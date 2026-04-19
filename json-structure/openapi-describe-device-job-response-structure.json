@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-describe-device-job-response-structure.json",
+  "name": "DescribeDeviceJobResponse",
+  "description": "DescribeDeviceJobResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdateCreatedTime"
+        },
+        {
+          "description": "When the job was created."
+        }
+      ]
+    },
+    "DeviceArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceArn"
+        },
+        {
+          "description": "The device's ARN."
+        }
+      ]
+    },
+    "DeviceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceId"
+        },
+        {
+          "description": "The device's ID."
+        }
+      ]
+    },
+    "DeviceName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceName"
+        },
+        {
+          "description": "The device's name."
+        }
+      ]
+    },
+    "DeviceType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceType"
+        },
+        {
+          "description": "The device's type."
+        }
+      ]
+    },
+    "ImageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageVersion"
+        },
+        {
+          "description": "For an OTA job, the target version of the device software."
+        }
+      ]
+    },
+    "JobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobId"
+        },
+        {
+          "description": "The job's ID."
+        }
+      ]
+    },
+    "JobType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobType"
+        },
+        {
+          "description": "The job's type."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UpdateProgress"
+        },
+        {
+          "description": "The job's status."
+        }
+      ]
+    }
+  }
+}

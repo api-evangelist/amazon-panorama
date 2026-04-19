@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-list-devices-sort-by-structure.json",
+  "name": "ListDevicesSortBy",
+  "description": "ListDevicesSortBy schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "DEVICE_ID",
+    "CREATED_TIME",
+    "NAME",
+    "DEVICE_AGGREGATED_STATUS"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-ntp-payload-structure.json",
+  "name": "NtpPayload",
+  "description": "Network time protocol (NTP) server settings. Use this option to connect to local NTP servers instead of <code>pool.ntp.org</code>.",
+  "type": "object",
+  "properties": {
+    "NtpServers": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NtpServerList"
+        },
+        {
+          "description": "NTP servers to use, in order of preference."
+        }
+      ]
+    }
+  },
+  "required": [
+    "NtpServers"
+  ]
+}

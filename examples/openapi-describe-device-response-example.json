@@ -1,0 +1,17 @@
+{
+  "AlternateSoftwares": "example-string",
+  "Arn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "Brand": "example-string",
+  "CreatedTime": "example-string",
+  "CurrentNetworkingStatus": "active",
+  "CurrentSoftware": "example-string",
+  "Description": "example-string",
+  "DeviceAggregatedStatus": "active",
+  "DeviceConnectionStatus": "active",
+  "DeviceId": "resource-abc123",
+  "LatestAlternateSoftware": "example-string",
+  "LatestDeviceJob": "example-string",
+  "LatestSoftware": "example-string",
+  "LeaseExpirationTime": "example-string",
+  "Name": "my-resource"
+}

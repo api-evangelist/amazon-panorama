@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-node-input-port-schema.json",
+  "title": "NodeInputPort",
+  "description": "A node input port.",
+  "type": "object",
+  "properties": {
+    "DefaultValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PortDefaultValue"
+        },
+        {
+          "description": "The input port's default value."
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The input port's description."
+        }
+      ]
+    },
+    "MaxConnections": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxConnections"
+        },
+        {
+          "description": "The input port's max connections."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PortName"
+        },
+        {
+          "description": "The input port's name."
+        }
+      ]
+    },
+    "Type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PortType"
+        },
+        {
+          "description": "The input port's type."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-node-category-schema.json",
+  "title": "NodeCategory",
+  "description": "NodeCategory schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "BUSINESS_LOGIC",
+    "ML_MODEL",
+    "MEDIA_SOURCE",
+    "MEDIA_SINK"
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-describe-package-import-job-response-schema.json",
+  "title": "DescribePackageImportJobResponse",
+  "description": "DescribePackageImportJobResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "ClientToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientToken"
+        },
+        {
+          "description": "The job's client token."
+        }
+      ]
+    },
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreatedTime"
+        },
+        {
+          "description": "When the job was created."
+        }
+      ]
+    },
+    "InputConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageImportJobInputConfig"
+        },
+        {
+          "description": "The job's input config."
+        }
+      ]
+    },
+    "JobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobId"
+        },
+        {
+          "description": "The job's ID."
+        }
+      ]
+    },
+    "JobTags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobTagsList"
+        },
+        {
+          "description": "The job's tags."
+        }
+      ]
+    },
+    "JobType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageImportJobType"
+        },
+        {
+          "description": "The job's type."
+        }
+      ]
+    },
+    "LastUpdatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LastUpdatedTime"
+        },
+        {
+          "description": "When the job was updated."
+        }
+      ]
+    },
+    "Output": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageImportJobOutput"
+        },
+        {
+          "description": "The job's output."
+        }
+      ]
+    },
+    "OutputConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageImportJobOutputConfig"
+        },
+        {
+          "description": "The job's output config."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageImportJobStatus"
+        },
+        {
+          "description": "The job's status."
+        }
+      ]
+    },
+    "StatusMessage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageImportJobStatusMessage"
+        },
+        {
+          "description": "The job's status message."
+        }
+      ]
+    }
+  },
+  "required": [
+    "CreatedTime",
+    "InputConfig",
+    "JobId",
+    "JobType",
+    "LastUpdatedTime",
+    "Output",
+    "OutputConfig",
+    "Status",
+    "StatusMessage"
+  ]
+}

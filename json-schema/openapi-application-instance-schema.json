@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-application-instance-schema.json",
+  "title": "ApplicationInstance",
+  "description": "An application instance on a device.",
+  "type": "object",
+  "properties": {
+    "ApplicationInstanceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationInstanceId"
+        },
+        {
+          "description": "The application instance's ID."
+        }
+      ]
+    },
+    "Arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationInstanceArn"
+        },
+        {
+          "description": "The application instance's ARN."
+        }
+      ]
+    },
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeStamp"
+        },
+        {
+          "description": "When the application instance was created."
+        }
+      ]
+    },
+    "DefaultRuntimeContextDevice": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DefaultRuntimeContextDevice"
+        },
+        {
+          "description": "The device's ID."
+        }
+      ]
+    },
+    "DefaultRuntimeContextDeviceName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceName"
+        },
+        {
+          "description": "The device's name."
+        }
+      ]
+    },
+    "Description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The application instance's description."
+        }
+      ]
+    },
+    "HealthStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationInstanceHealthStatus"
+        },
+        {
+          "description": "The application instance's health status."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationInstanceName"
+        },
+        {
+          "description": "The application instance's name."
+        }
+      ]
+    },
+    "RuntimeContextStates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReportedRuntimeContextStates"
+        },
+        {
+          "description": "The application's state."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationInstanceStatus"
+        },
+        {
+          "description": "The application instance's status."
+        }
+      ]
+    },
+    "StatusDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationInstanceStatusDescription"
+        },
+        {
+          "description": "The application instance's status description."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "The application instance's tags."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-list-devices-request-structure.json",
+  "name": "ListDevicesRequest",
+  "description": "ListDevicesRequest schema from Amazon Panorama",
+  "type": "object",
+  "properties": {}
+}

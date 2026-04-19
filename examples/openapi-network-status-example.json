@@ -1,0 +1,6 @@
+{
+  "Ethernet0Status": "active",
+  "Ethernet1Status": "active",
+  "LastUpdatedTime": "example-string",
+  "NtpStatus": "active"
+}

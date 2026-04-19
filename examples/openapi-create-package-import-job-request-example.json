@@ -1,0 +1,7 @@
+{
+  "ClientToken": "example-string",
+  "InputConfig": "example-string",
+  "JobTags": "example-string",
+  "JobType": "standard",
+  "OutputConfig": "example-string"
+}

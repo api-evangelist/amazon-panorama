@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-s3-location-structure.json",
+  "name": "S3Location",
+  "description": "A location in Amazon S3.",
+  "type": "object",
+  "properties": {
+    "BucketName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketName"
+        },
+        {
+          "description": "A bucket name."
+        }
+      ]
+    },
+    "ObjectKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ObjectKey"
+        },
+        {
+          "description": "An object key."
+        }
+      ]
+    },
+    "Region": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Region"
+        },
+        {
+          "description": "The bucket's Region."
+        }
+      ]
+    }
+  },
+  "required": [
+    "BucketName",
+    "ObjectKey"
+  ]
+}

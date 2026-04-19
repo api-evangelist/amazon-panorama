@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-image-version-structure.json",
+  "name": "ImageVersion",
+  "description": "ImageVersion schema from Amazon Panorama",
+  "type": "string",
+  "pattern": "^.+$"
+}

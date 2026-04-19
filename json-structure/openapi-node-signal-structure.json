@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-node-signal-structure.json",
+  "name": "NodeSignal",
+  "description": "A signal to a camera node to start or stop processing video.",
+  "type": "object",
+  "properties": {
+    "NodeInstanceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeInstanceId"
+        },
+        {
+          "description": "The camera node's name, from the application manifest."
+        }
+      ]
+    },
+    "Signal": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeSignalValue"
+        },
+        {
+          "description": "The signal value."
+        }
+      ]
+    }
+  },
+  "required": [
+    "NodeInstanceId",
+    "Signal"
+  ]
+}

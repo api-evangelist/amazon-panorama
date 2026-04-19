@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-describe-package-version-response-structure.json",
+  "name": "DescribePackageVersionResponse",
+  "description": "DescribePackageVersionResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "IsLatestPatch": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Whether the version is the latest available."
+        }
+      ]
+    },
+    "OwnerAccount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageOwnerAccount"
+        },
+        {
+          "description": "The account ID of the version's owner."
+        }
+      ]
+    },
+    "PackageArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageArn"
+        },
+        {
+          "description": "The ARN of the package."
+        }
+      ]
+    },
+    "PackageId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageId"
+        },
+        {
+          "description": "The version's ID."
+        }
+      ]
+    },
+    "PackageName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageName"
+        },
+        {
+          "description": "The version's name."
+        }
+      ]
+    },
+    "PackageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageVersion"
+        },
+        {
+          "description": "The version's version."
+        }
+      ]
+    },
+    "PatchVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackagePatchVersion"
+        },
+        {
+          "description": "The version's patch version."
+        }
+      ]
+    },
+    "RegisteredTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TimeStamp"
+        },
+        {
+          "description": "The version's registered time."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageVersionStatus"
+        },
+        {
+          "description": "The version's status."
+        }
+      ]
+    },
+    "StatusDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PackageVersionStatusDescription"
+        },
+        {
+          "description": "The version's status description."
+        }
+      ]
+    }
+  },
+  "required": [
+    "IsLatestPatch",
+    "PackageId",
+    "PackageName",
+    "PackageVersion",
+    "PatchVersion",
+    "Status"
+  ]
+}

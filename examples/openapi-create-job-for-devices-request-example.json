@@ -1,0 +1,5 @@
+{
+  "DeviceIds": "resource-abc123",
+  "DeviceJobConfig": "example-string",
+  "JobType": "standard"
+}

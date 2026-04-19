@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-ntp-server-list-structure.json",
+  "name": "NtpServerList",
+  "description": "NtpServerList schema from Amazon Panorama",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/IpAddressOrServerName"
+  }
+}

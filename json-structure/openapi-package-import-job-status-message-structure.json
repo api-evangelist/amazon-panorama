@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-package-import-job-status-message-structure.json",
+  "name": "PackageImportJobStatusMessage",
+  "description": "PackageImportJobStatusMessage schema from Amazon Panorama",
+  "type": "string"
+}

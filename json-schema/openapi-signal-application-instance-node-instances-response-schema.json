@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-signal-application-instance-node-instances-response-schema.json",
+  "title": "SignalApplicationInstanceNodeInstancesResponse",
+  "description": "SignalApplicationInstanceNodeInstancesResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "ApplicationInstanceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationInstanceId"
+        },
+        {
+          "description": "An application instance ID."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ApplicationInstanceId"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-create-job-for-devices-request-structure.json",
+  "name": "CreateJobForDevicesRequest",
+  "description": "CreateJobForDevicesRequest schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "DeviceIds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceIdList"
+        },
+        {
+          "description": "ID of target device."
+        }
+      ]
+    },
+    "DeviceJobConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceJobConfig"
+        },
+        {
+          "description": "Configuration settings for a software update job."
+        }
+      ]
+    },
+    "JobType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobType"
+        },
+        {
+          "description": "The type of job to run."
+        }
+      ]
+    }
+  },
+  "required": [
+    "DeviceIds",
+    "JobType"
+  ]
+}

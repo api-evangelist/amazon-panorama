@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-iot-thing-name-structure.json",
+  "name": "IotThingName",
+  "description": "IotThingName schema from Amazon Panorama",
+  "type": "string"
+}

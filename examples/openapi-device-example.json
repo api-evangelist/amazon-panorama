@@ -1,0 +1,15 @@
+{
+  "Brand": "example-string",
+  "CreatedTime": "example-string",
+  "CurrentSoftware": "example-string",
+  "Description": "example-string",
+  "DeviceAggregatedStatus": "active",
+  "DeviceId": "resource-abc123",
+  "LastUpdatedTime": "example-string",
+  "LatestDeviceJob": "example-string",
+  "LeaseExpirationTime": "example-string",
+  "Name": "my-resource",
+  "ProvisioningStatus": "active",
+  "Tags": "example-string",
+  "Type": "standard"
+}

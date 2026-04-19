@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-update-progress-structure.json",
+  "name": "UpdateProgress",
+  "description": "UpdateProgress schema from Amazon Panorama",
+  "type": "string",
+  "enum": [
+    "PENDING",
+    "IN_PROGRESS",
+    "VERIFYING",
+    "REBOOTING",
+    "DOWNLOADING",
+    "COMPLETED",
+    "FAILED"
+  ]
+}

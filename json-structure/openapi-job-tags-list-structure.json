@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-job-tags-list-structure.json",
+  "name": "JobTagsList",
+  "description": "JobTagsList schema from Amazon Panorama",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/JobResourceTags"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "DefaultGateway": "example-string",
+  "Dns": "example-string",
+  "IpAddress": "example-string",
+  "Mask": "example-string"
+}

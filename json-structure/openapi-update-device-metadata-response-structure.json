@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-structure/openapi-update-device-metadata-response-structure.json",
+  "name": "UpdateDeviceMetadataResponse",
+  "description": "UpdateDeviceMetadataResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "DeviceId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceId"
+        },
+        {
+          "description": "The device's ID."
+        }
+      ]
+    }
+  }
+}

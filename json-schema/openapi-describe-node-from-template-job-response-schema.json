@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/json-schema/openapi-describe-node-from-template-job-response-schema.json",
+  "title": "DescribeNodeFromTemplateJobResponse",
+  "description": "DescribeNodeFromTemplateJobResponse schema from Amazon Panorama",
+  "type": "object",
+  "properties": {
+    "CreatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CreatedTime"
+        },
+        {
+          "description": "When the job was created."
+        }
+      ]
+    },
+    "JobId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobId"
+        },
+        {
+          "description": "The job's ID."
+        }
+      ]
+    },
+    "JobTags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JobTagsList"
+        },
+        {
+          "description": "The job's tags."
+        }
+      ]
+    },
+    "LastUpdatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LastUpdatedTime"
+        },
+        {
+          "description": "When the job was updated."
+        }
+      ]
+    },
+    "NodeDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Description"
+        },
+        {
+          "description": "The node's description."
+        }
+      ]
+    },
+    "NodeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeName"
+        },
+        {
+          "description": "The node's name."
+        }
+      ]
+    },
+    "OutputPackageName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageName"
+        },
+        {
+          "description": "The job's output package name."
+        }
+      ]
+    },
+    "OutputPackageVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodePackageVersion"
+        },
+        {
+          "description": "The job's output package version."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeFromTemplateJobStatus"
+        },
+        {
+          "description": "The job's status."
+        }
+      ]
+    },
+    "StatusMessage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NodeFromTemplateJobStatusMessage"
+        },
+        {
+          "description": "The job's status message."
+        }
+      ]
+    },
+    "TemplateParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateParametersMap"
+        },
+        {
+          "description": "The job's template parameters."
+        }
+      ]
+    },
+    "TemplateType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TemplateType"
+        },
+        {
+          "description": "The job's template type."
+        }
+      ]
+    }
+  },
+  "required": [
+    "CreatedTime",
+    "JobId",
+    "LastUpdatedTime",
+    "NodeName",
+    "OutputPackageName",
+    "OutputPackageVersion",
+    "Status",
+    "StatusMessage",
+    "TemplateParameters",
+    "TemplateType"
+  ]
+}
