@@ -1,10 +1,8 @@
 aid: amazon-panorama
 name: Amazon Panorama
-description: >-
-  AWS Panorama is a machine learning appliance and software development kit
-  (SDK) that brings computer vision to on-premises cameras. It allows
-  organizations to automate visual inspection tasks, such as gauging
-  production line efficiency or identifying bottlenecks in industrial operations.
+description: AWS Panorama is a machine learning appliance and software development kit (SDK) that brings computer vision to
+  on-premises cameras. It allows organizations to automate visual inspection tasks, such as gauging production line efficiency
+  or identifying bottlenecks in industrial operations.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -13,18 +11,15 @@ tags:
 - Computer Vision
 - Edge ML
 - Industrial IoT
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
 - aid: amazon-panorama:aws-panorama-api
   name: AWS Panorama API
-  description: >-
-    The AWS Panorama API provides programmatic access to create and manage
-    appliances, application instances, packages, nodes, and device jobs
-    for deploying computer vision applications to edge cameras.
+  description: The AWS Panorama API provides programmatic access to create and manage appliances, application instances, packages,
+    nodes, and device jobs for deploying computer vision applications to edge cameras.
   humanURL: https://aws.amazon.com/panorama/
   baseURL: https://panorama.amazonaws.com
   tags:
@@ -42,6 +37,8 @@ apis:
     url: https://aws.amazon.com/panorama/pricing/
   - type: FAQ
     url: https://aws.amazon.com/panorama/faqs/
+  - type: NaftikoCapability
+    url: capabilities/amazon-panorama.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/panorama/
@@ -73,8 +70,6 @@ common:
   url: rules/amazon-panorama-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/amazon-panorama-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/amazon-panorama-workflow.yaml
 - type: JSONLD
   url: json-ld/amazon-panorama-openapi-context.jsonld
 - type: JSONSchema
@@ -95,15 +90,15 @@ common:
 - type: Integrations
   url: https://aws.amazon.com/marketplace/
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: 'Why AWS Marketplace?'
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
