@@ -1,0 +1,1946 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Panorama",
+    "version": "2019-07-24"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Amazon Panorama List Application Instances",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/application-instances",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "deviceId",
+            "value": "",
+            "type": "query",
+            "description": "The application instances' device ID."
+          },
+          {
+            "name": "maxResults",
+            "value": "",
+            "type": "query",
+            "description": "The maximum number of application instances to return in one page of results."
+          },
+          {
+            "name": "nextToken",
+            "value": "",
+            "type": "query",
+            "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+          },
+          {
+            "name": "statusFilter",
+            "value": "",
+            "type": "query",
+            "description": "Only include instances with a specific status."
+          },
+          {
+            "name": "MaxResults",
+            "value": "",
+            "type": "query",
+            "description": "Pagination limit"
+          },
+          {
+            "name": "NextToken",
+            "value": "",
+            "type": "query",
+            "description": "Pagination token"
+          }
+        ]
+      },
+      "docs": "Returns a list of application instances."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Create Application Instance",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://panorama.{region}.amazonaws.com/application-instances",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates an application instance and deploys it to a device."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama List Devices Jobs",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/jobs",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "DeviceId",
+            "value": "",
+            "type": "query",
+            "description": "Filter results by the job's target device ID."
+          },
+          {
+            "name": "MaxResults",
+            "value": "",
+            "type": "query",
+            "description": "The maximum number of device jobs to return in one page of results."
+          },
+          {
+            "name": "NextToken",
+            "value": "",
+            "type": "query",
+            "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+          }
+        ]
+      },
+      "docs": "Returns a list of jobs."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Create Job for Devices",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://panorama.{region}.amazonaws.com/jobs",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates a job to run on a device. A job can update a device's software or reboot it."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama List Node from Template Jobs",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/packages/template-job",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "MaxResults",
+            "value": "",
+            "type": "query",
+            "description": "The maximum number of node from template jobs to return in one page of results."
+          },
+          {
+            "name": "NextToken",
+            "value": "",
+            "type": "query",
+            "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+          }
+        ]
+      },
+      "docs": "Returns a list of camera stream node jobs."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Create Node from Template Job",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://panorama.{region}.amazonaws.com/packages/template-job",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates a camera stream node."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama List Packages",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/packages",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "maxResults",
+            "value": "",
+            "type": "query",
+            "description": "The maximum number of packages to return in one page of results."
+          },
+          {
+            "name": "nextToken",
+            "value": "",
+            "type": "query",
+            "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+          },
+          {
+            "name": "MaxResults",
+            "value": "",
+            "type": "query",
+            "description": "Pagination limit"
+          },
+          {
+            "name": "NextToken",
+            "value": "",
+            "type": "query",
+            "description": "Pagination token"
+          }
+        ]
+      },
+      "docs": "Returns a list of packages."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Create Package",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://panorama.{region}.amazonaws.com/packages",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates a package and storage location in an Amazon S3 access point."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama List Package Import Jobs",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/packages/import-jobs",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "MaxResults",
+            "value": "",
+            "type": "query",
+            "description": "The maximum number of package import jobs to return in one page of results."
+          },
+          {
+            "name": "NextToken",
+            "value": "",
+            "type": "query",
+            "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+          }
+        ]
+      },
+      "docs": "Returns a list of package import jobs."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Create Package Import Job",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://panorama.{region}.amazonaws.com/packages/import-jobs",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Imports a node package."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Describe Device",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/devices/:DeviceId",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "DeviceId",
+            "value": "",
+            "type": "path",
+            "description": "The device's ID."
+          }
+        ]
+      },
+      "docs": "Returns information about a device."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Update Device Metadata",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://panorama.{region}.amazonaws.com/devices/:DeviceId",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "DeviceId",
+            "value": "",
+            "type": "path",
+            "description": "The device's ID."
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Updates a device's metadata."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Delete Device",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://panorama.{region}.amazonaws.com/devices/:DeviceId",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "DeviceId",
+            "value": "",
+            "type": "path",
+            "description": "The device's ID."
+          }
+        ]
+      },
+      "docs": "Deletes a device."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Delete Package",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://panorama.{region}.amazonaws.com/packages/:PackageId",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "ForceDelete",
+            "value": "",
+            "type": "query",
+            "description": "Delete the package even if it has artifacts stored in its access point. Deletes the package's artifacts from Amazon S3."
+          },
+          {
+            "name": "PackageId",
+            "value": "",
+            "type": "path",
+            "description": "The package's ID."
+          }
+        ]
+      },
+      "docs": "<p>Deletes a package.</p> <note> <p>To delete a package, you need permission to call <code>s3:DeleteObject</code> in addition to permissions for the AWS Panorama API.</p> </note>"
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Register Package Version",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://panorama.{region}.amazonaws.com/packages/:PackageId/versions/:PackageVersion/patch/:PatchVersion",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "PackageId",
+            "value": "",
+            "type": "path",
+            "description": "A package ID."
+          },
+          {
+            "name": "PackageVersion",
+            "value": "",
+            "type": "path",
+            "description": "A package version."
+          },
+          {
+            "name": "PatchVersion",
+            "value": "",
+            "type": "path",
+            "description": "A patch version."
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Registers a package version."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Deregister Package Version",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://panorama.{region}.amazonaws.com/packages/:PackageId/versions/:PackageVersion/patch/:PatchVersion",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "OwnerAccount",
+            "value": "",
+            "type": "query",
+            "description": "An owner account."
+          },
+          {
+            "name": "PackageId",
+            "value": "",
+            "type": "path",
+            "description": "A package ID."
+          },
+          {
+            "name": "PackageVersion",
+            "value": "",
+            "type": "path",
+            "description": "A package version."
+          },
+          {
+            "name": "PatchVersion",
+            "value": "",
+            "type": "path",
+            "description": "A patch version."
+          },
+          {
+            "name": "UpdatedLatestPatchVersion",
+            "value": "",
+            "type": "query",
+            "description": "If the version was marked latest, the new version to maker as latest."
+          }
+        ]
+      },
+      "docs": "Deregisters a package version."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Describe Application Instance",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "ApplicationInstanceId",
+            "value": "",
+            "type": "path",
+            "description": "The application instance's ID."
+          }
+        ]
+      },
+      "docs": "Returns information about an application instance on a device."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Remove Application Instance",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "ApplicationInstanceId",
+            "value": "",
+            "type": "path",
+            "description": "An application instance ID."
+          }
+        ]
+      },
+      "docs": "Removes an application instance."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Describe Application Instance Details",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId/details",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "ApplicationInstanceId",
+            "value": "",
+            "type": "path",
+            "description": "The application instance's ID."
+          }
+        ]
+      },
+      "docs": "Returns information about an application instance's configuration manifest."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Describe Device Job",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/jobs/:JobId",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "JobId",
+            "value": "",
+            "type": "path",
+            "description": "The job's ID."
+          }
+        ]
+      },
+      "docs": "Returns information about a device job."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Describe Node",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/nodes/:NodeId",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "NodeId",
+            "value": "",
+            "type": "path",
+            "description": "The node's ID."
+          },
+          {
+            "name": "OwnerAccount",
+            "value": "",
+            "type": "query",
+            "description": "The account ID of the node's owner."
+          }
+        ]
+      },
+      "docs": "Returns information about a node."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Describe Node from Template Job",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/packages/template-job/:JobId",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "JobId",
+            "value": "",
+            "type": "path",
+            "description": "The job's ID."
+          }
+        ]
+      },
+      "docs": "Returns information about a job to create a camera stream node."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Describe Package",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/packages/metadata/:PackageId",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "PackageId",
+            "value": "",
+            "type": "path",
+            "description": "The package's ID."
+          }
+        ]
+      },
+      "docs": "Returns information about a package."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Describe Package Import Job",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/packages/import-jobs/:JobId",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "JobId",
+            "value": "",
+            "type": "path",
+            "description": "The job's ID."
+          }
+        ]
+      },
+      "docs": "Returns information about a package import job."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Describe Package Version",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/packages/metadata/:PackageId/versions/:PackageVersion",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "OwnerAccount",
+            "value": "",
+            "type": "query",
+            "description": "The version's owner account."
+          },
+          {
+            "name": "PackageId",
+            "value": "",
+            "type": "path",
+            "description": "The version's ID."
+          },
+          {
+            "name": "PackageVersion",
+            "value": "",
+            "type": "path",
+            "description": "The version's version."
+          },
+          {
+            "name": "PatchVersion",
+            "value": "",
+            "type": "query",
+            "description": "The version's patch version."
+          }
+        ]
+      },
+      "docs": "Returns information about a package version."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama List Application Instance Dependencies",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId/package-dependencies",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "ApplicationInstanceId",
+            "value": "",
+            "type": "path",
+            "description": "The application instance's ID."
+          },
+          {
+            "name": "maxResults",
+            "value": "",
+            "type": "query",
+            "description": "The maximum number of application instance dependencies to return in one page of results."
+          },
+          {
+            "name": "nextToken",
+            "value": "",
+            "type": "query",
+            "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+          },
+          {
+            "name": "MaxResults",
+            "value": "",
+            "type": "query",
+            "description": "Pagination limit"
+          },
+          {
+            "name": "NextToken",
+            "value": "",
+            "type": "query",
+            "description": "Pagination token"
+          }
+        ]
+      },
+      "docs": "Returns a list of application instance dependencies."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama List Application Instance Node Instances",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId/node-instances",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "ApplicationInstanceId",
+            "value": "",
+            "type": "path",
+            "description": "The node instances' application instance ID."
+          },
+          {
+            "name": "maxResults",
+            "value": "",
+            "type": "query",
+            "description": "The maximum number of node instances to return in one page of results."
+          },
+          {
+            "name": "nextToken",
+            "value": "",
+            "type": "query",
+            "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+          },
+          {
+            "name": "MaxResults",
+            "value": "",
+            "type": "query",
+            "description": "Pagination limit"
+          },
+          {
+            "name": "NextToken",
+            "value": "",
+            "type": "query",
+            "description": "Pagination token"
+          }
+        ]
+      },
+      "docs": "Returns a list of application node instances."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama List Devices",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/devices",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "DeviceAggregatedStatusFilter",
+            "value": "",
+            "type": "query",
+            "description": "Filter based on a device's status."
+          },
+          {
+            "name": "MaxResults",
+            "value": "",
+            "type": "query",
+            "description": "The maximum number of devices to return in one page of results."
+          },
+          {
+            "name": "NameFilter",
+            "value": "",
+            "type": "query",
+            "description": "Filter based on device's name. Prefixes supported."
+          },
+          {
+            "name": "NextToken",
+            "value": "",
+            "type": "query",
+            "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+          },
+          {
+            "name": "SortBy",
+            "value": "",
+            "type": "query",
+            "description": "The target column to be sorted on. Default column sort is CREATED_TIME."
+          },
+          {
+            "name": "SortOrder",
+            "value": "",
+            "type": "query",
+            "description": "The sorting order for the returned list. SortOrder is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING."
+          }
+        ]
+      },
+      "docs": "Returns a list of devices."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Provision Device",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://panorama.{region}.amazonaws.com/devices",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates a device and returns a configuration archive. The configuration archive is a ZIP file that contains a provisioning certificate that is valid for 5 minutes. Name the configuration archive <code>certificates-omni_<i>device-name</i>.zip</code> and transfer it to the device within 5 minutes. Use the included USB storage device and connect it to the USB 3.0 port next to the HDMI output."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama List Nodes",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/nodes",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "category",
+            "value": "",
+            "type": "query",
+            "description": "Search for nodes by category."
+          },
+          {
+            "name": "maxResults",
+            "value": "",
+            "type": "query",
+            "description": "The maximum number of nodes to return in one page of results."
+          },
+          {
+            "name": "nextToken",
+            "value": "",
+            "type": "query",
+            "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+          },
+          {
+            "name": "ownerAccount",
+            "value": "",
+            "type": "query",
+            "description": "Search for nodes by the account ID of the nodes' owner."
+          },
+          {
+            "name": "packageName",
+            "value": "",
+            "type": "query",
+            "description": "Search for nodes by name."
+          },
+          {
+            "name": "packageVersion",
+            "value": "",
+            "type": "query",
+            "description": "Search for nodes by version."
+          },
+          {
+            "name": "patchVersion",
+            "value": "",
+            "type": "query",
+            "description": "Search for nodes by patch version."
+          },
+          {
+            "name": "MaxResults",
+            "value": "",
+            "type": "query",
+            "description": "Pagination limit"
+          },
+          {
+            "name": "NextToken",
+            "value": "",
+            "type": "query",
+            "description": "Pagination token"
+          }
+        ]
+      },
+      "docs": "Returns a list of nodes."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama List Tags for Resource",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://panorama.{region}.amazonaws.com/tags/:ResourceArn",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "ResourceArn",
+            "value": "",
+            "type": "path",
+            "description": "The resource's ARN."
+          }
+        ]
+      },
+      "docs": "Returns a list of tags for a resource."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Tag Resource",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://panorama.{region}.amazonaws.com/tags/:ResourceArn",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "ResourceArn",
+            "value": "",
+            "type": "path",
+            "description": "The resource's ARN."
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Tags a resource."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Signal Application Instance Node Instances",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId/node-signals",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "ApplicationInstanceId",
+            "value": "",
+            "type": "path",
+            "description": "An application instance ID."
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Signal camera nodes to stop or resume."
+    },
+    {
+      "info": {
+        "name": "Amazon Panorama Untag Resource",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://panorama.{region}.amazonaws.com/tags/:ResourceArn#tagKeys",
+        "headers": [
+          {
+            "name": "X-Amz-Content-Sha256",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Date",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Algorithm",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Credential",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Security-Token",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-Signature",
+            "value": ""
+          },
+          {
+            "name": "X-Amz-SignedHeaders",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "ResourceArn",
+            "value": "",
+            "type": "path",
+            "description": "The resource's ARN."
+          },
+          {
+            "name": "tagKeys",
+            "value": "",
+            "type": "query",
+            "description": "Tag keys to remove."
+          }
+        ]
+      },
+      "docs": "Removes tags from a resource."
+    }
+  ],
+  "bundled": true
+}
