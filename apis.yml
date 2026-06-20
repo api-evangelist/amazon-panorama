@@ -5,7 +5,7 @@ description: >-
   on-premises cameras. It allows organizations to automate visual inspection tasks, such as gauging production line
   efficiency or identifying bottlenecks in industrial operations.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AWS
   - Cameras
