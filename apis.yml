@@ -40,6 +40,14 @@ apis:
       - type: FAQ
         url: https://aws.amazon.com/panorama/faqs/
 common:
+  - type: TrustCenter
+    url: security/amazon-panorama-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-panorama-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-panorama-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-panorama-authentication.yml
   - type: Portal
     url: https://aws.amazon.com/panorama/
   - type: Website
