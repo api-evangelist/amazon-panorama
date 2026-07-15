@@ -40,6 +40,8 @@ apis:
       - type: FAQ
         url: https://aws.amazon.com/panorama/faqs/
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-panorama-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-panorama-trust-center.yml
   - type: VulnerabilityDisclosure
