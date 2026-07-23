@@ -1,0 +1,1336 @@
+openapi: 3.0.0
+info:
+  version: '2019-07-24'
+  x-release: v4
+  title: AWS Panorama Application Instances API
+  description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: panorama
+  x-aws-signingName: panorama
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/panorama-2019-07-24.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://panorama.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Panorama multi-region endpoint
+- url: https://panorama.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Panorama multi-region endpoint
+- url: http://panorama.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Panorama endpoint for China (Beijing) and China (Ningxia)
+- url: https://panorama.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Panorama endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Application Instances
+paths:
+  /application-instances:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateApplicationInstance
+      description: Creates an application instance and deploys it to a device.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateApplicationInstanceResponse'
+              examples:
+                CreateApplicationInstance200Example:
+                  summary: Default CreateApplicationInstance 200 response
+                  x-microcks-default: true
+                  value:
+                    ApplicationInstanceId: resource-abc123
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - DefaultRuntimeContextDevice
+              - ManifestPayload
+              properties:
+                ApplicationInstanceIdToReplace:
+                  description: The ID of an application instance to replace with the new instance.
+                  type: string
+                  pattern: ^[a-zA-Z0-9\-\_]+$
+                  minLength: 1
+                  maxLength: 255
+                DefaultRuntimeContextDevice:
+                  description: A device's ID.
+                  type: string
+                  pattern: ^[a-zA-Z0-9\-\_]+$
+                  minLength: 1
+                  maxLength: 255
+                Description:
+                  description: A description for the application instance.
+                  type: string
+                  pattern: ^.*$
+                  minLength: 0
+                  maxLength: 255
+                ManifestOverridesPayload:
+                  description: Parameter overrides for an application instance. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the overrides document.
+                  type: object
+                  properties:
+                    PayloadData:
+                      allOf:
+                      - $ref: '#/components/schemas/ManifestOverridesPayloadData'
+                      - description: The overrides document.
+                ManifestPayload:
+                  description: A application verion's manifest file. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the application manifest (<code>graph.json</code>). This file is located in the <code>graphs</code> folder in your application source.
+                  type: object
+                  properties:
+                    PayloadData:
+                      allOf:
+                      - $ref: '#/components/schemas/ManifestPayloadData'
+                      - description: The application manifest.
+                Name:
+                  description: A name for the application instance.
+                  type: string
+                  pattern: ^[a-zA-Z0-9\-\_]+$
+                  minLength: 1
+                  maxLength: 255
+                RuntimeRoleArn:
+                  description: The ARN of a runtime role for the application instance.
+                  type: string
+                  pattern: ^arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:role/.+$
+                  minLength: 1
+                  maxLength: 255
+                Tags:
+                  description: Tags for the application instance.
+                  type: object
+                  minProperties: 0
+                  maxProperties: 50
+                  additionalProperties:
+                    $ref: '#/components/schemas/TagValue'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Create Application Instance
+      tags:
+      - Application Instances
+    get:
+      operationId: ListApplicationInstances
+      description: Returns a list of application instances.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListApplicationInstancesResponse'
+              examples:
+                ListApplicationInstances200Example:
+                  summary: Default ListApplicationInstances 200 response
+                  x-microcks-default: true
+                  value:
+                    ApplicationInstances: example-string
+                    NextToken: example-string
+        '480':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: deviceId
+        in: query
+        required: false
+        description: The application instances' device ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of application instances to return in one page of results.
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 25
+      - name: nextToken
+        in: query
+        required: false
+        description: Specify the pagination token from a previous request to retrieve the next page of results.
+        schema:
+          type: string
+          pattern: ^.+$
+          minLength: 1
+          maxLength: 4096
+      - name: statusFilter
+        in: query
+        required: false
+        description: Only include instances with a specific status.
+        schema:
+          type: string
+          enum:
+          - DEPLOYMENT_SUCCEEDED
+          - DEPLOYMENT_ERROR
+          - REMOVAL_SUCCEEDED
+          - REMOVAL_FAILED
+          - PROCESSING_DEPLOYMENT
+          - PROCESSING_REMOVAL
+          - DEPLOYMENT_FAILED
+      - name: MaxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama List Application Instances
+      tags:
+      - Application Instances
+  /application-instances/{ApplicationInstanceId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribeApplicationInstance
+      description: Returns information about an application instance on a device.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeApplicationInstanceResponse'
+              examples:
+                DescribeApplicationInstance200Example:
+                  summary: Default DescribeApplicationInstance 200 response
+                  x-microcks-default: true
+                  value:
+                    ApplicationInstanceId: resource-abc123
+                    ApplicationInstanceIdToReplace: resource-abc123
+                    Arn: arn:aws:service:us-east-1:123456789012:resource/example
+                    CreatedTime: example-string
+                    DefaultRuntimeContextDevice: example-string
+                    DefaultRuntimeContextDeviceName: my-resource
+                    Description: example-string
+                    HealthStatus: active
+                    LastUpdatedTime: example-string
+                    Name: my-resource
+                    RuntimeContextStates: example-string
+                    RuntimeRoleArn: arn:aws:service:us-east-1:123456789012:resource/example
+                    Status: active
+                    StatusDescription: active
+                    Tags: example-string
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: ApplicationInstanceId
+        in: path
+        required: true
+        description: The application instance's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Describe Application Instance
+      tags:
+      - Application Instances
+    delete:
+      operationId: RemoveApplicationInstance
+      description: Removes an application instance.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoveApplicationInstanceResponse'
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: ApplicationInstanceId
+        in: path
+        required: true
+        description: An application instance ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Remove Application Instance
+      tags:
+      - Application Instances
+  /application-instances/{ApplicationInstanceId}/details:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribeApplicationInstanceDetails
+      description: Returns information about an application instance's configuration manifest.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeApplicationInstanceDetailsResponse'
+              examples:
+                DescribeApplicationInstanceDetails200Example:
+                  summary: Default DescribeApplicationInstanceDetails 200 response
+                  x-microcks-default: true
+                  value:
+                    ApplicationInstanceId: resource-abc123
+                    ApplicationInstanceIdToReplace: resource-abc123
+                    CreatedTime: example-string
+                    DefaultRuntimeContextDevice: example-string
+                    Description: example-string
+                    ManifestOverridesPayload: resource-abc123
+                    ManifestPayload: example-string
+                    Name: my-resource
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: ApplicationInstanceId
+        in: path
+        required: true
+        description: The application instance's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Describe Application Instance Details
+      tags:
+      - Application Instances
+  /application-instances/{ApplicationInstanceId}/package-dependencies:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListApplicationInstanceDependencies
+      description: Returns a list of application instance dependencies.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListApplicationInstanceDependenciesResponse'
+              examples:
+                ListApplicationInstanceDependencies200Example:
+                  summary: Default ListApplicationInstanceDependencies 200 response
+                  x-microcks-default: true
+                  value:
+                    NextToken: example-string
+                    PackageObjects: example-string
+        '480':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: ApplicationInstanceId
+        in: path
+        required: true
+        description: The application instance's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of application instance dependencies to return in one page of results.
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 25
+      - name: nextToken
+        in: query
+        required: false
+        description: Specify the pagination token from a previous request to retrieve the next page of results.
+        schema:
+          type: string
+          pattern: ^.+$
+          minLength: 1
+          maxLength: 4096
+      - name: MaxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama List Application Instance Dependencies
+      tags:
+      - Application Instances
+  /application-instances/{ApplicationInstanceId}/node-instances:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListApplicationInstanceNodeInstances
+      description: Returns a list of application node instances.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListApplicationInstanceNodeInstancesResponse'
+              examples:
+                ListApplicationInstanceNodeInstances200Example:
+                  summary: Default ListApplicationInstanceNodeInstances 200 response
+                  x-microcks-default: true
+                  value:
+                    NextToken: example-string
+                    NodeInstances: example-string
+        '480':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '481':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: ApplicationInstanceId
+        in: path
+        required: true
+        description: The node instances' application instance ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of node instances to return in one page of results.
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 25
+      - name: nextToken
+        in: query
+        required: false
+        description: Specify the pagination token from a previous request to retrieve the next page of results.
+        schema:
+          type: string
+          pattern: ^.+$
+          minLength: 1
+          maxLength: 4096
+      - name: MaxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama List Application Instance Node Instances
+      tags:
+      - Application Instances
+  /application-instances/{ApplicationInstanceId}/node-signals:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    put:
+      operationId: SignalApplicationInstanceNodeInstances
+      description: Signal camera nodes to stop or resume.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalApplicationInstanceNodeInstancesResponse'
+              examples:
+                SignalApplicationInstanceNodeInstances200Example:
+                  summary: Default SignalApplicationInstanceNodeInstances 200 response
+                  x-microcks-default: true
+                  value:
+                    ApplicationInstanceId: resource-abc123
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '482':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: ApplicationInstanceId
+        in: path
+        required: true
+        description: An application instance ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - NodeSignals
+              properties:
+                NodeSignals:
+                  description: A list of signals.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/NodeSignal'
+                  minItems: 1
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Signal Application Instance Node Instances
+      tags:
+      - Application Instances
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    ManifestPayloadData:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 51200
+    ListApplicationInstanceDependenciesResponse:
+      type: object
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+        PackageObjects:
+          allOf:
+          - $ref: '#/components/schemas/PackageObjects'
+          - description: A list of package objects.
+    ApplicationInstanceStatus:
+      type: string
+      enum:
+      - DEPLOYMENT_PENDING
+      - DEPLOYMENT_REQUESTED
+      - DEPLOYMENT_IN_PROGRESS
+      - DEPLOYMENT_ERROR
+      - DEPLOYMENT_SUCCEEDED
+      - REMOVAL_PENDING
+      - REMOVAL_REQUESTED
+      - REMOVAL_IN_PROGRESS
+      - REMOVAL_FAILED
+      - REMOVAL_SUCCEEDED
+      - DEPLOYMENT_FAILED
+    DesiredState:
+      type: string
+      enum:
+      - RUNNING
+      - STOPPED
+      - REMOVED
+    Description:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 255
+    DeviceReportedStatus:
+      type: string
+      enum:
+      - STOPPING
+      - STOPPED
+      - STOP_ERROR
+      - REMOVAL_FAILED
+      - REMOVAL_IN_PROGRESS
+      - STARTING
+      - RUNNING
+      - INSTALL_ERROR
+      - LAUNCHED
+      - LAUNCH_ERROR
+      - INSTALL_IN_PROGRESS
+    CreateApplicationInstanceResponse:
+      type: object
+      required:
+      - ApplicationInstanceId
+      properties:
+        ApplicationInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: The application instance's ID.
+    DescribeApplicationInstanceDetailsResponse:
+      type: object
+      properties:
+        ApplicationInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: The application instance's ID.
+        ApplicationInstanceIdToReplace:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: The ID of the application instance that this instance replaced.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the application instance was created.
+        DefaultRuntimeContextDevice:
+          allOf:
+          - $ref: '#/components/schemas/DefaultRuntimeContextDevice'
+          - description: The application instance's default runtime context device.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The application instance's description.
+        ManifestOverridesPayload:
+          allOf:
+          - $ref: '#/components/schemas/ManifestOverridesPayload'
+          - description: Parameter overrides for the configuration manifest.
+        ManifestPayload:
+          allOf:
+          - $ref: '#/components/schemas/ManifestPayload'
+          - description: The application instance's configuration manifest.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceName'
+          - description: The application instance's name.
+    ServiceQuotaExceededException: {}
+    RuntimeRoleArn:
+      type: string
+      pattern: ^arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:role/.+$
+      minLength: 1
+      maxLength: 255
+    ManifestOverridesPayloadData:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 51200
+    NextToken:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 4096
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    PackageObject:
+      type: object
+      required:
+      - Name
+      - PackageVersion
+      - PatchVersion
+      properties:
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The object's name.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The object's package version.
+        PatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The object's patch version.
+      description: A package object.
+    RuntimeContextName:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    ApplicationInstance:
+      type: object
+      properties:
+        ApplicationInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: The application instance's ID.
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceArn'
+          - description: The application instance's ARN.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the application instance was created.
+        DefaultRuntimeContextDevice:
+          allOf:
+          - $ref: '#/components/schemas/DefaultRuntimeContextDevice'
+          - description: The device's ID.
+        DefaultRuntimeContextDeviceName:
+          allOf:
+          - $ref: '#/components/schemas/DeviceName'
+          - description: The device's name.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The application instance's description.
+        HealthStatus:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceHealthStatus'
+          - description: The application instance's health status.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceName'
+          - description: The application instance's name.
+        RuntimeContextStates:
+          allOf:
+          - $ref: '#/components/schemas/ReportedRuntimeContextStates'
+          - description: The application's state.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceStatus'
+          - description: The application instance's status.
+        StatusDescription:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceStatusDescription'
+          - description: The application instance's status description.
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The application instance's tags.
+      description: An application instance on a device.
+    AccessDeniedException: {}
+    PackageObjects:
+      type: array
+      items:
+        $ref: '#/components/schemas/PackageObject'
+    ApplicationInstanceArn:
+      type: string
+      minLength: 1
+      maxLength: 255
+    ApplicationInstanceName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    ListApplicationInstancesResponse:
+      type: object
+      properties:
+        ApplicationInstances:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstances'
+          - description: A list of application instances.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+    NodeSignalValue:
+      type: string
+      enum:
+      - PAUSE
+      - RESUME
+    TimeStamp:
+      type: string
+      format: date-time
+    NodeInstances:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeInstance'
+    ApplicationInstanceHealthStatus:
+      type: string
+      enum:
+      - RUNNING
+      - ERROR
+      - NOT_AVAILABLE
+    ResourceNotFoundException: {}
+    ListApplicationInstanceNodeInstancesResponse:
+      type: object
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+        NodeInstances:
+          allOf:
+          - $ref: '#/components/schemas/NodeInstances'
+          - description: A list of node instances.
+    ManifestOverridesPayload:
+      type: object
+      properties:
+        PayloadData:
+          allOf:
+          - $ref: '#/components/schemas/ManifestOverridesPayloadData'
+          - description: The overrides document.
+      description: Parameter overrides for an application instance. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the overrides document.
+    NodeId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_\.]+$
+      minLength: 1
+      maxLength: 255
+    ApplicationInstanceStatusDescription:
+      type: string
+      minLength: 1
+      maxLength: 255
+    NodePackageVersion:
+      type: string
+      pattern: ^([0-9]+)\.([0-9]+)$
+      minLength: 1
+      maxLength: 255
+    NodeSignal:
+      type: object
+      required:
+      - NodeInstanceId
+      - Signal
+      properties:
+        NodeInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/NodeInstanceId'
+          - description: The camera node's name, from the application manifest.
+        Signal:
+          allOf:
+          - $ref: '#/components/schemas/NodeSignalValue'
+          - description: The signal value.
+      description: A signal to a camera node to start or stop processing video.
+    NodePackagePatchVersion:
+      type: string
+      pattern: ^[a-z0-9]+$
+      minLength: 1
+      maxLength: 255
+    ConflictException: {}
+    NodeInstanceId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    ManifestPayload:
+      type: object
+      properties:
+        PayloadData:
+          allOf:
+          - $ref: '#/components/schemas/ManifestPayloadData'
+          - description: The application manifest.
+      description: A application verion's manifest file. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the application manifest (<code>graph.json</code>). This file is located in the <code>graphs</code> folder in your application source.
+    NodeName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    RemoveApplicationInstanceResponse:
+      type: object
+      properties: {}
+    DescribeApplicationInstanceResponse:
+      type: object
+      properties:
+        ApplicationInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: The application instance's ID.
+        ApplicationInstanceIdToReplace:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: The ID of the application instance that this instance replaced.
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceArn'
+          - description: The application instance's ARN.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the application instance was created.
+        DefaultRuntimeContextDevice:
+          allOf:
+          - $ref: '#/components/schemas/DefaultRuntimeContextDevice'
+          - description: The device's ID.
+        DefaultRuntimeContextDeviceName:
+          allOf:
+          - $ref: '#/components/schemas/DeviceName'
+          - description: The device's bane.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The application instance's description.
+        HealthStatus:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceHealthStatus'
+          - description: The application instance's health status.
+        LastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: The application instance was updated.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceName'
+          - description: The application instance's name.
+        RuntimeContextStates:
+          allOf:
+          - $ref: '#/components/schemas/ReportedRuntimeContextStates'
+          - description: The application instance's state.
+        RuntimeRoleArn:
+          allOf:
+          - $ref: '#/components/schemas/RuntimeRoleArn'
+          - description: The application instance's runtime role ARN.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceStatus'
+          - description: The application instance's status.
+        StatusDescription:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceStatusDescription'
+          - description: The application instance's status description.
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The application instance's tags.
+    NodeInstanceStatus:
+      type: string
+      enum:
+      - RUNNING
+      - ERROR
+      - NOT_AVAILABLE
+      - PAUSED
+    ApplicationInstances:
+      type: array
+      items:
+        $ref: '#/components/schemas/ApplicationInstance'
+    ReportedRuntimeContextState:
+      type: object
+      required:
+      - DesiredState
+      - DeviceReportedStatus
+      - DeviceReportedTime
+      - RuntimeContextName
+      properties:
+        DesiredState:
+          allOf:
+          - $ref: '#/components/schemas/DesiredState'
+          - description: The application's desired state.
+        DeviceReportedStatus:
+          allOf:
+          - $ref: '#/components/schemas/DeviceReportedStatus'
+          - description: The application's reported status.
+        DeviceReportedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the device reported the application's state.
+        RuntimeContextName:
+          allOf:
+          - $ref: '#/components/schemas/RuntimeContextName'
+          - description: The device's name.
+      description: An application instance's state.
+    NodeInstance:
+      type: object
+      required:
+      - CurrentStatus
+      - NodeInstanceId
+      properties:
+        CurrentStatus:
+          allOf:
+          - $ref: '#/components/schemas/NodeInstanceStatus'
+          - description: The instance's current status.
+        NodeId:
+          allOf:
+          - $ref: '#/components/schemas/NodeId'
+          - description: The node's ID.
+        NodeInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/NodeInstanceId'
+          - description: The instance's ID.
+        NodeName:
+          allOf:
+          - $ref: '#/components/schemas/NodeName'
+          - description: The instance's name.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The instance's package name.
+        PackagePatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The instance's package patch version.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The instance's package version.
+      description: A node instance.
+    ApplicationInstanceId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    ValidationException: {}
+    DefaultRuntimeContextDevice:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    SignalApplicationInstanceNodeInstancesResponse:
+      type: object
+      required:
+      - ApplicationInstanceId
+      properties:
+        ApplicationInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: An application instance ID.
+    TagValue:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 256
+    ReportedRuntimeContextStates:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReportedRuntimeContextState'
+    InternalServerException: {}
+    DeviceName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    NodePackageName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/panorama/
+x-hasEquivalentPaths: true

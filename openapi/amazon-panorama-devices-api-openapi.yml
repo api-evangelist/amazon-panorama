@@ -1,0 +1,1137 @@
+openapi: 3.0.0
+info:
+  version: '2019-07-24'
+  x-release: v4
+  title: AWS Panorama Application Instances Devices API
+  description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: panorama
+  x-aws-signingName: panorama
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/panorama-2019-07-24.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://panorama.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Panorama multi-region endpoint
+- url: https://panorama.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Panorama multi-region endpoint
+- url: http://panorama.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Panorama endpoint for China (Beijing) and China (Ningxia)
+- url: https://panorama.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Panorama endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Devices
+paths:
+  /devices/{DeviceId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeleteDevice
+      description: Deletes a device.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteDeviceResponse'
+              examples:
+                DeleteDevice200Example:
+                  summary: Default DeleteDevice 200 response
+                  x-microcks-default: true
+                  value:
+                    DeviceId: resource-abc123
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: DeviceId
+        in: path
+        required: true
+        description: The device's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Delete Device
+      tags:
+      - Devices
+    get:
+      operationId: DescribeDevice
+      description: Returns information about a device.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeDeviceResponse'
+              examples:
+                DescribeDevice200Example:
+                  summary: Default DescribeDevice 200 response
+                  x-microcks-default: true
+                  value:
+                    AlternateSoftwares: example-string
+                    Arn: arn:aws:service:us-east-1:123456789012:resource/example
+                    Brand: example-string
+                    CreatedTime: example-string
+                    CurrentNetworkingStatus: active
+                    CurrentSoftware: example-string
+                    Description: example-string
+                    DeviceAggregatedStatus: active
+                    DeviceConnectionStatus: active
+                    DeviceId: resource-abc123
+                    LatestAlternateSoftware: example-string
+                    LatestDeviceJob: example-string
+                    LatestSoftware: example-string
+                    LeaseExpirationTime: example-string
+                    Name: my-resource
+        '480':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '481':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: DeviceId
+        in: path
+        required: true
+        description: The device's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Describe Device
+      tags:
+      - Devices
+    put:
+      operationId: UpdateDeviceMetadata
+      description: Updates a device's metadata.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateDeviceMetadataResponse'
+              examples:
+                UpdateDeviceMetadata200Example:
+                  summary: Default UpdateDeviceMetadata 200 response
+                  x-microcks-default: true
+                  value:
+                    DeviceId: resource-abc123
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: DeviceId
+        in: path
+        required: true
+        description: The device's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Description:
+                  description: A description for the device.
+                  type: string
+                  pattern: ^.*$
+                  minLength: 0
+                  maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Update Device Metadata
+      tags:
+      - Devices
+  /devices:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListDevices
+      description: Returns a list of devices.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDevicesResponse'
+              examples:
+                ListDevices200Example:
+                  summary: Default ListDevices 200 response
+                  x-microcks-default: true
+                  value:
+                    Devices: example-string
+                    NextToken: example-string
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: DeviceAggregatedStatusFilter
+        in: query
+        required: false
+        description: Filter based on a device's status.
+        schema:
+          type: string
+          enum:
+          - ERROR
+          - AWAITING_PROVISIONING
+          - PENDING
+          - FAILED
+          - DELETING
+          - ONLINE
+          - OFFLINE
+          - LEASE_EXPIRED
+          - UPDATE_NEEDED
+          - REBOOTING
+      - name: MaxResults
+        in: query
+        required: false
+        description: The maximum number of devices to return in one page of results.
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 25
+      - name: NameFilter
+        in: query
+        required: false
+        description: Filter based on device's name. Prefixes supported.
+        schema:
+          type: string
+      - name: NextToken
+        in: query
+        required: false
+        description: Specify the pagination token from a previous request to retrieve the next page of results.
+        schema:
+          type: string
+          pattern: ^.+$
+          minLength: 1
+          maxLength: 4096
+      - name: SortBy
+        in: query
+        required: false
+        description: The target column to be sorted on. Default column sort is CREATED_TIME.
+        schema:
+          type: string
+          enum:
+          - DEVICE_ID
+          - CREATED_TIME
+          - NAME
+          - DEVICE_AGGREGATED_STATUS
+      - name: SortOrder
+        in: query
+        required: false
+        description: The sorting order for the returned list. SortOrder is DESCENDING by default based on CREATED_TIME. Otherwise, SortOrder is ASCENDING.
+        schema:
+          type: string
+          enum:
+          - ASCENDING
+          - DESCENDING
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama List Devices
+      tags:
+      - Devices
+    post:
+      operationId: ProvisionDevice
+      description: Creates a device and returns a configuration archive. The configuration archive is a ZIP file that contains a provisioning certificate that is valid for 5 minutes. Name the configuration archive <code>certificates-omni_<i>device-name</i>.zip</code> and transfer it to the device within 5 minutes. Use the included USB storage device and connect it to the USB 3.0 port next to the HDMI output.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProvisionDeviceResponse'
+              examples:
+                ProvisionDevice200Example:
+                  summary: Default ProvisionDevice 200 response
+                  x-microcks-default: true
+                  value:
+                    Arn: arn:aws:service:us-east-1:123456789012:resource/example
+                    Certificates: example-string
+                    DeviceId: resource-abc123
+                    IotThingName: my-resource
+                    Status: active
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ServiceQuotaExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceQuotaExceededException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Name
+              properties:
+                Description:
+                  description: A description for the device.
+                  type: string
+                  pattern: ^.*$
+                  minLength: 0
+                  maxLength: 255
+                Name:
+                  description: A name for the device.
+                  type: string
+                  pattern: ^[a-zA-Z0-9\-\_]+$
+                  minLength: 1
+                  maxLength: 255
+                NetworkingConfiguration:
+                  description: The network configuration for a device.
+                  type: object
+                  properties:
+                    Ethernet0:
+                      allOf:
+                      - $ref: '#/components/schemas/EthernetPayload'
+                      - description: Settings for Ethernet port 0.
+                    Ethernet1:
+                      allOf:
+                      - $ref: '#/components/schemas/EthernetPayload'
+                      - description: Settings for Ethernet port 1.
+                    Ntp:
+                      allOf:
+                      - $ref: '#/components/schemas/NtpPayload'
+                      - description: Network time protocol (NTP) server settings.
+                Tags:
+                  description: Tags for the device.
+                  type: object
+                  minProperties: 0
+                  maxProperties: 50
+                  additionalProperties:
+                    $ref: '#/components/schemas/TagValue'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Provision Device
+      tags:
+      - Devices
+components:
+  schemas:
+    LatestDeviceJob:
+      type: object
+      properties:
+        ImageVersion:
+          allOf:
+          - $ref: '#/components/schemas/ImageVersion'
+          - description: The target version of the device software.
+        JobType:
+          allOf:
+          - $ref: '#/components/schemas/JobType'
+          - description: The job's type.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/UpdateProgress'
+          - description: Status of the latest device job.
+      description: Returns information about the latest device job.
+    Mask:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    DeviceArn:
+      type: string
+      minLength: 1
+      maxLength: 255
+    LatestSoftware:
+      type: string
+      minLength: 1
+      maxLength: 255
+    NetworkPayload:
+      type: object
+      properties:
+        Ethernet0:
+          allOf:
+          - $ref: '#/components/schemas/EthernetPayload'
+          - description: Settings for Ethernet port 0.
+        Ethernet1:
+          allOf:
+          - $ref: '#/components/schemas/EthernetPayload'
+          - description: Settings for Ethernet port 1.
+        Ntp:
+          allOf:
+          - $ref: '#/components/schemas/NtpPayload'
+          - description: Network time protocol (NTP) server settings.
+      description: The network configuration for a device.
+    NtpServerList:
+      type: array
+      items:
+        $ref: '#/components/schemas/IpAddressOrServerName'
+      minItems: 0
+      maxItems: 5
+    IpAddress:
+      type: string
+      pattern: ^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d))(:(6553[0-5]|655[0-2]\d|65[0-4]\d{2}|6[0-4]\d{3}|[1-5]\d{4}|[1-9]\d{0,3}))?$
+      minLength: 1
+      maxLength: 255
+    AlternateSoftwares:
+      type: array
+      items:
+        $ref: '#/components/schemas/AlternateSoftwareMetadata'
+    Description:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 255
+    DnsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Dns'
+    DeviceStatus:
+      type: string
+      enum:
+      - AWAITING_PROVISIONING
+      - PENDING
+      - SUCCEEDED
+      - FAILED
+      - ERROR
+      - DELETING
+    DeviceAggregatedStatus:
+      type: string
+      enum:
+      - ERROR
+      - AWAITING_PROVISIONING
+      - PENDING
+      - FAILED
+      - DELETING
+      - ONLINE
+      - OFFLINE
+      - LEASE_EXPIRED
+      - UPDATE_NEEDED
+      - REBOOTING
+    DeviceSerialNumber:
+      type: string
+      pattern: ^[0-9]{1,20}$
+    CurrentSoftware:
+      type: string
+      minLength: 1
+      maxLength: 255
+    ConnectionType:
+      type: string
+      enum:
+      - STATIC_IP
+      - DHCP
+    ServiceQuotaExceededException: {}
+    Dns:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    DeviceConnectionStatus:
+      type: string
+      enum:
+      - ONLINE
+      - OFFLINE
+      - AWAITING_CREDENTIALS
+      - NOT_AVAILABLE
+      - ERROR
+    Device:
+      type: object
+      properties:
+        Brand:
+          allOf:
+          - $ref: '#/components/schemas/DeviceBrand'
+          - description: The device's maker.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTime'
+          - description: When the device was created.
+        CurrentSoftware:
+          allOf:
+          - $ref: '#/components/schemas/CurrentSoftware'
+          - description: A device's current software.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: A description for the device.
+        DeviceAggregatedStatus:
+          allOf:
+          - $ref: '#/components/schemas/DeviceAggregatedStatus'
+          - description: A device's aggregated status. Including the device's connection status, provisioning status, and lease status.
+        DeviceId:
+          allOf:
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The device's ID.
+        LastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedTime'
+          - description: When the device was updated.
+        LatestDeviceJob:
+          allOf:
+          - $ref: '#/components/schemas/LatestDeviceJob'
+          - description: A device's latest job. Includes the target image version, and the update job status.
+        LeaseExpirationTime:
+          allOf:
+          - $ref: '#/components/schemas/LeaseExpirationTime'
+          - description: The device's lease expiration time.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/DeviceName'
+          - description: The device's name.
+        ProvisioningStatus:
+          allOf:
+          - $ref: '#/components/schemas/DeviceStatus'
+          - description: The device's provisioning status.
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The device's tags.
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/DeviceType'
+          - description: The device's type.
+      description: A device.
+    NextToken:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 4096
+    Certificates:
+      type: string
+    ImageVersion:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    AccessDeniedException: {}
+    CreatedTime:
+      type: string
+      format: date-time
+    ListDevicesResponse:
+      type: object
+      required:
+      - Devices
+      properties:
+        Devices:
+          allOf:
+          - $ref: '#/components/schemas/DeviceList'
+          - description: A list of devices.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+    NetworkConnectionStatus:
+      type: string
+      enum:
+      - CONNECTED
+      - NOT_CONNECTED
+      - CONNECTING
+    LeaseExpirationTime:
+      type: string
+      format: date-time
+    LastUpdatedTime:
+      type: string
+      format: date-time
+    HwAddress:
+      type: string
+      minLength: 1
+      maxLength: 255
+    EthernetPayload:
+      type: object
+      required:
+      - ConnectionType
+      properties:
+        ConnectionType:
+          allOf:
+          - $ref: '#/components/schemas/ConnectionType'
+          - description: How the device gets an IP address.
+        StaticIpConnectionInfo:
+          allOf:
+          - $ref: '#/components/schemas/StaticIpConnectionInfo'
+          - description: Network configuration for a static IP connection.
+      description: A device's network configuration.
+    IpAddressOrServerName:
+      type: string
+      pattern: (^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$)|(^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d))(:(6553[0-5]|655[0-2]\d|65[0-4]\d{2}|6[0-4]\d{3}|[1-5]\d{4}|[1-9]\d{0,3}))?$)
+      minLength: 1
+      maxLength: 255
+    UpdateProgress:
+      type: string
+      enum:
+      - PENDING
+      - IN_PROGRESS
+      - VERIFYING
+      - REBOOTING
+      - DOWNLOADING
+      - COMPLETED
+      - FAILED
+    ResourceNotFoundException: {}
+    JobType:
+      type: string
+      enum:
+      - OTA
+      - REBOOT
+    DefaultGateway:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    ConflictException: {}
+    EthernetStatus:
+      type: object
+      properties:
+        ConnectionStatus:
+          allOf:
+          - $ref: '#/components/schemas/NetworkConnectionStatus'
+          - description: The device's connection status.
+        HwAddress:
+          allOf:
+          - $ref: '#/components/schemas/HwAddress'
+          - description: The device's physical address.
+        IpAddress:
+          allOf:
+          - $ref: '#/components/schemas/IpAddress'
+          - description: The device's IP address.
+      description: A device's Ethernet status.
+    Version:
+      type: string
+      minLength: 1
+      maxLength: 255
+    StaticIpConnectionInfo:
+      type: object
+      required:
+      - DefaultGateway
+      - Dns
+      - IpAddress
+      - Mask
+      properties:
+        DefaultGateway:
+          allOf:
+          - $ref: '#/components/schemas/DefaultGateway'
+          - description: The connection's default gateway.
+        Dns:
+          allOf:
+          - $ref: '#/components/schemas/DnsList'
+          - description: The connection's DNS address.
+        IpAddress:
+          allOf:
+          - $ref: '#/components/schemas/IpAddress'
+          - description: The connection's IP address.
+        Mask:
+          allOf:
+          - $ref: '#/components/schemas/Mask'
+          - description: The connection's DNS mask.
+      description: A static IP configuration.
+    UpdateDeviceMetadataResponse:
+      type: object
+      properties:
+        DeviceId:
+          allOf:
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The device's ID.
+    NtpServerName:
+      type: string
+      minLength: 1
+      maxLength: 255
+    DeviceType:
+      type: string
+      enum:
+      - PANORAMA_APPLIANCE_DEVELOPER_KIT
+      - PANORAMA_APPLIANCE
+    DeviceBrand:
+      type: string
+      enum:
+      - AWS_PANORAMA
+      - LENOVO
+    LatestAlternateSoftware:
+      type: string
+      minLength: 1
+      maxLength: 255
+    DeleteDeviceResponse:
+      type: object
+      properties:
+        DeviceId:
+          allOf:
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The device's ID.
+    NtpStatus:
+      type: object
+      properties:
+        ConnectionStatus:
+          allOf:
+          - $ref: '#/components/schemas/NetworkConnectionStatus'
+          - description: The connection's status.
+        IpAddress:
+          allOf:
+          - $ref: '#/components/schemas/IpAddress'
+          - description: The IP address of the server.
+        NtpServerName:
+          allOf:
+          - $ref: '#/components/schemas/NtpServerName'
+          - description: The domain name of the server.
+      description: Details about an NTP server connection.
+    DescribeDeviceResponse:
+      type: object
+      properties:
+        AlternateSoftwares:
+          allOf:
+          - $ref: '#/components/schemas/AlternateSoftwares'
+          - description: Beta software releases available for the device.
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/DeviceArn'
+          - description: The device's ARN.
+        Brand:
+          allOf:
+          - $ref: '#/components/schemas/DeviceBrand'
+          - description: The device's maker.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTime'
+          - description: When the device was created.
+        CurrentNetworkingStatus:
+          allOf:
+          - $ref: '#/components/schemas/NetworkStatus'
+          - description: The device's networking status.
+        CurrentSoftware:
+          allOf:
+          - $ref: '#/components/schemas/CurrentSoftware'
+          - description: The device's current software version.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The device's description.
+        DeviceAggregatedStatus:
+          allOf:
+          - $ref: '#/components/schemas/DeviceAggregatedStatus'
+          - description: A device's aggregated status. Including the device's connection status, provisioning status, and lease status.
+        DeviceConnectionStatus:
+          allOf:
+          - $ref: '#/components/schemas/DeviceConnectionStatus'
+          - description: The device's connection status.
+        DeviceId:
+          allOf:
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The device's ID.
+        LatestAlternateSoftware:
+          allOf:
+          - $ref: '#/components/schemas/LatestAlternateSoftware'
+          - description: The most recent beta software release.
+        LatestDeviceJob:
+          allOf:
+          - $ref: '#/components/schemas/LatestDeviceJob'
+          - description: A device's latest job. Includes the target image version, and the job status.
+        LatestSoftware:
+          allOf:
+          - $ref: '#/components/schemas/LatestSoftware'
+          - description: The latest software version available for the device.
+        LeaseExpirationTime:
+          allOf:
+          - $ref: '#/components/schemas/LeaseExpirationTime'
+          - description: The device's lease expiration time.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/DeviceName'
+          - description: The device's name.
+        NetworkingConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/NetworkPayload'
+          - description: The device's networking configuration.
+        ProvisioningStatus:
+          allOf:
+          - $ref: '#/components/schemas/DeviceStatus'
+          - description: The device's provisioning status.
+        SerialNumber:
+          allOf:
+          - $ref: '#/components/schemas/DeviceSerialNumber'
+          - description: The device's serial number.
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The device's tags.
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/DeviceType'
+          - description: The device's type.
+    ValidationException: {}
+    NtpPayload:
+      type: object
+      required:
+      - NtpServers
+      properties:
+        NtpServers:
+          allOf:
+          - $ref: '#/components/schemas/NtpServerList'
+          - description: NTP servers to use, in order of preference.
+      description: Network time protocol (NTP) server settings. Use this option to connect to local NTP servers instead of <code>pool.ntp.org</code>.
+    IotThingName:
+      type: string
+      minLength: 1
+      maxLength: 255
+    ProvisionDeviceResponse:
+      type: object
+      required:
+      - Arn
+      - Status
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/DeviceArn'
+          - description: The device's ARN.
+        Certificates:
+          allOf:
+          - $ref: '#/components/schemas/Certificates'
+          - description: The device's configuration bundle.
+        DeviceId:
+          allOf:
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The device's ID.
+        IotThingName:
+          allOf:
+          - $ref: '#/components/schemas/IotThingName'
+          - description: The device's IoT thing name.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/DeviceStatus'
+          - description: The device's status.
+    TagValue:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 256
+    DeviceId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    AlternateSoftwareMetadata:
+      type: object
+      properties:
+        Version:
+          allOf:
+          - $ref: '#/components/schemas/Version'
+          - description: The appliance software version.
+      description: Details about a beta appliance software update.
+    InternalServerException: {}
+    DeviceName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    DeviceList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Device'
+    NetworkStatus:
+      type: object
+      properties:
+        Ethernet0Status:
+          allOf:
+          - $ref: '#/components/schemas/EthernetStatus'
+          - description: The status of Ethernet port 0.
+        Ethernet1Status:
+          allOf:
+          - $ref: '#/components/schemas/EthernetStatus'
+          - description: The status of Ethernet port 1.
+        LastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedTime'
+          - description: When the network status changed.
+        NtpStatus:
+          allOf:
+          - $ref: '#/components/schemas/NtpStatus'
+          - description: Details about a network time protocol (NTP) server connection.
+      description: The network status of a device.
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/panorama/
+x-hasEquivalentPaths: true

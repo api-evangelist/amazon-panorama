@@ -1,0 +1,1965 @@
+openapi: 3.0.0
+info:
+  version: '2019-07-24'
+  x-release: v4
+  title: AWS Panorama Application Instances Packages API
+  description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: panorama
+  x-aws-signingName: panorama
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/panorama-2019-07-24.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://panorama.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Panorama multi-region endpoint
+- url: https://panorama.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Panorama multi-region endpoint
+- url: http://panorama.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Panorama endpoint for China (Beijing) and China (Ningxia)
+- url: https://panorama.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Panorama endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Packages
+paths:
+  /packages/template-job:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateNodeFromTemplateJob
+      description: Creates a camera stream node.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateNodeFromTemplateJobResponse'
+              examples:
+                CreateNodeFromTemplateJob200Example:
+                  summary: Default CreateNodeFromTemplateJob 200 response
+                  x-microcks-default: true
+                  value:
+                    JobId: resource-abc123
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - NodeName
+              - OutputPackageName
+              - OutputPackageVersion
+              - TemplateParameters
+              - TemplateType
+              properties:
+                JobTags:
+                  description: Tags for the job.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/JobResourceTags'
+                NodeDescription:
+                  description: A description for the node.
+                  type: string
+                  pattern: ^.*$
+                  minLength: 0
+                  maxLength: 255
+                NodeName:
+                  description: A name for the node.
+                  type: string
+                  pattern: ^[a-zA-Z0-9\-\_]+$
+                  minLength: 1
+                  maxLength: 128
+                OutputPackageName:
+                  description: An output package name for the node.
+                  type: string
+                  pattern: ^[a-zA-Z0-9\-\_]+$
+                  minLength: 1
+                  maxLength: 128
+                OutputPackageVersion:
+                  description: An output package version for the node.
+                  type: string
+                  pattern: ^([0-9]+)\.([0-9]+)$
+                  minLength: 1
+                  maxLength: 255
+                TemplateParameters:
+                  description: Template parameters for the node.
+                  type: object
+                  additionalProperties:
+                    $ref: '#/components/schemas/TemplateValue'
+                TemplateType:
+                  description: The type of node.
+                  type: string
+                  enum:
+                  - RTSP_CAMERA_STREAM
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Create Node from Template Job
+      tags:
+      - Packages
+    get:
+      operationId: ListNodeFromTemplateJobs
+      description: Returns a list of camera stream node jobs.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListNodeFromTemplateJobsResponse'
+              examples:
+                ListNodeFromTemplateJobs200Example:
+                  summary: Default ListNodeFromTemplateJobs 200 response
+                  x-microcks-default: true
+                  value:
+                    NextToken: example-string
+                    NodeFromTemplateJobs: example-string
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: MaxResults
+        in: query
+        required: false
+        description: The maximum number of node from template jobs to return in one page of results.
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 25
+      - name: NextToken
+        in: query
+        required: false
+        description: Specify the pagination token from a previous request to retrieve the next page of results.
+        schema:
+          type: string
+          pattern: ^.+$
+          minLength: 1
+          maxLength: 4096
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama List Node from Template Jobs
+      tags:
+      - Packages
+  /packages:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreatePackage
+      description: Creates a package and storage location in an Amazon S3 access point.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatePackageResponse'
+              examples:
+                CreatePackage200Example:
+                  summary: Default CreatePackage 200 response
+                  x-microcks-default: true
+                  value:
+                    Arn: arn:aws:service:us-east-1:123456789012:resource/example
+                    PackageId: resource-abc123
+                    StorageLocation: example-string
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - PackageName
+              properties:
+                PackageName:
+                  description: A name for the package.
+                  type: string
+                  pattern: ^[a-zA-Z0-9\-\_]+$
+                  minLength: 1
+                  maxLength: 128
+                Tags:
+                  description: Tags for the package.
+                  type: object
+                  minProperties: 0
+                  maxProperties: 50
+                  additionalProperties:
+                    $ref: '#/components/schemas/TagValue'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Create Package
+      tags:
+      - Packages
+    get:
+      operationId: ListPackages
+      description: Returns a list of packages.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPackagesResponse'
+              examples:
+                ListPackages200Example:
+                  summary: Default ListPackages 200 response
+                  x-microcks-default: true
+                  value:
+                    NextToken: example-string
+                    Packages: example-string
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of packages to return in one page of results.
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 25
+      - name: nextToken
+        in: query
+        required: false
+        description: Specify the pagination token from a previous request to retrieve the next page of results.
+        schema:
+          type: string
+          pattern: ^.+$
+          minLength: 1
+          maxLength: 4096
+      - name: MaxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama List Packages
+      tags:
+      - Packages
+  /packages/import-jobs:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreatePackageImportJob
+      description: Imports a node package.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatePackageImportJobResponse'
+              examples:
+                CreatePackageImportJob200Example:
+                  summary: Default CreatePackageImportJob 200 response
+                  x-microcks-default: true
+                  value:
+                    JobId: resource-abc123
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - ClientToken
+              - InputConfig
+              - JobType
+              - OutputConfig
+              properties:
+                ClientToken:
+                  description: A client token for the package import job.
+                  type: string
+                  pattern: ^[a-zA-Z0-9\-\_]+$
+                  minLength: 1
+                  maxLength: 64
+                InputConfig:
+                  description: A configuration for a package import job.
+                  type: object
+                  properties:
+                    PackageVersionInputConfig:
+                      allOf:
+                      - $ref: '#/components/schemas/PackageVersionInputConfig'
+                      - description: The package version's input configuration.
+                JobTags:
+                  description: Tags for the package import job.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/JobResourceTags'
+                JobType:
+                  description: A job type for the package import job.
+                  type: string
+                  enum:
+                  - NODE_PACKAGE_VERSION
+                  - MARKETPLACE_NODE_PACKAGE_VERSION
+                OutputConfig:
+                  description: An output configuration for a package import job.
+                  type: object
+                  properties:
+                    PackageVersionOutputConfig:
+                      allOf:
+                      - $ref: '#/components/schemas/PackageVersionOutputConfig'
+                      - description: The package version's output configuration.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Create Package Import Job
+      tags:
+      - Packages
+    get:
+      operationId: ListPackageImportJobs
+      description: Returns a list of package import jobs.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListPackageImportJobsResponse'
+              examples:
+                ListPackageImportJobs200Example:
+                  summary: Default ListPackageImportJobs 200 response
+                  x-microcks-default: true
+                  value:
+                    NextToken: example-string
+                    PackageImportJobs: example-string
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: MaxResults
+        in: query
+        required: false
+        description: The maximum number of package import jobs to return in one page of results.
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 25
+      - name: NextToken
+        in: query
+        required: false
+        description: Specify the pagination token from a previous request to retrieve the next page of results.
+        schema:
+          type: string
+          pattern: ^.+$
+          minLength: 1
+          maxLength: 4096
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama List Package Import Jobs
+      tags:
+      - Packages
+  /packages/{PackageId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeletePackage
+      description: <p>Deletes a package.</p> <note> <p>To delete a package, you need permission to call <code>s3:DeleteObject</code> in addition to permissions for the AWS Panorama API.</p> </note>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeletePackageResponse'
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: ForceDelete
+        in: query
+        required: false
+        description: Delete the package even if it has artifacts stored in its access point. Deletes the package's artifacts from Amazon S3.
+        schema:
+          type: boolean
+      - name: PackageId
+        in: path
+        required: true
+        description: The package's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_\/]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Delete Package
+      tags:
+      - Packages
+  /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    delete:
+      operationId: DeregisterPackageVersion
+      description: Deregisters a package version.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeregisterPackageVersionResponse'
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: OwnerAccount
+        in: query
+        required: false
+        description: An owner account.
+        schema:
+          type: string
+          pattern: ^[0-9a-z\_]+$
+          minLength: 1
+          maxLength: 12
+      - name: PackageId
+        in: path
+        required: true
+        description: A package ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_\/]+$
+          minLength: 1
+          maxLength: 255
+      - name: PackageVersion
+        in: path
+        required: true
+        description: A package version.
+        schema:
+          type: string
+          pattern: ^([0-9]+)\.([0-9]+)$
+          minLength: 1
+          maxLength: 255
+      - name: PatchVersion
+        in: path
+        required: true
+        description: A patch version.
+        schema:
+          type: string
+          pattern: ^[a-z0-9]+$
+          minLength: 1
+          maxLength: 255
+      - name: UpdatedLatestPatchVersion
+        in: query
+        required: false
+        description: If the version was marked latest, the new version to maker as latest.
+        schema:
+          type: string
+          pattern: ^[a-z0-9]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Deregister Package Version
+      tags:
+      - Packages
+    put:
+      operationId: RegisterPackageVersion
+      description: Registers a package version.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterPackageVersionResponse'
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: PackageId
+        in: path
+        required: true
+        description: A package ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_\/]+$
+          minLength: 1
+          maxLength: 255
+      - name: PackageVersion
+        in: path
+        required: true
+        description: A package version.
+        schema:
+          type: string
+          pattern: ^([0-9]+)\.([0-9]+)$
+          minLength: 1
+          maxLength: 255
+      - name: PatchVersion
+        in: path
+        required: true
+        description: A patch version.
+        schema:
+          type: string
+          pattern: ^[a-z0-9]+$
+          minLength: 1
+          maxLength: 255
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                MarkLatest:
+                  description: Whether to mark the new version as the latest version.
+                  type: boolean
+                OwnerAccount:
+                  description: An owner account.
+                  type: string
+                  pattern: ^[0-9a-z\_]+$
+                  minLength: 1
+                  maxLength: 12
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Register Package Version
+      tags:
+      - Packages
+  /packages/template-job/{JobId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribeNodeFromTemplateJob
+      description: Returns information about a job to create a camera stream node.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeNodeFromTemplateJobResponse'
+              examples:
+                DescribeNodeFromTemplateJob200Example:
+                  summary: Default DescribeNodeFromTemplateJob 200 response
+                  x-microcks-default: true
+                  value:
+                    CreatedTime: example-string
+                    JobId: resource-abc123
+                    JobTags: example-string
+                    LastUpdatedTime: example-string
+                    NodeDescription: example-string
+                    NodeName: my-resource
+                    OutputPackageName: my-resource
+                    OutputPackageVersion: 1.0.0
+                    Status: active
+                    StatusMessage: active
+                    TemplateParameters: example-string
+                    TemplateType: standard
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: JobId
+        in: path
+        required: true
+        description: The job's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Describe Node from Template Job
+      tags:
+      - Packages
+  /packages/metadata/{PackageId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribePackage
+      description: Returns information about a package.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribePackageResponse'
+              examples:
+                DescribePackage200Example:
+                  summary: Default DescribePackage 200 response
+                  x-microcks-default: true
+                  value:
+                    Arn: arn:aws:service:us-east-1:123456789012:resource/example
+                    CreatedTime: example-string
+                    PackageId: resource-abc123
+                    PackageName: my-resource
+                    ReadAccessPrincipalArns: arn:aws:service:us-east-1:123456789012:resource/example
+                    StorageLocation: example-string
+                    Tags: example-string
+                    WriteAccessPrincipalArns: arn:aws:service:us-east-1:123456789012:resource/example
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: PackageId
+        in: path
+        required: true
+        description: The package's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_\/]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Describe Package
+      tags:
+      - Packages
+  /packages/import-jobs/{JobId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribePackageImportJob
+      description: Returns information about a package import job.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribePackageImportJobResponse'
+              examples:
+                DescribePackageImportJob200Example:
+                  summary: Default DescribePackageImportJob 200 response
+                  x-microcks-default: true
+                  value:
+                    ClientToken: example-string
+                    CreatedTime: example-string
+                    InputConfig: example-string
+                    JobId: resource-abc123
+                    JobTags: example-string
+                    JobType: standard
+                    LastUpdatedTime: example-string
+                    Output: example-string
+                    OutputConfig: example-string
+                    Status: active
+                    StatusMessage: active
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: JobId
+        in: path
+        required: true
+        description: The job's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Describe Package Import Job
+      tags:
+      - Packages
+  /packages/metadata/{PackageId}/versions/{PackageVersion}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribePackageVersion
+      description: Returns information about a package version.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribePackageVersionResponse'
+              examples:
+                DescribePackageVersion200Example:
+                  summary: Default DescribePackageVersion 200 response
+                  x-microcks-default: true
+                  value:
+                    IsLatestPatch: example-string
+                    OwnerAccount: example-string
+                    PackageArn: arn:aws:service:us-east-1:123456789012:resource/example
+                    PackageId: resource-abc123
+                    PackageName: my-resource
+                    PackageVersion: 1.0.0
+                    PatchVersion: 1.0.0
+                    RegisteredTime: example-string
+                    Status: active
+                    StatusDescription: active
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: OwnerAccount
+        in: query
+        required: false
+        description: The version's owner account.
+        schema:
+          type: string
+          pattern: ^[0-9a-z\_]+$
+          minLength: 1
+          maxLength: 12
+      - name: PackageId
+        in: path
+        required: true
+        description: The version's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_\/]+$
+          minLength: 1
+          maxLength: 255
+      - name: PackageVersion
+        in: path
+        required: true
+        description: The version's version.
+        schema:
+          type: string
+          pattern: ^([0-9]+)\.([0-9]+)$
+          minLength: 1
+          maxLength: 255
+      - name: PatchVersion
+        in: query
+        required: false
+        description: The version's patch version.
+        schema:
+          type: string
+          pattern: ^[a-z0-9]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Describe Package Version
+      tags:
+      - Packages
+components:
+  schemas:
+    PackageImportJobType:
+      type: string
+      enum:
+      - NODE_PACKAGE_VERSION
+      - MARKETPLACE_NODE_PACKAGE_VERSION
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    PackageVersionOutputConfig:
+      type: object
+      required:
+      - PackageName
+      - PackageVersion
+      properties:
+        MarkLatest:
+          allOf:
+          - $ref: '#/components/schemas/MarkLatestPatch'
+          - description: Indicates that the version is recommended for all users.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The output's package name.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The output's package version.
+      description: A package version output configuration.
+    AccessDeniedException: {}
+    NodePackageId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_\/]+$
+      minLength: 1
+      maxLength: 255
+    PrincipalArnsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrincipalArn'
+    JobResourceType:
+      type: string
+      enum:
+      - PACKAGE
+    PackageImportJobStatusMessage:
+      type: string
+    PackageImportJobOutputConfig:
+      type: object
+      properties:
+        PackageVersionOutputConfig:
+          allOf:
+          - $ref: '#/components/schemas/PackageVersionOutputConfig'
+          - description: The package version's output configuration.
+      description: An output configuration for a package import job.
+    NodePackageVersion:
+      type: string
+      pattern: ^([0-9]+)\.([0-9]+)$
+      minLength: 1
+      maxLength: 255
+    NodePackagePatchVersion:
+      type: string
+      pattern: ^[a-z0-9]+$
+      minLength: 1
+      maxLength: 255
+    ConflictException: {}
+    CreateNodeFromTemplateJobResponse:
+      type: object
+      required:
+      - JobId
+      properties:
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+    ClientToken:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 64
+    BucketName:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    PackageListItem:
+      type: object
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageArn'
+          - description: The package's ARN.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the package was created.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The package's ID.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The package's name.
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The package's tags.
+      description: A package summary.
+    PackageOwnerAccount:
+      type: string
+      pattern: ^[0-9a-z\_]+$
+      minLength: 1
+      maxLength: 12
+    OutPutS3Location:
+      type: object
+      required:
+      - BucketName
+      - ObjectKey
+      properties:
+        BucketName:
+          allOf:
+          - $ref: '#/components/schemas/BucketName'
+          - description: The object's bucket.
+        ObjectKey:
+          allOf:
+          - $ref: '#/components/schemas/ObjectKey'
+          - description: The object's key.
+      description: The location of an output object in Amazon S3.
+    TemplateParametersMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/TemplateValue'
+    ListPackagesResponse:
+      type: object
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+        Packages:
+          allOf:
+          - $ref: '#/components/schemas/PackageList'
+          - description: A list of packages.
+    PackageImportJobOutput:
+      type: object
+      required:
+      - OutputS3Location
+      - PackageId
+      - PackageVersion
+      - PatchVersion
+      properties:
+        OutputS3Location:
+          allOf:
+          - $ref: '#/components/schemas/OutPutS3Location'
+          - description: The package's output location.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The package's ID.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The package's version.
+        PatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The package's patch version.
+      description: Results of a package import job.
+    Bucket:
+      type: string
+    LastUpdatedTime:
+      type: string
+      format: date-time
+    ListNodeFromTemplateJobsResponse:
+      type: object
+      required:
+      - NodeFromTemplateJobs
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+        NodeFromTemplateJobs:
+          allOf:
+          - $ref: '#/components/schemas/NodeFromTemplateJobList'
+          - description: A list of jobs.
+    TemplateValue:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+      format: password
+    PackageList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PackageListItem'
+    ListPackageImportJobsResponse:
+      type: object
+      required:
+      - PackageImportJobs
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+        PackageImportJobs:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobList'
+          - description: A list of package import jobs.
+    NodeFromTemplateJobStatus:
+      type: string
+      enum:
+      - PENDING
+      - SUCCEEDED
+      - FAILED
+    S3Location:
+      type: object
+      required:
+      - BucketName
+      - ObjectKey
+      properties:
+        BucketName:
+          allOf:
+          - $ref: '#/components/schemas/BucketName'
+          - description: A bucket name.
+        ObjectKey:
+          allOf:
+          - $ref: '#/components/schemas/ObjectKey'
+          - description: An object key.
+        Region:
+          allOf:
+          - $ref: '#/components/schemas/Region'
+          - description: The bucket's Region.
+      description: A location in Amazon S3.
+    JobTagsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/JobResourceTags'
+    PackageVersionInputConfig:
+      type: object
+      required:
+      - S3Location
+      properties:
+        S3Location:
+          allOf:
+          - $ref: '#/components/schemas/S3Location'
+          - description: A location in Amazon S3.
+      description: A package version input configuration.
+    TagValue:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 256
+    Region:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    DescribePackageVersionResponse:
+      type: object
+      required:
+      - IsLatestPatch
+      - PackageId
+      - PackageName
+      - PackageVersion
+      - PatchVersion
+      - Status
+      properties:
+        IsLatestPatch:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Whether the version is the latest available.
+        OwnerAccount:
+          allOf:
+          - $ref: '#/components/schemas/PackageOwnerAccount'
+          - description: The account ID of the version's owner.
+        PackageArn:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageArn'
+          - description: The ARN of the package.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The version's ID.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The version's name.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The version's version.
+        PatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The version's patch version.
+        RegisteredTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: The version's registered time.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/PackageVersionStatus'
+          - description: The version's status.
+        StatusDescription:
+          allOf:
+          - $ref: '#/components/schemas/PackageVersionStatusDescription'
+          - description: The version's status description.
+    PackageVersionStatus:
+      type: string
+      enum:
+      - REGISTER_PENDING
+      - REGISTER_COMPLETED
+      - FAILED
+      - DELETING
+    Description:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 255
+    CreatePackageImportJobResponse:
+      type: object
+      required:
+      - JobId
+      properties:
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+    DescribePackageImportJobResponse:
+      type: object
+      required:
+      - CreatedTime
+      - InputConfig
+      - JobId
+      - JobType
+      - LastUpdatedTime
+      - Output
+      - OutputConfig
+      - Status
+      - StatusMessage
+      properties:
+        ClientToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientToken'
+          - description: The job's client token.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTime'
+          - description: When the job was created.
+        InputConfig:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobInputConfig'
+          - description: The job's input config.
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+        JobTags:
+          allOf:
+          - $ref: '#/components/schemas/JobTagsList'
+          - description: The job's tags.
+        JobType:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobType'
+          - description: The job's type.
+        LastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedTime'
+          - description: When the job was updated.
+        Output:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobOutput'
+          - description: The job's output.
+        OutputConfig:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobOutputConfig'
+          - description: The job's output config.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobStatus'
+          - description: The job's status.
+        StatusMessage:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobStatusMessage'
+          - description: The job's status message.
+    CreatedTime:
+      type: string
+      format: date-time
+    PackageImportJobList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PackageImportJob'
+    NodeFromTemplateJob:
+      type: object
+      properties:
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTime'
+          - description: When the job was created.
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+        NodeName:
+          allOf:
+          - $ref: '#/components/schemas/NodeName'
+          - description: The node's name.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/NodeFromTemplateJobStatus'
+          - description: The job's status.
+        StatusMessage:
+          allOf:
+          - $ref: '#/components/schemas/NodeFromTemplateJobStatusMessage'
+          - description: The job's status message.
+        TemplateType:
+          allOf:
+          - $ref: '#/components/schemas/TemplateType'
+          - description: The job's template type.
+      description: A job to create a camera stream node.
+    DescribeNodeFromTemplateJobResponse:
+      type: object
+      required:
+      - CreatedTime
+      - JobId
+      - LastUpdatedTime
+      - NodeName
+      - OutputPackageName
+      - OutputPackageVersion
+      - Status
+      - StatusMessage
+      - TemplateParameters
+      - TemplateType
+      properties:
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTime'
+          - description: When the job was created.
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+        JobTags:
+          allOf:
+          - $ref: '#/components/schemas/JobTagsList'
+          - description: The job's tags.
+        LastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedTime'
+          - description: When the job was updated.
+        NodeDescription:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The node's description.
+        NodeName:
+          allOf:
+          - $ref: '#/components/schemas/NodeName'
+          - description: The node's name.
+        OutputPackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The job's output package name.
+        OutputPackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The job's output package version.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/NodeFromTemplateJobStatus'
+          - description: The job's status.
+        StatusMessage:
+          allOf:
+          - $ref: '#/components/schemas/NodeFromTemplateJobStatusMessage'
+          - description: The job's status message.
+        TemplateParameters:
+          allOf:
+          - $ref: '#/components/schemas/TemplateParametersMap'
+          - description: The job's template parameters.
+        TemplateType:
+          allOf:
+          - $ref: '#/components/schemas/TemplateType'
+          - description: The job's template type.
+    TimeStamp:
+      type: string
+      format: date-time
+    ResourceNotFoundException: {}
+    CreatePackageResponse:
+      type: object
+      required:
+      - StorageLocation
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageArn'
+          - description: The package's ARN.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The package's ID.
+        StorageLocation:
+          allOf:
+          - $ref: '#/components/schemas/StorageLocation'
+          - description: The package's storage location.
+    DeletePackageResponse:
+      type: object
+      properties: {}
+    ValidationException: {}
+    PrincipalArn:
+      type: string
+      pattern: ^arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:[a-zA-Z0-9+=,.@\-_/]+$
+      minLength: 1
+      maxLength: 255
+    InternalServerException: {}
+    NodePackageName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    NodeFromTemplateJobStatusMessage:
+      type: string
+    NodePackageArn:
+      type: string
+      minLength: 1
+      maxLength: 255
+    RegisterPackageVersionResponse:
+      type: object
+      properties: {}
+    DeregisterPackageVersionResponse:
+      type: object
+      properties: {}
+    PackageImportJobInputConfig:
+      type: object
+      properties:
+        PackageVersionInputConfig:
+          allOf:
+          - $ref: '#/components/schemas/PackageVersionInputConfig'
+          - description: The package version's input configuration.
+      description: A configuration for a package import job.
+    ObjectKey:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    JobResourceTags:
+      type: object
+      required:
+      - ResourceType
+      - Tags
+      properties:
+        ResourceType:
+          allOf:
+          - $ref: '#/components/schemas/JobResourceType'
+          - description: The job's type.
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The job's tags.
+      description: Tags for a job.
+    Object:
+      type: string
+    NextToken:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 4096
+    PackageVersionStatusDescription:
+      type: string
+      minLength: 1
+      maxLength: 255
+    JobId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    StorageLocation:
+      type: object
+      required:
+      - BinaryPrefixLocation
+      - Bucket
+      - GeneratedPrefixLocation
+      - ManifestPrefixLocation
+      - RepoPrefixLocation
+      properties:
+        BinaryPrefixLocation:
+          allOf:
+          - $ref: '#/components/schemas/Object'
+          - description: The location's binary prefix.
+        Bucket:
+          allOf:
+          - $ref: '#/components/schemas/Bucket'
+          - description: The location's bucket.
+        GeneratedPrefixLocation:
+          allOf:
+          - $ref: '#/components/schemas/Object'
+          - description: The location's generated prefix.
+        ManifestPrefixLocation:
+          allOf:
+          - $ref: '#/components/schemas/Object'
+          - description: The location's manifest prefix.
+        RepoPrefixLocation:
+          allOf:
+          - $ref: '#/components/schemas/Object'
+          - description: The location's repo prefix.
+      description: A storage location.
+    MarkLatestPatch:
+      type: boolean
+    PackageImportJob:
+      type: object
+      properties:
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTime'
+          - description: When the job was created.
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+        JobType:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobType'
+          - description: The job's type.
+        LastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedTime'
+          - description: When the job was updated.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobStatus'
+          - description: The job's status.
+        StatusMessage:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobStatusMessage'
+          - description: The job's status message.
+      description: A job to import a package version.
+    TemplateType:
+      type: string
+      enum:
+      - RTSP_CAMERA_STREAM
+    PackageImportJobStatus:
+      type: string
+      enum:
+      - PENDING
+      - SUCCEEDED
+      - FAILED
+    NodeName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    NodeFromTemplateJobList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeFromTemplateJob'
+    Boolean:
+      type: boolean
+    DescribePackageResponse:
+      type: object
+      required:
+      - Arn
+      - CreatedTime
+      - PackageId
+      - PackageName
+      - StorageLocation
+      - Tags
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageArn'
+          - description: The package's ARN.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the package was created.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The package's ID.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The package's name.
+        ReadAccessPrincipalArns:
+          allOf:
+          - $ref: '#/components/schemas/PrincipalArnsList'
+          - description: ARNs of accounts that have read access to the package.
+        StorageLocation:
+          allOf:
+          - $ref: '#/components/schemas/StorageLocation'
+          - description: The package's storage location.
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The package's tags.
+        WriteAccessPrincipalArns:
+          allOf:
+          - $ref: '#/components/schemas/PrincipalArnsList'
+          - description: ARNs of accounts that have write access to the package.
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/panorama/
+x-hasEquivalentPaths: true

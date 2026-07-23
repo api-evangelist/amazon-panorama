@@ -1,0 +1,688 @@
+openapi: 3.0.0
+info:
+  version: '2019-07-24'
+  x-release: v4
+  title: AWS Panorama Application Instances Nodes API
+  description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: panorama
+  x-aws-signingName: panorama
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/panorama-2019-07-24.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://panorama.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Panorama multi-region endpoint
+- url: https://panorama.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Panorama multi-region endpoint
+- url: http://panorama.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Panorama endpoint for China (Beijing) and China (Ningxia)
+- url: https://panorama.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Panorama endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Nodes
+paths:
+  /nodes/{NodeId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribeNode
+      description: Returns information about a node.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeNodeResponse'
+              examples:
+                DescribeNode200Example:
+                  summary: Default DescribeNode 200 response
+                  x-microcks-default: true
+                  value:
+                    AssetName: my-resource
+                    Category: example-string
+                    CreatedTime: example-string
+                    Description: example-string
+                    LastUpdatedTime: example-string
+                    Name: my-resource
+                    NodeId: resource-abc123
+                    NodeInterface: example-string
+                    OwnerAccount: example-string
+                    PackageArn: arn:aws:service:us-east-1:123456789012:resource/example
+                    PackageId: resource-abc123
+                    PackageName: my-resource
+                    PackageVersion: 1.0.0
+                    PatchVersion: 1.0.0
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: NodeId
+        in: path
+        required: true
+        description: The node's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_\.]+$
+          minLength: 1
+          maxLength: 255
+      - name: OwnerAccount
+        in: query
+        required: false
+        description: The account ID of the node's owner.
+        schema:
+          type: string
+          pattern: ^[0-9a-z\_]+$
+          minLength: 1
+          maxLength: 12
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Describe Node
+      tags:
+      - Nodes
+  /nodes:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: ListNodes
+      description: Returns a list of nodes.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListNodesResponse'
+              examples:
+                ListNodes200Example:
+                  summary: Default ListNodes 200 response
+                  x-microcks-default: true
+                  value:
+                    NextToken: example-string
+                    Nodes: example-string
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: category
+        in: query
+        required: false
+        description: Search for nodes by category.
+        schema:
+          type: string
+          enum:
+          - BUSINESS_LOGIC
+          - ML_MODEL
+          - MEDIA_SOURCE
+          - MEDIA_SINK
+      - name: maxResults
+        in: query
+        required: false
+        description: The maximum number of nodes to return in one page of results.
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 25
+      - name: nextToken
+        in: query
+        required: false
+        description: Specify the pagination token from a previous request to retrieve the next page of results.
+        schema:
+          type: string
+          pattern: ^.+$
+          minLength: 1
+          maxLength: 4096
+      - name: ownerAccount
+        in: query
+        required: false
+        description: Search for nodes by the account ID of the nodes' owner.
+        schema:
+          type: string
+          pattern: ^[0-9a-z\_]+$
+          minLength: 1
+          maxLength: 12
+      - name: packageName
+        in: query
+        required: false
+        description: Search for nodes by name.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 128
+      - name: packageVersion
+        in: query
+        required: false
+        description: Search for nodes by version.
+        schema:
+          type: string
+          pattern: ^([0-9]+)\.([0-9]+)$
+          minLength: 1
+          maxLength: 255
+      - name: patchVersion
+        in: query
+        required: false
+        description: Search for nodes by patch version.
+        schema:
+          type: string
+          pattern: ^[a-z0-9]+$
+          minLength: 1
+          maxLength: 255
+      - name: MaxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama List Nodes
+      tags:
+      - Nodes
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    NodeOutputPort:
+      type: object
+      properties:
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The output port's description.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/PortName'
+          - description: The output port's name.
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/PortType'
+          - description: The output port's type.
+      description: A node output port.
+    NodeCategory:
+      type: string
+      enum:
+      - BUSINESS_LOGIC
+      - ML_MODEL
+      - MEDIA_SOURCE
+      - MEDIA_SINK
+    NodePackageArn:
+      type: string
+      minLength: 1
+      maxLength: 255
+    DescribeNodeResponse:
+      type: object
+      required:
+      - Category
+      - CreatedTime
+      - Description
+      - LastUpdatedTime
+      - Name
+      - NodeId
+      - NodeInterface
+      - OwnerAccount
+      - PackageId
+      - PackageName
+      - PackageVersion
+      - PatchVersion
+      properties:
+        AssetName:
+          allOf:
+          - $ref: '#/components/schemas/NodeAssetName'
+          - description: The node's asset name.
+        Category:
+          allOf:
+          - $ref: '#/components/schemas/NodeCategory'
+          - description: The node's category.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the node was created.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The node's description.
+        LastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the node was updated.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/NodeName'
+          - description: The node's name.
+        NodeId:
+          allOf:
+          - $ref: '#/components/schemas/NodeId'
+          - description: The node's ID.
+        NodeInterface:
+          allOf:
+          - $ref: '#/components/schemas/NodeInterface'
+          - description: The node's interface.
+        OwnerAccount:
+          allOf:
+          - $ref: '#/components/schemas/PackageOwnerAccount'
+          - description: The account ID of the node's owner.
+        PackageArn:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageArn'
+          - description: The node's ARN.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The node's package ID.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The node's package name.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The node's package version.
+        PatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The node's patch version.
+    Description:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 255
+    PortName:
+      type: string
+      pattern: ^[a-zA-Z0-9\_]+$
+      minLength: 1
+      maxLength: 50
+    ListNodesResponse:
+      type: object
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A pagination token that's included if more results are available.
+        Nodes:
+          allOf:
+          - $ref: '#/components/schemas/NodesList'
+          - description: A list of nodes.
+    InputPortList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeInputPort'
+    Token:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 4096
+    PackageOwnerAccount:
+      type: string
+      pattern: ^[0-9a-z\_]+$
+      minLength: 1
+      maxLength: 12
+    PortType:
+      type: string
+      enum:
+      - BOOLEAN
+      - STRING
+      - INT32
+      - FLOAT32
+      - MEDIA
+    OutputPortList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeOutputPort'
+    PortDefaultValue:
+      type: string
+      minLength: 1
+      maxLength: 255
+    NodeInputPort:
+      type: object
+      properties:
+        DefaultValue:
+          allOf:
+          - $ref: '#/components/schemas/PortDefaultValue'
+          - description: The input port's default value.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The input port's description.
+        MaxConnections:
+          allOf:
+          - $ref: '#/components/schemas/MaxConnections'
+          - description: The input port's max connections.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/PortName'
+          - description: The input port's name.
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/PortType'
+          - description: The input port's type.
+      description: A node input port.
+    NodesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Node'
+    AccessDeniedException: {}
+    Node:
+      type: object
+      required:
+      - Category
+      - CreatedTime
+      - Name
+      - NodeId
+      - PackageId
+      - PackageName
+      - PackageVersion
+      - PatchVersion
+      properties:
+        Category:
+          allOf:
+          - $ref: '#/components/schemas/NodeCategory'
+          - description: The node's category.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the node was created.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The node's description.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/NodeName'
+          - description: The node's name.
+        NodeId:
+          allOf:
+          - $ref: '#/components/schemas/NodeId'
+          - description: The node's ID.
+        OwnerAccount:
+          allOf:
+          - $ref: '#/components/schemas/PackageOwnerAccount'
+          - description: The account ID of the node's owner.
+        PackageArn:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageArn'
+          - description: The node's ARN.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The node's package ID.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The node's package name.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The node's package version.
+        PatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The node's patch version.
+      description: An application node that represents a camera stream, a model, code, or output.
+    NodePackageId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_\/]+$
+      minLength: 1
+      maxLength: 255
+    TimeStamp:
+      type: string
+      format: date-time
+    MaxConnections:
+      type: integer
+    ResourceNotFoundException: {}
+    NodeInterface:
+      type: object
+      required:
+      - Inputs
+      - Outputs
+      properties:
+        Inputs:
+          allOf:
+          - $ref: '#/components/schemas/InputPortList'
+          - description: The node interface's inputs.
+        Outputs:
+          allOf:
+          - $ref: '#/components/schemas/OutputPortList'
+          - description: The node interface's outputs.
+      description: A node interface.
+    NodeId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_\.]+$
+      minLength: 1
+      maxLength: 255
+    NodePackageVersion:
+      type: string
+      pattern: ^([0-9]+)\.([0-9]+)$
+      minLength: 1
+      maxLength: 255
+    NodePackagePatchVersion:
+      type: string
+      pattern: ^[a-z0-9]+$
+      minLength: 1
+      maxLength: 255
+    ConflictException: {}
+    NodeName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    ValidationException: {}
+    NodeAssetName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    InternalServerException: {}
+    NodePackageName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/panorama/
+x-hasEquivalentPaths: true

@@ -1,0 +1,604 @@
+openapi: 3.0.0
+info:
+  version: '2019-07-24'
+  x-release: v4
+  title: AWS Panorama Application Instances Jobs API
+  description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: panorama
+  x-aws-signingName: panorama
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/panorama-2019-07-24.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://panorama.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Panorama multi-region endpoint
+- url: https://panorama.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Panorama multi-region endpoint
+- url: http://panorama.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Panorama endpoint for China (Beijing) and China (Ningxia)
+- url: https://panorama.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Panorama endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: Jobs
+paths:
+  /jobs:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateJobForDevices
+      description: Creates a job to run on a device. A job can update a device's software or reboot it.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateJobForDevicesResponse'
+              examples:
+                CreateJobForDevices200Example:
+                  summary: Default CreateJobForDevices 200 response
+                  x-microcks-default: true
+                  value:
+                    Jobs: example-string
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - DeviceIds
+              - JobType
+              properties:
+                DeviceIds:
+                  description: ID of target device.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/DeviceId'
+                  minItems: 1
+                  maxItems: 1
+                DeviceJobConfig:
+                  description: A job's configuration.
+                  type: object
+                  properties:
+                    OTAJobConfig:
+                      allOf:
+                      - $ref: '#/components/schemas/OTAJobConfig'
+                      - description: A configuration for an over-the-air (OTA) upgrade. Required for OTA jobs.
+                JobType:
+                  description: The type of job to run.
+                  type: string
+                  enum:
+                  - OTA
+                  - REBOOT
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Create Job for Devices
+      tags:
+      - Jobs
+    get:
+      operationId: ListDevicesJobs
+      description: Returns a list of jobs.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDevicesJobsResponse'
+              examples:
+                ListDevicesJobs200Example:
+                  summary: Default ListDevicesJobs 200 response
+                  x-microcks-default: true
+                  value:
+                    DeviceJobs: example-string
+                    NextToken: example-string
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: DeviceId
+        in: query
+        required: false
+        description: Filter results by the job's target device ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      - name: MaxResults
+        in: query
+        required: false
+        description: The maximum number of device jobs to return in one page of results.
+        schema:
+          type: integer
+          minimum: 0
+          maximum: 25
+      - name: NextToken
+        in: query
+        required: false
+        description: Specify the pagination token from a previous request to retrieve the next page of results.
+        schema:
+          type: string
+          pattern: ^.+$
+          minLength: 1
+          maxLength: 4096
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama List Devices Jobs
+      tags:
+      - Jobs
+  /jobs/{JobId}:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    get:
+      operationId: DescribeDeviceJob
+      description: Returns information about a device job.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeDeviceJobResponse'
+              examples:
+                DescribeDeviceJob200Example:
+                  summary: Default DescribeDeviceJob 200 response
+                  x-microcks-default: true
+                  value:
+                    CreatedTime: example-string
+                    DeviceArn: arn:aws:service:us-east-1:123456789012:resource/example
+                    DeviceId: resource-abc123
+                    DeviceName: my-resource
+                    DeviceType: standard
+                    ImageVersion: 1.0.0
+                    JobId: resource-abc123
+                    JobType: standard
+                    Status: active
+        '480':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '484':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      parameters:
+      - name: JobId
+        in: path
+        required: true
+        description: The job's ID.
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-\_]+$
+          minLength: 1
+          maxLength: 255
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Panorama Describe Device Job
+      tags:
+      - Jobs
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    DeviceArn:
+      type: string
+      minLength: 1
+      maxLength: 255
+    DeviceJobList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DeviceJob'
+    ListDevicesJobsResponse:
+      type: object
+      properties:
+        DeviceJobs:
+          allOf:
+          - $ref: '#/components/schemas/DeviceJobList'
+          - description: A list of jobs.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+    DeviceJob:
+      type: object
+      properties:
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTime'
+          - description: When the job was created.
+        DeviceId:
+          allOf:
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The ID of the target device.
+        DeviceName:
+          allOf:
+          - $ref: '#/components/schemas/DeviceName'
+          - description: The name of the target device
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+        JobType:
+          allOf:
+          - $ref: '#/components/schemas/JobType'
+          - description: The job's type.
+      description: A job that runs on a device.
+    NextToken:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 4096
+    UpdateCreatedTime:
+      type: string
+      format: date-time
+    ImageVersion:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    OTAJobConfig:
+      type: object
+      required:
+      - ImageVersion
+      properties:
+        AllowMajorVersionUpdate:
+          allOf:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Whether to apply the update if it is a major version change.
+        ImageVersion:
+          allOf:
+          - $ref: '#/components/schemas/ImageVersion'
+          - description: The target version of the device software.
+      description: An over-the-air update (OTA) job configuration.
+    CreatedTime:
+      type: string
+      format: date-time
+    AccessDeniedException: {}
+    JobId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    Job:
+      type: object
+      properties:
+        DeviceId:
+          allOf:
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The target device's ID.
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+      description: A job for a device.
+    CreateJobForDevicesResponse:
+      type: object
+      required:
+      - Jobs
+      properties:
+        Jobs:
+          allOf:
+          - $ref: '#/components/schemas/JobList'
+          - description: A list of jobs.
+    UpdateProgress:
+      type: string
+      enum:
+      - PENDING
+      - IN_PROGRESS
+      - VERIFYING
+      - REBOOTING
+      - DOWNLOADING
+      - COMPLETED
+      - FAILED
+    ResourceNotFoundException: {}
+    JobType:
+      type: string
+      enum:
+      - OTA
+      - REBOOT
+    JobList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Job'
+    ConflictException: {}
+    Boolean:
+      type: boolean
+    DeviceType:
+      type: string
+      enum:
+      - PANORAMA_APPLIANCE_DEVELOPER_KIT
+      - PANORAMA_APPLIANCE
+    ValidationException: {}
+    DeviceId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    InternalServerException: {}
+    DescribeDeviceJobResponse:
+      type: object
+      properties:
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/UpdateCreatedTime'
+          - description: When the job was created.
+        DeviceArn:
+          allOf:
+          - $ref: '#/components/schemas/DeviceArn'
+          - description: The device's ARN.
+        DeviceId:
+          allOf:
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The device's ID.
+        DeviceName:
+          allOf:
+          - $ref: '#/components/schemas/DeviceName'
+          - description: The device's name.
+        DeviceType:
+          allOf:
+          - $ref: '#/components/schemas/DeviceType'
+          - description: The device's type.
+        ImageVersion:
+          allOf:
+          - $ref: '#/components/schemas/ImageVersion'
+          - description: For an OTA job, the target version of the device software.
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+        JobType:
+          allOf:
+          - $ref: '#/components/schemas/JobType'
+          - description: The job's type.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/UpdateProgress'
+          - description: The job's status.
+    DeviceName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/panorama/
+x-hasEquivalentPaths: true
