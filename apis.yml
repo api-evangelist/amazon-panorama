@@ -5,7 +5,20 @@ description: >-
   on-premises cameras. It allows organizations to automate visual inspection tasks, such as gauging production line
   efficiency or identifying bottlenecks in industrial operations.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-panorama.png
 tags:
   - AWS
   - Cameras
@@ -17,29 +30,118 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: amazon-panorama:aws-panorama-api
-    name: AWS Panorama API
-    description: >-
-      The AWS Panorama API provides programmatic access to create and manage appliances, application instances,
-      packages, nodes, and device jobs for deploying computer vision applications to edge cameras.
-    humanURL: https://aws.amazon.com/panorama/
-    baseURL: https://panorama.amazonaws.com
-    tags:
-      - Computer Vision
-      - Edge ML
-      - Industrial IoT
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/panorama/latest/api/Welcome.html
-      - type: OpenAPI
-        url: openapi/amazon-panorama-openapi.yml
-      - type: GettingStarted
-        url: https://aws.amazon.com/panorama/getting-started/
-      - type: Pricing
-        url: https://aws.amazon.com/panorama/pricing/
-      - type: FAQ
-        url: https://aws.amazon.com/panorama/faqs/
+- aid: amazon-panorama:amazon-panorama-application-instances-api
+  name: Amazon Panorama Application Instances API
+  description: >-
+    The Application Instances API from Amazon Panorama — 6 operation(s) for application instances.
+  humanURL: https://aws.amazon.com/panorama/
+  baseURL: https://panorama.amazonaws.com
+  tags:
+  - Application Instances
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-panorama-application-instances-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/panorama/latest/api/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/panorama/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/panorama/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/panorama/faqs/
+- aid: amazon-panorama:amazon-panorama-devices-api
+  name: Amazon Panorama Devices API
+  description: The Devices API from Amazon Panorama — 2 operation(s) for devices.
+  humanURL: https://aws.amazon.com/panorama/
+  baseURL: https://panorama.amazonaws.com
+  tags:
+  - Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-panorama-devices-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/panorama/latest/api/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/panorama/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/panorama/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/panorama/faqs/
+- aid: amazon-panorama:amazon-panorama-jobs-api
+  name: Amazon Panorama Jobs API
+  description: The Jobs API from Amazon Panorama — 2 operation(s) for jobs.
+  humanURL: https://aws.amazon.com/panorama/
+  baseURL: https://panorama.amazonaws.com
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-panorama-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/panorama/latest/api/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/panorama/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/panorama/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/panorama/faqs/
+- aid: amazon-panorama:amazon-panorama-nodes-api
+  name: Amazon Panorama Nodes API
+  description: The Nodes API from Amazon Panorama — 2 operation(s) for nodes.
+  humanURL: https://aws.amazon.com/panorama/
+  baseURL: https://panorama.amazonaws.com
+  tags:
+  - Nodes
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-panorama-nodes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/panorama/latest/api/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/panorama/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/panorama/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/panorama/faqs/
+- aid: amazon-panorama:amazon-panorama-packages-api
+  name: Amazon Panorama Packages API
+  description: The Packages API from Amazon Panorama — 9 operation(s) for packages.
+  humanURL: https://aws.amazon.com/panorama/
+  baseURL: https://panorama.amazonaws.com
+  tags:
+  - Packages
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-panorama-packages-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/panorama/latest/api/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/panorama/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/panorama/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/panorama/faqs/
+- aid: amazon-panorama:amazon-panorama-tags-api
+  name: Amazon Panorama Tags API
+  description: The Tags API from Amazon Panorama — 2 operation(s) for tags.
+  humanURL: https://aws.amazon.com/panorama/
+  baseURL: https://panorama.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-panorama-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/panorama/latest/api/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/panorama/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/panorama/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/panorama/faqs/
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-panorama/overview
   - type: AgenticAccess
     url: agentic-access/amazon-panorama-agentic-access.yml
   - type: TrustCenter
