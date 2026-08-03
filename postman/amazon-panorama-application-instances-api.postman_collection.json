@@ -1,0 +1,3823 @@
+{
+  "info": {
+    "_postman_id": "d9b6a711-a969-4562-9cd6-c9936401299f",
+    "name": "AWS Panorama Application Instances API",
+    "description": "<p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href=\"https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html\">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:41:05.000Z",
+    "updatedAt": "2026-07-28T10:41:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d9b6a711-a969-4562-9cd6-c9936401299f"
+  },
+  "item": [
+    {
+      "name": "application-instances",
+      "item": [
+        {
+          "name": "{ApplicationInstanceId}",
+          "item": [
+            {
+              "name": "details",
+              "item": [
+                {
+                  "name": "Amazon Panorama Describe Application Instance Details",
+                  "id": "a42243d6-4d82-447d-b8a6-1d9e9f677f19",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/details",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId",
+                        "details"
+                      ],
+                      "variable": [
+                        {
+                          "id": "696833e6-3c6b-440c-afaa-a8013d964a02",
+                          "key": "ApplicationInstanceId",
+                          "value": "Xj_De_",
+                          "description": "(Required) The application instance's ID."
+                        }
+                      ]
+                    },
+                    "description": "Returns information about an application instance's configuration manifest."
+                  },
+                  "response": [
+                    {
+                      "id": "d9dd29e9-17f1-4b29-8c53-e3c6f9c17f14",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/details",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "details"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"ApplicationInstanceId\": \"0RT\",\n  \"ApplicationInstanceIdToReplace\": \"_yCk\",\n  \"CreatedTime\": \"<dateTime>\",\n  \"DefaultRuntimeContextDevice\": \"e\",\n  \"Description\": \"\",\n  \"ManifestOverridesPayload\": {\n    \"PayloadData\": \"Q\"\n  },\n  \"ManifestPayload\": {\n    \"PayloadData\": \"oe$sZJ\\\"3{\"\n  },\n  \"Name\": \"Blwe\"\n}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-d9dd29e9-17f1-4b29-8c53-e3c6f9c17f14"
+                    },
+                    {
+                      "id": "92a066d1-1928-4625-84a8-305f8a059cfe",
+                      "name": "ConflictException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/details",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "details"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-92a066d1-1928-4625-84a8-305f8a059cfe"
+                    },
+                    {
+                      "id": "0ddc18a0-c79c-4b40-962b-33f375ab1a53",
+                      "name": "ValidationException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/details",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "details"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-0ddc18a0-c79c-4b40-962b-33f375ab1a53"
+                    },
+                    {
+                      "id": "467b4226-32ed-4237-a90f-5ab0d8c3424c",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/details",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "details"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-467b4226-32ed-4237-a90f-5ab0d8c3424c"
+                    },
+                    {
+                      "id": "f927d719-658e-45b1-9b92-c4391de8c5bc",
+                      "name": "ResourceNotFoundException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/details",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "details"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-f927d719-658e-45b1-9b92-c4391de8c5bc"
+                    },
+                    {
+                      "id": "3b7208d2-845d-431e-8e28-e6c1346c3248",
+                      "name": "InternalServerException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/details",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "details"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-3b7208d2-845d-431e-8e28-e6c1346c3248"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-a42243d6-4d82-447d-b8a6-1d9e9f677f19"
+                }
+              ],
+              "id": "9a9194d0-51bb-42d1-9332-9eeb7e9711bd",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-9a9194d0-51bb-42d1-9332-9eeb7e9711bd"
+            },
+            {
+              "name": "package-dependencies",
+              "item": [
+                {
+                  "name": "Amazon Panorama List Application Instance Dependencies",
+                  "id": "f682e4c8-3212-4049-addc-4654b45217f6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/package-dependencies?maxResults=<integer>&nextToken=)%26W&MaxResults=<string>&NextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId",
+                        "package-dependencies"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of application instance dependencies to return in one page of results.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                          "key": "nextToken",
+                          "value": ")&W"
+                        },
+                        {
+                          "description": "Pagination limit",
+                          "key": "MaxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "NextToken",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "e3b6f875-5182-446e-a91b-43d3a801400a",
+                          "key": "ApplicationInstanceId",
+                          "value": "Xj_De_",
+                          "description": "(Required) The application instance's ID."
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of application instance dependencies."
+                  },
+                  "response": [
+                    {
+                      "id": "9de32680-5583-4680-8b54-d5572fb74eff",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/package-dependencies?maxResults=<integer>&nextToken=)%26W&MaxResults=<string>&NextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "package-dependencies"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of application instance dependencies to return in one page of results.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                              "key": "nextToken",
+                              "value": ")&W"
+                            },
+                            {
+                              "description": "Pagination limit",
+                              "key": "MaxResults",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Pagination token",
+                              "key": "NextToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"NextToken\": \"+~*fZ\",\n  \"PackageObjects\": [\n    {\n      \"Name\": \"No\",\n      \"PackageVersion\": \"277.9833\",\n      \"PatchVersion\": \"om2oomnm66a\"\n    },\n    {\n      \"Name\": \"Uf_r\",\n      \"PackageVersion\": \"69455706.62\",\n      \"PatchVersion\": \"9xyoev\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-9de32680-5583-4680-8b54-d5572fb74eff"
+                    },
+                    {
+                      "id": "2f902478-859a-4195-bd20-a52aa4208656",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/package-dependencies?maxResults=<integer>&nextToken=)%26W&MaxResults=<string>&NextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "package-dependencies"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of application instance dependencies to return in one page of results.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                              "key": "nextToken",
+                              "value": ")&W"
+                            },
+                            {
+                              "description": "Pagination limit",
+                              "key": "MaxResults",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Pagination token",
+                              "key": "NextToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-2f902478-859a-4195-bd20-a52aa4208656"
+                    },
+                    {
+                      "id": "2ffd2eda-27f8-4b2e-b857-9a2bcfaf90da",
+                      "name": "InternalServerException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/package-dependencies?maxResults=<integer>&nextToken=)%26W&MaxResults=<string>&NextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "package-dependencies"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of application instance dependencies to return in one page of results.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                              "key": "nextToken",
+                              "value": ")&W"
+                            },
+                            {
+                              "description": "Pagination limit",
+                              "key": "MaxResults",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Pagination token",
+                              "key": "NextToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-2ffd2eda-27f8-4b2e-b857-9a2bcfaf90da"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-f682e4c8-3212-4049-addc-4654b45217f6"
+                }
+              ],
+              "id": "a9539c01-31b9-4ab0-840e-cd2afa553c07",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-a9539c01-31b9-4ab0-840e-cd2afa553c07"
+            },
+            {
+              "name": "node-instances",
+              "item": [
+                {
+                  "name": "Amazon Panorama List Application Instance Node Instances",
+                  "id": "b1404ded-10f3-4a4b-96b9-a1f49f662053",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/node-instances?maxResults=<integer>&nextToken=)%26W&MaxResults=<string>&NextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId",
+                        "node-instances"
+                      ],
+                      "query": [
+                        {
+                          "description": "The maximum number of node instances to return in one page of results.",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                          "key": "nextToken",
+                          "value": ")&W"
+                        },
+                        {
+                          "description": "Pagination limit",
+                          "key": "MaxResults",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Pagination token",
+                          "key": "NextToken",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "fcb69900-2a5a-452c-bb3c-2d1050e05461",
+                          "key": "ApplicationInstanceId",
+                          "value": "Xj_De_",
+                          "description": "(Required) The node instances' application instance ID."
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of application node instances."
+                  },
+                  "response": [
+                    {
+                      "id": "ac3b883f-0565-4ef0-9698-6327876455c3",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/node-instances?maxResults=<integer>&nextToken=)%26W&MaxResults=<string>&NextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "node-instances"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of node instances to return in one page of results.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                              "key": "nextToken",
+                              "value": ")&W"
+                            },
+                            {
+                              "description": "Pagination limit",
+                              "key": "MaxResults",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Pagination token",
+                              "key": "NextToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"NextToken\": \"4-\",\n  \"NodeInstances\": [\n    {\n      \"CurrentStatus\": \"ERROR\",\n      \"NodeInstanceId\": \"-4Dwfv\",\n      \"NodeId\": \"qn2KbdM47s\",\n      \"NodeName\": \"BageGo8k0A\",\n      \"PackageName\": \"paS\",\n      \"PackagePatchVersion\": \"6pwdbp\",\n      \"PackageVersion\": \"775884.255652\"\n    },\n    {\n      \"CurrentStatus\": \"ERROR\",\n      \"NodeInstanceId\": \"KTMDaU3P\",\n      \"NodeId\": \"xiGefYyeic\",\n      \"NodeName\": \"hqa\",\n      \"PackageName\": \"PUL7NjXh5Pj\",\n      \"PackagePatchVersion\": \"ma6t\",\n      \"PackageVersion\": \"30488519.5075625\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-ac3b883f-0565-4ef0-9698-6327876455c3"
+                    },
+                    {
+                      "id": "8be2a4a4-b8af-43d3-b4ee-ef5ff165527e",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/node-instances?maxResults=<integer>&nextToken=)%26W&MaxResults=<string>&NextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "node-instances"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of node instances to return in one page of results.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                              "key": "nextToken",
+                              "value": ")&W"
+                            },
+                            {
+                              "description": "Pagination limit",
+                              "key": "MaxResults",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Pagination token",
+                              "key": "NextToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-8be2a4a4-b8af-43d3-b4ee-ef5ff165527e"
+                    },
+                    {
+                      "id": "be918dc2-3ca1-4135-861d-a4bbf4ceb040",
+                      "name": "InternalServerException",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/node-instances?maxResults=<integer>&nextToken=)%26W&MaxResults=<string>&NextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "node-instances"
+                          ],
+                          "query": [
+                            {
+                              "description": "The maximum number of node instances to return in one page of results.",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                              "key": "nextToken",
+                              "value": ")&W"
+                            },
+                            {
+                              "description": "Pagination limit",
+                              "key": "MaxResults",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Pagination token",
+                              "key": "NextToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-be918dc2-3ca1-4135-861d-a4bbf4ceb040"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-b1404ded-10f3-4a4b-96b9-a1f49f662053"
+                }
+              ],
+              "id": "b07b1bbe-3762-422e-9d5b-385dcfec4194",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-b07b1bbe-3762-422e-9d5b-385dcfec4194"
+            },
+            {
+              "name": "node-signals",
+              "item": [
+                {
+                  "name": "Amazon Panorama Signal Application Instance Node Instances",
+                  "id": "e8b5cb14-7484-4247-9c33-4f0e51aa3d81",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"NodeSignals\": [\n    {\n      \"NodeInstanceId\": \"GRSsPtQt\",\n      \"Signal\": \"RESUME\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/node-signals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId",
+                        "node-signals"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5b29190e-ac39-4b58-884e-7683dc8c9fd9",
+                          "key": "ApplicationInstanceId",
+                          "value": "Xj_De_",
+                          "description": "(Required) An application instance ID."
+                        }
+                      ]
+                    },
+                    "description": "Signal camera nodes to stop or resume."
+                  },
+                  "response": [
+                    {
+                      "id": "292034fd-d653-42b4-b8d4-868a44e2f479",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"NodeSignals\": [\n    {\n      \"NodeInstanceId\": \"GRSsPtQt\",\n      \"Signal\": \"RESUME\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/node-signals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "node-signals"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"ApplicationInstanceId\": \"kLYzX\"\n}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-292034fd-d653-42b4-b8d4-868a44e2f479"
+                    },
+                    {
+                      "id": "65070f5c-3c69-4962-81d7-9de136bcb200",
+                      "name": "ValidationException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"NodeSignals\": [\n    {\n      \"NodeInstanceId\": \"GRSsPtQt\",\n      \"Signal\": \"RESUME\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/node-signals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "node-signals"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-65070f5c-3c69-4962-81d7-9de136bcb200"
+                    },
+                    {
+                      "id": "398ef31e-bb50-44a4-815e-61a0dbddc6d6",
+                      "name": "AccessDeniedException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"NodeSignals\": [\n    {\n      \"NodeInstanceId\": \"GRSsPtQt\",\n      \"Signal\": \"RESUME\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/node-signals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "node-signals"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-398ef31e-bb50-44a4-815e-61a0dbddc6d6"
+                    },
+                    {
+                      "id": "e535cf0e-adbe-4cf2-96c6-124747cf03ed",
+                      "name": "ServiceQuotaExceededException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"NodeSignals\": [\n    {\n      \"NodeInstanceId\": \"GRSsPtQt\",\n      \"Signal\": \"RESUME\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/node-signals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "node-signals"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-e535cf0e-adbe-4cf2-96c6-124747cf03ed"
+                    },
+                    {
+                      "id": "31a8fbe2-2d68-4a95-897f-fd8784d73e63",
+                      "name": "InternalServerException",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "X-Amz-Content-Sha256",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Date",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Algorithm",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Credential",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Security-Token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-Signature",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "X-Amz-SignedHeaders",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"NodeSignals\": [\n    {\n      \"NodeInstanceId\": \"GRSsPtQt\",\n      \"Signal\": \"RESUME\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId/node-signals",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "application-instances",
+                            ":ApplicationInstanceId",
+                            "node-signals"
+                          ],
+                          "variable": [
+                            {
+                              "key": "ApplicationInstanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T10:41:05.000Z",
+                      "updatedAt": "2026-07-28T10:41:05.000Z",
+                      "uid": "35240-31a8fbe2-2d68-4a95-897f-fd8784d73e63"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-e8b5cb14-7484-4247-9c33-4f0e51aa3d81"
+                }
+              ],
+              "id": "c5e69a5b-866f-4828-b26c-f96a12d44c3f",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-c5e69a5b-866f-4828-b26c-f96a12d44c3f"
+            },
+            {
+              "name": "Amazon Panorama Describe Application Instance",
+              "id": "7f032d50-5413-4c33-99cf-dc0c7a6879ae",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application-instances",
+                    ":ApplicationInstanceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4bfeefab-712e-4c12-a16f-48504568489d",
+                      "key": "ApplicationInstanceId",
+                      "value": "Xj_De_",
+                      "description": "(Required) The application instance's ID."
+                    }
+                  ]
+                },
+                "description": "Returns information about an application instance on a device."
+              },
+              "response": [
+                {
+                  "id": "c550b9c9-be1c-4466-b17f-0caaccd0ca53",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"ApplicationInstanceId\": \"h82mPg\",\n  \"ApplicationInstanceIdToReplace\": \"MC\",\n  \"Arn\": \"<string>\",\n  \"CreatedTime\": \"<dateTime>\",\n  \"DefaultRuntimeContextDevice\": \"8TlC_NY\",\n  \"DefaultRuntimeContextDeviceName\": \"miRoG0r25\",\n  \"Description\": \"2Dr>^\",\n  \"HealthStatus\": \"NOT_AVAILABLE\",\n  \"LastUpdatedTime\": \"<dateTime>\",\n  \"Name\": \"Dy2WNIGPrM\",\n  \"RuntimeContextStates\": [\n    {\n      \"DesiredState\": \"REMOVED\",\n      \"DeviceReportedStatus\": \"REMOVAL_IN_PROGRESS\",\n      \"DeviceReportedTime\": \"<dateTime>\",\n      \"RuntimeContextName\": \"Gs{\"\n    },\n    {\n      \"DesiredState\": \"RUNNING\",\n      \"DeviceReportedStatus\": \"RUNNING\",\n      \"DeviceReportedTime\": \"<dateTime>\",\n      \"RuntimeContextName\": \"#3DIk\"\n    }\n  ],\n  \"RuntimeRoleArn\": \"arn:ysclelek9yq376yof.1zalnqilryl9:iam::000147135221:role/1mt\",\n  \"Status\": \"REMOVAL_SUCCEEDED\",\n  \"StatusDescription\": \"<string>\",\n  \"Tags\": {\n    \"ad_8\": \"mm5M+\",\n    \"eu_18d\": \":?Ij!]Io\",\n    \"in2\": \"NR^pL9\",\n    \"dolorc96\": \"^7_i\",\n    \"eiusmod_34a\": \"gz')@QF\",\n    \"ipsum81\": \"~\",\n    \"deseruntb\": \"=:<AVbe\",\n    \"ex8\": \"Zl1$;#\",\n    \"adipisicing_2\": \"4z\",\n    \"ex93b\": \"H1?0\",\n    \"quib\": \"!OH1K<mx11\",\n    \"infe\": \"\",\n    \"proident6ea\": \"JUT\\\\;\",\n    \"in_239\": \"15;jDV5w\",\n    \"dolore0\": \"a#*HvGOTjn\",\n    \"sed_3c\": \"m\",\n    \"Ut85\": \"~1mHoifINJ\",\n    \"id0\": \"Qc9\",\n    \"est_b16\": \"\",\n    \"nostrud077\": \"ueQz738\",\n    \"ipsum27\": \"a\",\n    \"magna_dad\": \"[LVSoh{'O\",\n    \"incididunt_35_\": \"H6\",\n    \"minim97\": \"d'-K\",\n    \"labore0_\": \"]f+\\\\&z<\",\n    \"ullamco_ca\": \"\",\n    \"Lorem_d\": \"BC$p\",\n    \"exercitation_a\": \"oZU[\\\\ta(#?\",\n    \"etc8d\": \"@t''b\",\n    \"reprehenderit5\": \"_p'A~LK\",\n    \"laboris10a\": \"\",\n    \"cupidatat_cae\": \" >\\\\zMja\",\n    \"sedc3b\": \"~1#6&&k\",\n    \"et_6\": \"=.Q\",\n    \"do__2\": \"5[A\",\n    \"infec\": \"~Q8IIWr\",\n    \"ex__1\": \"daXU!&Q\",\n    \"ipsum109\": \"gD%`e'\",\n    \"laboris041\": \"wQ)AF\",\n    \"incididunt7\": \"t\",\n    \"ex7\": \".Y.q{aKNl\",\n    \"enime2_\": \"Z}Qr`#)%\",\n    \"infc\": \"rn99ljI\",\n    \"laborisd\": \"7`L!U`U\"\n  }\n}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-c550b9c9-be1c-4466-b17f-0caaccd0ca53"
+                },
+                {
+                  "id": "1694fbed-be04-44c0-9666-4014e2202daf",
+                  "name": "ConflictException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-1694fbed-be04-44c0-9666-4014e2202daf"
+                },
+                {
+                  "id": "47198b37-6519-4d0a-a752-09586cfd122f",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-47198b37-6519-4d0a-a752-09586cfd122f"
+                },
+                {
+                  "id": "a0304c64-a1c6-420f-87f7-0d94c8c468bd",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-a0304c64-a1c6-420f-87f7-0d94c8c468bd"
+                },
+                {
+                  "id": "75db42c9-860a-4aa8-b2d4-5a72310d5436",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-75db42c9-860a-4aa8-b2d4-5a72310d5436"
+                },
+                {
+                  "id": "8583a7ea-241f-4949-9b77-027b3ac4df53",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-8583a7ea-241f-4949-9b77-027b3ac4df53"
+                }
+              ],
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-7f032d50-5413-4c33-99cf-dc0c7a6879ae"
+            },
+            {
+              "name": "Amazon Panorama Remove Application Instance",
+              "id": "92ab454f-10c3-4005-8dd4-da9088001780",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application-instances",
+                    ":ApplicationInstanceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "21bfe522-ff07-4a55-b570-9977fb72b552",
+                      "key": "ApplicationInstanceId",
+                      "value": "Xj_De_",
+                      "description": "(Required) An application instance ID."
+                    }
+                  ]
+                },
+                "description": "Removes an application instance."
+              },
+              "response": [
+                {
+                  "id": "e3786b96-71d9-4f95-a9fd-653c35e1bde5",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-e3786b96-71d9-4f95-a9fd-653c35e1bde5"
+                },
+                {
+                  "id": "4c4509a9-4aa6-42de-a721-b1d765ee2f8d",
+                  "name": "ConflictException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-4c4509a9-4aa6-42de-a721-b1d765ee2f8d"
+                },
+                {
+                  "id": "da6b8bba-a16a-4909-8f85-d9cd7587b0cc",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-da6b8bba-a16a-4909-8f85-d9cd7587b0cc"
+                },
+                {
+                  "id": "ee980592-165d-42ba-974e-4ce5a4f0b3f1",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-ee980592-165d-42ba-974e-4ce5a4f0b3f1"
+                },
+                {
+                  "id": "9783b9e5-c8d7-4beb-9ad0-0edfb074c0a2",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-9783b9e5-c8d7-4beb-9ad0-0edfb074c0a2"
+                },
+                {
+                  "id": "710f86de-4bc6-4660-97d2-03240358325f",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/application-instances/:ApplicationInstanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "application-instances",
+                        ":ApplicationInstanceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "ApplicationInstanceId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:05.000Z",
+                  "updatedAt": "2026-07-28T10:41:05.000Z",
+                  "uid": "35240-710f86de-4bc6-4660-97d2-03240358325f"
+                }
+              ],
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-92ab454f-10c3-4005-8dd4-da9088001780"
+            }
+          ],
+          "id": "18d9b5c3-925c-43cb-aace-0e8381910bbf",
+          "createdAt": "2026-07-28T10:41:05.000Z",
+          "updatedAt": "2026-07-28T10:41:05.000Z",
+          "uid": "35240-18d9b5c3-925c-43cb-aace-0e8381910bbf"
+        },
+        {
+          "name": "Amazon Panorama Create Application Instance",
+          "id": "7fbfc00e-632c-4d45-b69a-3fce4d4a0bff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"DefaultRuntimeContextDevice\": \"DkFkq5fnqE\",\n  \"ManifestPayload\": {\n    \"PayloadData\": \"UDt\\\\61,WL1\"\n  },\n  \"ApplicationInstanceIdToReplace\": \"602_Bkeo-c\",\n  \"Description\": \"O]\",\n  \"ManifestOverridesPayload\": {\n    \"PayloadData\": \"p.|W69\"\n  },\n  \"Name\": \"K8mB\",\n  \"RuntimeRoleArn\": \"arn:p0t0mz4ryqd3bdzwplr63ehmpoq2lmi8woa7ah3zg8g4qfmeo993:iam::312129705652:role/:pT9FX\",\n  \"Tags\": {\n    \"aliqua9bc\": \" xQF\",\n    \"cupidatatda\": \"r_6.OmFQ%\",\n    \"do_4\": \"HPfy~?\",\n    \"cupidatat3\": \"wZlW\\\"hs[q\",\n    \"in_43\": \"St\",\n    \"idd03\": \"Q\",\n    \"aliquip_0d\": \"[K!|\",\n    \"Utda\": \"!nfCGkrvh\",\n    \"laboris_9d\": \"y^h<R\\\">Y}\",\n    \"aliqua_0f\": \"ro.F\",\n    \"amet7_1\": \"\",\n    \"laborumc53\": \"7j{V3Trf\",\n    \"idd1\": \"\",\n    \"commodo4ee\": \"ffTZ(r7\",\n    \"sint9b\": \"Rmc8fFn^j\",\n    \"officiad3\": \"()*\\\\Eg%Vgv\",\n    \"ina_7\": \"=rOa'j\",\n    \"dolor_aed\": \"6^U\",\n    \"non1\": \"\",\n    \"dolore_40b\": \"})a\",\n    \"proident_9\": \"\",\n    \"eu_3\": \"9C&]i~fo(\",\n    \"mollit_e\": \"FbC/o\",\n    \"laboris45\": \"@cOg\\\\\",\n    \"amet_9\": \"\",\n    \"sit11f\": \":.4/MVycY3\",\n    \"quisf3\": \">gf/V&^Y)\",\n    \"ut__\": \"++P=iY*\",\n    \"in_b90\": \"1i4f-F/dM%\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/application-instances",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application-instances"
+              ]
+            },
+            "description": "Creates an application instance and deploys it to a device."
+          },
+          "response": [
+            {
+              "id": "fedcf856-4347-4d25-80ca-506694a23869",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DefaultRuntimeContextDevice\": \"DkFkq5fnqE\",\n  \"ManifestPayload\": {\n    \"PayloadData\": \"UDt\\\\61,WL1\"\n  },\n  \"ApplicationInstanceIdToReplace\": \"602_Bkeo-c\",\n  \"Description\": \"O]\",\n  \"ManifestOverridesPayload\": {\n    \"PayloadData\": \"p.|W69\"\n  },\n  \"Name\": \"K8mB\",\n  \"RuntimeRoleArn\": \"arn:p0t0mz4ryqd3bdzwplr63ehmpoq2lmi8woa7ah3zg8g4qfmeo993:iam::312129705652:role/:pT9FX\",\n  \"Tags\": {\n    \"aliqua9bc\": \" xQF\",\n    \"cupidatatda\": \"r_6.OmFQ%\",\n    \"do_4\": \"HPfy~?\",\n    \"cupidatat3\": \"wZlW\\\"hs[q\",\n    \"in_43\": \"St\",\n    \"idd03\": \"Q\",\n    \"aliquip_0d\": \"[K!|\",\n    \"Utda\": \"!nfCGkrvh\",\n    \"laboris_9d\": \"y^h<R\\\">Y}\",\n    \"aliqua_0f\": \"ro.F\",\n    \"amet7_1\": \"\",\n    \"laborumc53\": \"7j{V3Trf\",\n    \"idd1\": \"\",\n    \"commodo4ee\": \"ffTZ(r7\",\n    \"sint9b\": \"Rmc8fFn^j\",\n    \"officiad3\": \"()*\\\\Eg%Vgv\",\n    \"ina_7\": \"=rOa'j\",\n    \"dolor_aed\": \"6^U\",\n    \"non1\": \"\",\n    \"dolore_40b\": \"})a\",\n    \"proident_9\": \"\",\n    \"eu_3\": \"9C&]i~fo(\",\n    \"mollit_e\": \"FbC/o\",\n    \"laboris45\": \"@cOg\\\\\",\n    \"amet_9\": \"\",\n    \"sit11f\": \":.4/MVycY3\",\n    \"quisf3\": \">gf/V&^Y)\",\n    \"ut__\": \"++P=iY*\",\n    \"in_b90\": \"1i4f-F/dM%\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application-instances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application-instances"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"ApplicationInstanceId\": \"95\"\n}",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-fedcf856-4347-4d25-80ca-506694a23869"
+            },
+            {
+              "id": "30e1830d-a743-4bfc-b194-9c0d68bb8c33",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DefaultRuntimeContextDevice\": \"DkFkq5fnqE\",\n  \"ManifestPayload\": {\n    \"PayloadData\": \"UDt\\\\61,WL1\"\n  },\n  \"ApplicationInstanceIdToReplace\": \"602_Bkeo-c\",\n  \"Description\": \"O]\",\n  \"ManifestOverridesPayload\": {\n    \"PayloadData\": \"p.|W69\"\n  },\n  \"Name\": \"K8mB\",\n  \"RuntimeRoleArn\": \"arn:p0t0mz4ryqd3bdzwplr63ehmpoq2lmi8woa7ah3zg8g4qfmeo993:iam::312129705652:role/:pT9FX\",\n  \"Tags\": {\n    \"aliqua9bc\": \" xQF\",\n    \"cupidatatda\": \"r_6.OmFQ%\",\n    \"do_4\": \"HPfy~?\",\n    \"cupidatat3\": \"wZlW\\\"hs[q\",\n    \"in_43\": \"St\",\n    \"idd03\": \"Q\",\n    \"aliquip_0d\": \"[K!|\",\n    \"Utda\": \"!nfCGkrvh\",\n    \"laboris_9d\": \"y^h<R\\\">Y}\",\n    \"aliqua_0f\": \"ro.F\",\n    \"amet7_1\": \"\",\n    \"laborumc53\": \"7j{V3Trf\",\n    \"idd1\": \"\",\n    \"commodo4ee\": \"ffTZ(r7\",\n    \"sint9b\": \"Rmc8fFn^j\",\n    \"officiad3\": \"()*\\\\Eg%Vgv\",\n    \"ina_7\": \"=rOa'j\",\n    \"dolor_aed\": \"6^U\",\n    \"non1\": \"\",\n    \"dolore_40b\": \"})a\",\n    \"proident_9\": \"\",\n    \"eu_3\": \"9C&]i~fo(\",\n    \"mollit_e\": \"FbC/o\",\n    \"laboris45\": \"@cOg\\\\\",\n    \"amet_9\": \"\",\n    \"sit11f\": \":.4/MVycY3\",\n    \"quisf3\": \">gf/V&^Y)\",\n    \"ut__\": \"++P=iY*\",\n    \"in_b90\": \"1i4f-F/dM%\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application-instances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application-instances"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-30e1830d-a743-4bfc-b194-9c0d68bb8c33"
+            },
+            {
+              "id": "d088ecbd-3025-42e1-9fa8-d27484cda771",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DefaultRuntimeContextDevice\": \"DkFkq5fnqE\",\n  \"ManifestPayload\": {\n    \"PayloadData\": \"UDt\\\\61,WL1\"\n  },\n  \"ApplicationInstanceIdToReplace\": \"602_Bkeo-c\",\n  \"Description\": \"O]\",\n  \"ManifestOverridesPayload\": {\n    \"PayloadData\": \"p.|W69\"\n  },\n  \"Name\": \"K8mB\",\n  \"RuntimeRoleArn\": \"arn:p0t0mz4ryqd3bdzwplr63ehmpoq2lmi8woa7ah3zg8g4qfmeo993:iam::312129705652:role/:pT9FX\",\n  \"Tags\": {\n    \"aliqua9bc\": \" xQF\",\n    \"cupidatatda\": \"r_6.OmFQ%\",\n    \"do_4\": \"HPfy~?\",\n    \"cupidatat3\": \"wZlW\\\"hs[q\",\n    \"in_43\": \"St\",\n    \"idd03\": \"Q\",\n    \"aliquip_0d\": \"[K!|\",\n    \"Utda\": \"!nfCGkrvh\",\n    \"laboris_9d\": \"y^h<R\\\">Y}\",\n    \"aliqua_0f\": \"ro.F\",\n    \"amet7_1\": \"\",\n    \"laborumc53\": \"7j{V3Trf\",\n    \"idd1\": \"\",\n    \"commodo4ee\": \"ffTZ(r7\",\n    \"sint9b\": \"Rmc8fFn^j\",\n    \"officiad3\": \"()*\\\\Eg%Vgv\",\n    \"ina_7\": \"=rOa'j\",\n    \"dolor_aed\": \"6^U\",\n    \"non1\": \"\",\n    \"dolore_40b\": \"})a\",\n    \"proident_9\": \"\",\n    \"eu_3\": \"9C&]i~fo(\",\n    \"mollit_e\": \"FbC/o\",\n    \"laboris45\": \"@cOg\\\\\",\n    \"amet_9\": \"\",\n    \"sit11f\": \":.4/MVycY3\",\n    \"quisf3\": \">gf/V&^Y)\",\n    \"ut__\": \"++P=iY*\",\n    \"in_b90\": \"1i4f-F/dM%\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application-instances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application-instances"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-d088ecbd-3025-42e1-9fa8-d27484cda771"
+            },
+            {
+              "id": "6c212264-9d0e-4548-ad20-366993b40243",
+              "name": "ServiceQuotaExceededException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DefaultRuntimeContextDevice\": \"DkFkq5fnqE\",\n  \"ManifestPayload\": {\n    \"PayloadData\": \"UDt\\\\61,WL1\"\n  },\n  \"ApplicationInstanceIdToReplace\": \"602_Bkeo-c\",\n  \"Description\": \"O]\",\n  \"ManifestOverridesPayload\": {\n    \"PayloadData\": \"p.|W69\"\n  },\n  \"Name\": \"K8mB\",\n  \"RuntimeRoleArn\": \"arn:p0t0mz4ryqd3bdzwplr63ehmpoq2lmi8woa7ah3zg8g4qfmeo993:iam::312129705652:role/:pT9FX\",\n  \"Tags\": {\n    \"aliqua9bc\": \" xQF\",\n    \"cupidatatda\": \"r_6.OmFQ%\",\n    \"do_4\": \"HPfy~?\",\n    \"cupidatat3\": \"wZlW\\\"hs[q\",\n    \"in_43\": \"St\",\n    \"idd03\": \"Q\",\n    \"aliquip_0d\": \"[K!|\",\n    \"Utda\": \"!nfCGkrvh\",\n    \"laboris_9d\": \"y^h<R\\\">Y}\",\n    \"aliqua_0f\": \"ro.F\",\n    \"amet7_1\": \"\",\n    \"laborumc53\": \"7j{V3Trf\",\n    \"idd1\": \"\",\n    \"commodo4ee\": \"ffTZ(r7\",\n    \"sint9b\": \"Rmc8fFn^j\",\n    \"officiad3\": \"()*\\\\Eg%Vgv\",\n    \"ina_7\": \"=rOa'j\",\n    \"dolor_aed\": \"6^U\",\n    \"non1\": \"\",\n    \"dolore_40b\": \"})a\",\n    \"proident_9\": \"\",\n    \"eu_3\": \"9C&]i~fo(\",\n    \"mollit_e\": \"FbC/o\",\n    \"laboris45\": \"@cOg\\\\\",\n    \"amet_9\": \"\",\n    \"sit11f\": \":.4/MVycY3\",\n    \"quisf3\": \">gf/V&^Y)\",\n    \"ut__\": \"++P=iY*\",\n    \"in_b90\": \"1i4f-F/dM%\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application-instances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application-instances"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-6c212264-9d0e-4548-ad20-366993b40243"
+            },
+            {
+              "id": "83597658-e552-4989-9401-c1e14ed5557d",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DefaultRuntimeContextDevice\": \"DkFkq5fnqE\",\n  \"ManifestPayload\": {\n    \"PayloadData\": \"UDt\\\\61,WL1\"\n  },\n  \"ApplicationInstanceIdToReplace\": \"602_Bkeo-c\",\n  \"Description\": \"O]\",\n  \"ManifestOverridesPayload\": {\n    \"PayloadData\": \"p.|W69\"\n  },\n  \"Name\": \"K8mB\",\n  \"RuntimeRoleArn\": \"arn:p0t0mz4ryqd3bdzwplr63ehmpoq2lmi8woa7ah3zg8g4qfmeo993:iam::312129705652:role/:pT9FX\",\n  \"Tags\": {\n    \"aliqua9bc\": \" xQF\",\n    \"cupidatatda\": \"r_6.OmFQ%\",\n    \"do_4\": \"HPfy~?\",\n    \"cupidatat3\": \"wZlW\\\"hs[q\",\n    \"in_43\": \"St\",\n    \"idd03\": \"Q\",\n    \"aliquip_0d\": \"[K!|\",\n    \"Utda\": \"!nfCGkrvh\",\n    \"laboris_9d\": \"y^h<R\\\">Y}\",\n    \"aliqua_0f\": \"ro.F\",\n    \"amet7_1\": \"\",\n    \"laborumc53\": \"7j{V3Trf\",\n    \"idd1\": \"\",\n    \"commodo4ee\": \"ffTZ(r7\",\n    \"sint9b\": \"Rmc8fFn^j\",\n    \"officiad3\": \"()*\\\\Eg%Vgv\",\n    \"ina_7\": \"=rOa'j\",\n    \"dolor_aed\": \"6^U\",\n    \"non1\": \"\",\n    \"dolore_40b\": \"})a\",\n    \"proident_9\": \"\",\n    \"eu_3\": \"9C&]i~fo(\",\n    \"mollit_e\": \"FbC/o\",\n    \"laboris45\": \"@cOg\\\\\",\n    \"amet_9\": \"\",\n    \"sit11f\": \":.4/MVycY3\",\n    \"quisf3\": \">gf/V&^Y)\",\n    \"ut__\": \"++P=iY*\",\n    \"in_b90\": \"1i4f-F/dM%\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/application-instances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application-instances"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-83597658-e552-4989-9401-c1e14ed5557d"
+            }
+          ],
+          "createdAt": "2026-07-28T10:41:05.000Z",
+          "updatedAt": "2026-07-28T10:41:05.000Z",
+          "uid": "35240-7fbfc00e-632c-4d45-b69a-3fce4d4a0bff"
+        },
+        {
+          "name": "Amazon Panorama List Application Instances",
+          "id": "88275cc2-ef0e-4a7c-8113-ac8d2c606f6d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/application-instances?deviceId=Xj_De_&maxResults=<integer>&nextToken=)%26W&statusFilter=PROCESSING_DEPLOYMENT&MaxResults=<string>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "application-instances"
+              ],
+              "query": [
+                {
+                  "description": "The application instances' device ID.",
+                  "key": "deviceId",
+                  "value": "Xj_De_"
+                },
+                {
+                  "description": "The maximum number of application instances to return in one page of results.",
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                  "key": "nextToken",
+                  "value": ")&W"
+                },
+                {
+                  "description": "Only include instances with a specific status.",
+                  "key": "statusFilter",
+                  "value": "PROCESSING_DEPLOYMENT"
+                },
+                {
+                  "description": "Pagination limit",
+                  "key": "MaxResults",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination token",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of application instances."
+          },
+          "response": [
+            {
+              "id": "23bf3e3d-c922-4151-b683-0ecd8b7c30f9",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application-instances?deviceId=Xj_De_&maxResults=<integer>&nextToken=)%26W&statusFilter=PROCESSING_DEPLOYMENT&MaxResults=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application-instances"
+                  ],
+                  "query": [
+                    {
+                      "description": "The application instances' device ID.",
+                      "key": "deviceId",
+                      "value": "Xj_De_"
+                    },
+                    {
+                      "description": "The maximum number of application instances to return in one page of results.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                      "key": "nextToken",
+                      "value": ")&W"
+                    },
+                    {
+                      "description": "Only include instances with a specific status.",
+                      "key": "statusFilter",
+                      "value": "PROCESSING_DEPLOYMENT"
+                    },
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"ApplicationInstances\": [\n    {\n      \"ApplicationInstanceId\": \"4g4PjdcL\",\n      \"Arn\": \"<string>\",\n      \"CreatedTime\": \"<dateTime>\",\n      \"DefaultRuntimeContextDevice\": \"q\",\n      \"DefaultRuntimeContextDeviceName\": \"EFE\",\n      \"Description\": \"7z?^KX7\",\n      \"HealthStatus\": \"RUNNING\",\n      \"Name\": \"eZWeMYmpGXH\",\n      \"RuntimeContextStates\": [\n        {\n          \"DesiredState\": \"RUNNING\",\n          \"DeviceReportedStatus\": \"LAUNCH_ERROR\",\n          \"DeviceReportedTime\": \"<dateTime>\",\n          \"RuntimeContextName\": \"~\"\n        },\n        {\n          \"DesiredState\": \"STOPPED\",\n          \"DeviceReportedStatus\": \"INSTALL_IN_PROGRESS\",\n          \"DeviceReportedTime\": \"<dateTime>\",\n          \"RuntimeContextName\": \";(\"\n        }\n      ],\n      \"Status\": \"REMOVAL_FAILED\",\n      \"StatusDescription\": \"<string>\",\n      \"Tags\": {\n        \"doloref4\": \"eI\",\n        \"aliqua340\": \"=j\",\n        \"dolore_f0\": \"tZOt\",\n        \"eu0\": \")>VZ`\",\n        \"Excepteur8c\": \":rRfe+Hr\",\n        \"eu_96\": \"\",\n        \"cillum21c\": \"z\",\n        \"ipsum4a\": \"%\",\n        \"Duis_e1\": \">VgN#a\",\n        \"elit_d\": \"m\",\n        \"officia__2\": \"9b&mXh*-\",\n        \"nisi_6\": \"MjrX]:u<G\",\n        \"irure06\": \"QR+TFfD\\\")\",\n        \"ea_1ea\": \"1\\\"8DJV,HT\",\n        \"eiusmod16\": \"\",\n        \"id_3\": \"pr,\",\n        \"laboris0\": \"e\",\n        \"ipsumf22\": \"e41)*(rm\",\n        \"quis_3\": \"d[F\",\n        \"laborum_bb\": \"x\",\n        \"velitc\": \"|HF$<H''ii\",\n        \"dolor_cd\": \"F9O&0\",\n        \"eiusmod_4f\": \"%Z\",\n        \"quis_1f\": \"[iwl\\\\\",\n        \"cupidatat_93\": \"\\\\']$\",\n        \"eu_63\": \"u~PDr_3pdj\",\n        \"Duis_e7\": \"6B/5IG23$\"\n      }\n    },\n    {\n      \"ApplicationInstanceId\": \"gCqPn3Gbk8\",\n      \"Arn\": \"<string>\",\n      \"CreatedTime\": \"<dateTime>\",\n      \"DefaultRuntimeContextDevice\": \"NnVRxvD4IG\",\n      \"DefaultRuntimeContextDeviceName\": \"Fch26N\",\n      \"Description\": \".jpMp(~\",\n      \"HealthStatus\": \"RUNNING\",\n      \"Name\": \"_4yW5Mdwa39\",\n      \"RuntimeContextStates\": [\n        {\n          \"DesiredState\": \"REMOVED\",\n          \"DeviceReportedStatus\": \"STOP_ERROR\",\n          \"DeviceReportedTime\": \"<dateTime>\",\n          \"RuntimeContextName\": \"@h\"\n        },\n        {\n          \"DesiredState\": \"REMOVED\",\n          \"DeviceReportedStatus\": \"STOPPED\",\n          \"DeviceReportedTime\": \"<dateTime>\",\n          \"RuntimeContextName\": \"@wZtT[\"\n        }\n      ],\n      \"Status\": \"REMOVAL_SUCCEEDED\",\n      \"StatusDescription\": \"<string>\",\n      \"Tags\": {\n        \"cillumb\": \"X>U8\",\n        \"Excepteur81\": \"U~C?\",\n        \"amet_f\": \"I6<*eo\",\n        \"minim_5d\": \"9Ps*p?k\",\n        \"laborum_4b\": \"cP>Qc{92aO\",\n        \"sit5\": \"2]+\",\n        \"ea3\": \"9p/b ^\",\n        \"occaecat_1f0\": \"=5KoV].UeB\",\n        \"sit_a2\": \"C)\",\n        \"culpa_9c\": \"d{b/!HhUv\",\n        \"non8bb\": \"$CUVKCEk\",\n        \"sit6b\": \"eFdGCu\",\n        \"magna4f\": \"U,lf,\",\n        \"Lorem_65\": \"WmyK\",\n        \"ullamco4b\": \"\",\n        \"essea\": \"\",\n        \"ipsum4\": \"2s\",\n        \"cupidatate5_\": \" %JH`GOJGy\",\n        \"utc\": \"5vR+pH%\",\n        \"exercitation_3\": \"qVBr}3vej.\",\n        \"in06\": \"\",\n        \"aute_5ef\": \"1>>z{{\",\n        \"ut_2f\": \"KNqk\",\n        \"do_fd9\": \"<\",\n        \"est_f\": \"K#b_\",\n        \"laboris92\": \"aI\",\n        \"mollit5\": \"$D9=\",\n        \"dolore_d\": \"PJ}=:7\\\\w9\",\n        \"reprehenderitc_1\": \"oD'<{6FWu\",\n        \"ullamco_6\": \"\",\n        \"ipsumea8\": \"SX`6|\",\n        \"pariatur31\": \")Ln*h(\",\n        \"velit_16\": \"!q&5};\",\n        \"Excepteuree9\": \"[OW\",\n        \"pariatur_9b\": \"cz+q\",\n        \"anim_6f\": \"b3BN\",\n        \"proident_fda\": \"H$OFNf9I]O\"\n      }\n    }\n  ],\n  \"NextToken\": \":d6\\\\027kxV\"\n}",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-23bf3e3d-c922-4151-b683-0ecd8b7c30f9"
+            },
+            {
+              "id": "f233604a-2165-4397-9f13-d8983516b570",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application-instances?deviceId=Xj_De_&maxResults=<integer>&nextToken=)%26W&statusFilter=PROCESSING_DEPLOYMENT&MaxResults=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application-instances"
+                  ],
+                  "query": [
+                    {
+                      "description": "The application instances' device ID.",
+                      "key": "deviceId",
+                      "value": "Xj_De_"
+                    },
+                    {
+                      "description": "The maximum number of application instances to return in one page of results.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                      "key": "nextToken",
+                      "value": ")&W"
+                    },
+                    {
+                      "description": "Only include instances with a specific status.",
+                      "key": "statusFilter",
+                      "value": "PROCESSING_DEPLOYMENT"
+                    },
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-f233604a-2165-4397-9f13-d8983516b570"
+            },
+            {
+              "id": "cd7c0c1d-e805-4f5f-8d57-53196231677c",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/application-instances?deviceId=Xj_De_&maxResults=<integer>&nextToken=)%26W&statusFilter=PROCESSING_DEPLOYMENT&MaxResults=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "application-instances"
+                  ],
+                  "query": [
+                    {
+                      "description": "The application instances' device ID.",
+                      "key": "deviceId",
+                      "value": "Xj_De_"
+                    },
+                    {
+                      "description": "The maximum number of application instances to return in one page of results.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                      "key": "nextToken",
+                      "value": ")&W"
+                    },
+                    {
+                      "description": "Only include instances with a specific status.",
+                      "key": "statusFilter",
+                      "value": "PROCESSING_DEPLOYMENT"
+                    },
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:05.000Z",
+              "updatedAt": "2026-07-28T10:41:05.000Z",
+              "uid": "35240-cd7c0c1d-e805-4f5f-8d57-53196231677c"
+            }
+          ],
+          "createdAt": "2026-07-28T10:41:05.000Z",
+          "updatedAt": "2026-07-28T10:41:05.000Z",
+          "uid": "35240-88275cc2-ef0e-4a7c-8113-ac8d2c606f6d"
+        }
+      ],
+      "id": "3825baa7-b168-4b75-b968-3291e809e2da",
+      "createdAt": "2026-07-28T10:41:05.000Z",
+      "updatedAt": "2026-07-28T10:41:05.000Z",
+      "uid": "35240-3825baa7-b168-4b75-b968-3291e809e2da"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://panorama.{{region}}.amazonaws.com"
+    }
+  ]
+}

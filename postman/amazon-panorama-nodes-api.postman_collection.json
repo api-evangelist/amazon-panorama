@@ -1,0 +1,1193 @@
+{
+  "info": {
+    "_postman_id": "2b25a56c-5e3a-471f-88f1-ed32e3dc9203",
+    "name": "AWS Panorama Application Instances Nodes API",
+    "description": "<p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href=\"https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html\">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:41:09.000Z",
+    "updatedAt": "2026-07-28T10:41:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2b25a56c-5e3a-471f-88f1-ed32e3dc9203"
+  },
+  "item": [
+    {
+      "name": "nodes",
+      "item": [
+        {
+          "name": "{NodeId}",
+          "item": [
+            {
+              "name": "Amazon Panorama Describe Node",
+              "id": "1210a7d1-1fcf-486c-b373-0a756f62b620",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/nodes/:NodeId?OwnerAccount=i",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "nodes",
+                    ":NodeId"
+                  ],
+                  "query": [
+                    {
+                      "description": "The account ID of the node's owner.",
+                      "key": "OwnerAccount",
+                      "value": "i"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "471e71c9-436d-4a8f-8a25-5d6bbf3fd336",
+                      "key": "NodeId",
+                      "value": "4",
+                      "description": "(Required) The node's ID."
+                    }
+                  ]
+                },
+                "description": "Returns information about a node."
+              },
+              "response": [
+                {
+                  "id": "0798e36f-1522-42b9-a0b5-aae44dcecef1",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/nodes/:NodeId?OwnerAccount=i",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "nodes",
+                        ":NodeId"
+                      ],
+                      "query": [
+                        {
+                          "description": "The account ID of the node's owner.",
+                          "key": "OwnerAccount",
+                          "value": "i"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "NodeId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Category\": \"ML_MODEL\",\n  \"CreatedTime\": \"<dateTime>\",\n  \"Description\": \"QLza0+\\\"\",\n  \"LastUpdatedTime\": \"<dateTime>\",\n  \"Name\": \"G3_0\",\n  \"NodeId\": \"F\",\n  \"NodeInterface\": {\n    \"Inputs\": [\n      {\n        \"DefaultValue\": \"<string>\",\n        \"Description\": \"y[{\",\n        \"MaxConnections\": \"<integer>\",\n        \"Name\": \"y6ZdhdRgLP\",\n        \"Type\": \"FLOAT32\"\n      },\n      {\n        \"DefaultValue\": \"<string>\",\n        \"Description\": \"AFz\",\n        \"MaxConnections\": \"<integer>\",\n        \"Name\": \"a9p1Snh\",\n        \"Type\": \"MEDIA\"\n      }\n    ],\n    \"Outputs\": [\n      {\n        \"Description\": \"h3G`B\",\n        \"Name\": \"z\",\n        \"Type\": \"STRING\"\n      },\n      {\n        \"Description\": \"JiL4pk\",\n        \"Name\": \"Czyvj6gKR3g\",\n        \"Type\": \"MEDIA\"\n      }\n    ]\n  },\n  \"OwnerAccount\": \"h1zsc\",\n  \"PackageId\": \"F\",\n  \"PackageName\": \"_QNL4J5_j\",\n  \"PackageVersion\": \"89846661.12852181653\",\n  \"PatchVersion\": \"nu\",\n  \"AssetName\": \"x4RvXb32bO\",\n  \"PackageArn\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T10:41:09.000Z",
+                  "updatedAt": "2026-07-28T10:41:09.000Z",
+                  "uid": "35240-0798e36f-1522-42b9-a0b5-aae44dcecef1"
+                },
+                {
+                  "id": "7786abab-4ab1-4927-a381-bb37dfd24dca",
+                  "name": "ConflictException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/nodes/:NodeId?OwnerAccount=i",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "nodes",
+                        ":NodeId"
+                      ],
+                      "query": [
+                        {
+                          "description": "The account ID of the node's owner.",
+                          "key": "OwnerAccount",
+                          "value": "i"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "NodeId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:09.000Z",
+                  "updatedAt": "2026-07-28T10:41:09.000Z",
+                  "uid": "35240-7786abab-4ab1-4927-a381-bb37dfd24dca"
+                },
+                {
+                  "id": "77d39a0c-76db-4cdb-9cf9-eaff006668da",
+                  "name": "ValidationException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/nodes/:NodeId?OwnerAccount=i",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "nodes",
+                        ":NodeId"
+                      ],
+                      "query": [
+                        {
+                          "description": "The account ID of the node's owner.",
+                          "key": "OwnerAccount",
+                          "value": "i"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "NodeId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:09.000Z",
+                  "updatedAt": "2026-07-28T10:41:09.000Z",
+                  "uid": "35240-77d39a0c-76db-4cdb-9cf9-eaff006668da"
+                },
+                {
+                  "id": "1e25aa42-2abc-4d17-acc8-9665eb5220ce",
+                  "name": "AccessDeniedException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/nodes/:NodeId?OwnerAccount=i",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "nodes",
+                        ":NodeId"
+                      ],
+                      "query": [
+                        {
+                          "description": "The account ID of the node's owner.",
+                          "key": "OwnerAccount",
+                          "value": "i"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "NodeId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:09.000Z",
+                  "updatedAt": "2026-07-28T10:41:09.000Z",
+                  "uid": "35240-1e25aa42-2abc-4d17-acc8-9665eb5220ce"
+                },
+                {
+                  "id": "541defdd-4286-4748-97fd-abc696e850e9",
+                  "name": "ResourceNotFoundException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/nodes/:NodeId?OwnerAccount=i",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "nodes",
+                        ":NodeId"
+                      ],
+                      "query": [
+                        {
+                          "description": "The account ID of the node's owner.",
+                          "key": "OwnerAccount",
+                          "value": "i"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "NodeId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:09.000Z",
+                  "updatedAt": "2026-07-28T10:41:09.000Z",
+                  "uid": "35240-541defdd-4286-4748-97fd-abc696e850e9"
+                },
+                {
+                  "id": "3a855e0d-f3fe-48d0-8f10-c189c34e5213",
+                  "name": "InternalServerException",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-Amz-Content-Sha256",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Date",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Algorithm",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Credential",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Security-Token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-Signature",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "X-Amz-SignedHeaders",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/nodes/:NodeId?OwnerAccount=i",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "nodes",
+                        ":NodeId"
+                      ],
+                      "query": [
+                        {
+                          "description": "The account ID of the node's owner.",
+                          "key": "OwnerAccount",
+                          "value": "i"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "NodeId"
+                        }
+                      ]
+                    }
+                  },
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-07-28T10:41:09.000Z",
+                  "updatedAt": "2026-07-28T10:41:09.000Z",
+                  "uid": "35240-3a855e0d-f3fe-48d0-8f10-c189c34e5213"
+                }
+              ],
+              "createdAt": "2026-07-28T10:41:09.000Z",
+              "updatedAt": "2026-07-28T10:41:09.000Z",
+              "uid": "35240-1210a7d1-1fcf-486c-b373-0a756f62b620"
+            }
+          ],
+          "id": "c4d49662-d73b-42bb-bd8f-7ba314986127",
+          "createdAt": "2026-07-28T10:41:09.000Z",
+          "updatedAt": "2026-07-28T10:41:09.000Z",
+          "uid": "35240-c4d49662-d73b-42bb-bd8f-7ba314986127"
+        },
+        {
+          "name": "Amazon Panorama List Nodes",
+          "id": "7dccc822-3ebe-4a96-ae73-dea35fee8f04",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/nodes?category=MEDIA_SOURCE&maxResults=<integer>&nextToken=/8:&ownerAccount=i&packageName=U62n9dQ117X&packageVersion=503.58&patchVersion=w7c2tqcnua8&MaxResults=<string>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "nodes"
+              ],
+              "query": [
+                {
+                  "description": "Search for nodes by category.",
+                  "key": "category",
+                  "value": "MEDIA_SOURCE"
+                },
+                {
+                  "description": "The maximum number of nodes to return in one page of results.",
+                  "key": "maxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                  "key": "nextToken",
+                  "value": "/8:"
+                },
+                {
+                  "description": "Search for nodes by the account ID of the nodes' owner.",
+                  "key": "ownerAccount",
+                  "value": "i"
+                },
+                {
+                  "description": "Search for nodes by name.",
+                  "key": "packageName",
+                  "value": "U62n9dQ117X"
+                },
+                {
+                  "description": "Search for nodes by version.",
+                  "key": "packageVersion",
+                  "value": "503.58"
+                },
+                {
+                  "description": "Search for nodes by patch version.",
+                  "key": "patchVersion",
+                  "value": "w7c2tqcnua8"
+                },
+                {
+                  "description": "Pagination limit",
+                  "key": "MaxResults",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Pagination token",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of nodes."
+          },
+          "response": [
+            {
+              "id": "e5e297b2-d56d-4923-aa53-6ef4337b054b",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/nodes?category=MEDIA_SOURCE&maxResults=<integer>&nextToken=/8:&ownerAccount=i&packageName=U62n9dQ117X&packageVersion=503.58&patchVersion=w7c2tqcnua8&MaxResults=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "nodes"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search for nodes by category.",
+                      "key": "category",
+                      "value": "MEDIA_SOURCE"
+                    },
+                    {
+                      "description": "The maximum number of nodes to return in one page of results.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                      "key": "nextToken",
+                      "value": "/8:"
+                    },
+                    {
+                      "description": "Search for nodes by the account ID of the nodes' owner.",
+                      "key": "ownerAccount",
+                      "value": "i"
+                    },
+                    {
+                      "description": "Search for nodes by name.",
+                      "key": "packageName",
+                      "value": "U62n9dQ117X"
+                    },
+                    {
+                      "description": "Search for nodes by version.",
+                      "key": "packageVersion",
+                      "value": "503.58"
+                    },
+                    {
+                      "description": "Search for nodes by patch version.",
+                      "key": "patchVersion",
+                      "value": "w7c2tqcnua8"
+                    },
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"NextToken\": \"F!8;  g\",\n  \"Nodes\": [\n    {\n      \"Category\": \"ML_MODEL\",\n      \"CreatedTime\": \"<dateTime>\",\n      \"Name\": \"ov_nv\",\n      \"NodeId\": \"8\",\n      \"PackageId\": \"cjK-pr-PCmF\",\n      \"PackageName\": \"RQ-Q0FdoOP_\",\n      \"PackageVersion\": \"8.4\",\n      \"PatchVersion\": \"jbas\",\n      \"Description\": \"\\\";CQI\",\n      \"OwnerAccount\": \"_hnv017htw6\",\n      \"PackageArn\": \"<string>\"\n    },\n    {\n      \"Category\": \"MEDIA_SOURCE\",\n      \"CreatedTime\": \"<dateTime>\",\n      \"Name\": \"fEaOT6_kdg\",\n      \"NodeId\": \"l0YutoD\",\n      \"PackageId\": \"GV2\",\n      \"PackageName\": \"rpiN\",\n      \"PackageVersion\": \"54799764.9691055\",\n      \"PatchVersion\": \"xam97\",\n      \"Description\": \"]}q[);\",\n      \"OwnerAccount\": \"rpr97ssa\",\n      \"PackageArn\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T10:41:09.000Z",
+              "updatedAt": "2026-07-28T10:41:09.000Z",
+              "uid": "35240-e5e297b2-d56d-4923-aa53-6ef4337b054b"
+            },
+            {
+              "id": "cdd44aec-f806-41b4-920a-17dcd44397eb",
+              "name": "ConflictException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/nodes?category=MEDIA_SOURCE&maxResults=<integer>&nextToken=/8:&ownerAccount=i&packageName=U62n9dQ117X&packageVersion=503.58&patchVersion=w7c2tqcnua8&MaxResults=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "nodes"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search for nodes by category.",
+                      "key": "category",
+                      "value": "MEDIA_SOURCE"
+                    },
+                    {
+                      "description": "The maximum number of nodes to return in one page of results.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                      "key": "nextToken",
+                      "value": "/8:"
+                    },
+                    {
+                      "description": "Search for nodes by the account ID of the nodes' owner.",
+                      "key": "ownerAccount",
+                      "value": "i"
+                    },
+                    {
+                      "description": "Search for nodes by name.",
+                      "key": "packageName",
+                      "value": "U62n9dQ117X"
+                    },
+                    {
+                      "description": "Search for nodes by version.",
+                      "key": "packageVersion",
+                      "value": "503.58"
+                    },
+                    {
+                      "description": "Search for nodes by patch version.",
+                      "key": "patchVersion",
+                      "value": "w7c2tqcnua8"
+                    },
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:09.000Z",
+              "updatedAt": "2026-07-28T10:41:09.000Z",
+              "uid": "35240-cdd44aec-f806-41b4-920a-17dcd44397eb"
+            },
+            {
+              "id": "7ebf9a80-485e-423e-8bcd-185be38cdccb",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/nodes?category=MEDIA_SOURCE&maxResults=<integer>&nextToken=/8:&ownerAccount=i&packageName=U62n9dQ117X&packageVersion=503.58&patchVersion=w7c2tqcnua8&MaxResults=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "nodes"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search for nodes by category.",
+                      "key": "category",
+                      "value": "MEDIA_SOURCE"
+                    },
+                    {
+                      "description": "The maximum number of nodes to return in one page of results.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                      "key": "nextToken",
+                      "value": "/8:"
+                    },
+                    {
+                      "description": "Search for nodes by the account ID of the nodes' owner.",
+                      "key": "ownerAccount",
+                      "value": "i"
+                    },
+                    {
+                      "description": "Search for nodes by name.",
+                      "key": "packageName",
+                      "value": "U62n9dQ117X"
+                    },
+                    {
+                      "description": "Search for nodes by version.",
+                      "key": "packageVersion",
+                      "value": "503.58"
+                    },
+                    {
+                      "description": "Search for nodes by patch version.",
+                      "key": "patchVersion",
+                      "value": "w7c2tqcnua8"
+                    },
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:09.000Z",
+              "updatedAt": "2026-07-28T10:41:09.000Z",
+              "uid": "35240-7ebf9a80-485e-423e-8bcd-185be38cdccb"
+            },
+            {
+              "id": "5f43a0b7-c7f4-4754-85c0-aac94f8210fc",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/nodes?category=MEDIA_SOURCE&maxResults=<integer>&nextToken=/8:&ownerAccount=i&packageName=U62n9dQ117X&packageVersion=503.58&patchVersion=w7c2tqcnua8&MaxResults=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "nodes"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search for nodes by category.",
+                      "key": "category",
+                      "value": "MEDIA_SOURCE"
+                    },
+                    {
+                      "description": "The maximum number of nodes to return in one page of results.",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify the pagination token from a previous request to retrieve the next page of results.",
+                      "key": "nextToken",
+                      "value": "/8:"
+                    },
+                    {
+                      "description": "Search for nodes by the account ID of the nodes' owner.",
+                      "key": "ownerAccount",
+                      "value": "i"
+                    },
+                    {
+                      "description": "Search for nodes by name.",
+                      "key": "packageName",
+                      "value": "U62n9dQ117X"
+                    },
+                    {
+                      "description": "Search for nodes by version.",
+                      "key": "packageVersion",
+                      "value": "503.58"
+                    },
+                    {
+                      "description": "Search for nodes by patch version.",
+                      "key": "patchVersion",
+                      "value": "w7c2tqcnua8"
+                    },
+                    {
+                      "description": "Pagination limit",
+                      "key": "MaxResults",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:09.000Z",
+              "updatedAt": "2026-07-28T10:41:09.000Z",
+              "uid": "35240-5f43a0b7-c7f4-4754-85c0-aac94f8210fc"
+            }
+          ],
+          "createdAt": "2026-07-28T10:41:09.000Z",
+          "updatedAt": "2026-07-28T10:41:09.000Z",
+          "uid": "35240-7dccc822-3ebe-4a96-ae73-dea35fee8f04"
+        }
+      ],
+      "id": "5e13eb84-dc3f-48a5-9267-251be0205320",
+      "createdAt": "2026-07-28T10:41:09.000Z",
+      "updatedAt": "2026-07-28T10:41:09.000Z",
+      "uid": "35240-5e13eb84-dc3f-48a5-9267-251be0205320"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://panorama.{{region}}.amazonaws.com"
+    }
+  ]
+}
