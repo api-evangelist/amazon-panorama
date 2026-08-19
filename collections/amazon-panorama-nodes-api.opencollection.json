@@ -1,0 +1,178 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Panorama Application Instances Nodes API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Nodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Panorama Describe Node",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://panorama.{region}.amazonaws.com/nodes/:NodeId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "NodeId",
+                "value": "",
+                "type": "path",
+                "description": "The node's ID."
+              },
+              {
+                "name": "OwnerAccount",
+                "value": "",
+                "type": "query",
+                "description": "The account ID of the node's owner."
+              }
+            ]
+          },
+          "docs": "Returns information about a node."
+        },
+        {
+          "info": {
+            "name": "Amazon Panorama List Nodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://panorama.{region}.amazonaws.com/nodes",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Search for nodes by category."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of nodes to return in one page of results."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+              },
+              {
+                "name": "ownerAccount",
+                "value": "",
+                "type": "query",
+                "description": "Search for nodes by the account ID of the nodes' owner."
+              },
+              {
+                "name": "packageName",
+                "value": "",
+                "type": "query",
+                "description": "Search for nodes by name."
+              },
+              {
+                "name": "packageVersion",
+                "value": "",
+                "type": "query",
+                "description": "Search for nodes by version."
+              },
+              {
+                "name": "patchVersion",
+                "value": "",
+                "type": "query",
+                "description": "Search for nodes by patch version."
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "Returns a list of nodes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,496 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Panorama Application Instances API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Application Instances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Panorama List Application Instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://panorama.{region}.amazonaws.com/application-instances",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "query",
+                "description": "The application instances' device ID."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of application instances to return in one page of results."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+              },
+              {
+                "name": "statusFilter",
+                "value": "",
+                "type": "query",
+                "description": "Only include instances with a specific status."
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "Returns a list of application instances."
+        },
+        {
+          "info": {
+            "name": "Amazon Panorama Create Application Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://panorama.{region}.amazonaws.com/application-instances",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an application instance and deploys it to a device."
+        },
+        {
+          "info": {
+            "name": "Amazon Panorama Describe Application Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ApplicationInstanceId",
+                "value": "",
+                "type": "path",
+                "description": "The application instance's ID."
+              }
+            ]
+          },
+          "docs": "Returns information about an application instance on a device."
+        },
+        {
+          "info": {
+            "name": "Amazon Panorama Remove Application Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ApplicationInstanceId",
+                "value": "",
+                "type": "path",
+                "description": "An application instance ID."
+              }
+            ]
+          },
+          "docs": "Removes an application instance."
+        },
+        {
+          "info": {
+            "name": "Amazon Panorama Describe Application Instance Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId/details",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ApplicationInstanceId",
+                "value": "",
+                "type": "path",
+                "description": "The application instance's ID."
+              }
+            ]
+          },
+          "docs": "Returns information about an application instance's configuration manifest."
+        },
+        {
+          "info": {
+            "name": "Amazon Panorama List Application Instance Dependencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId/package-dependencies",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ApplicationInstanceId",
+                "value": "",
+                "type": "path",
+                "description": "The application instance's ID."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of application instance dependencies to return in one page of results."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "Returns a list of application instance dependencies."
+        },
+        {
+          "info": {
+            "name": "Amazon Panorama List Application Instance Node Instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId/node-instances",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ApplicationInstanceId",
+                "value": "",
+                "type": "path",
+                "description": "The node instances' application instance ID."
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of node instances to return in one page of results."
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Specify the pagination token from a previous request to retrieve the next page of results."
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "Returns a list of application node instances."
+        },
+        {
+          "info": {
+            "name": "Amazon Panorama Signal Application Instance Node Instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://panorama.{region}.amazonaws.com/application-instances/:ApplicationInstanceId/node-signals",
+            "headers": [
+              {
+                "name": "X-Amz-Content-Sha256",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Date",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Algorithm",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Credential",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Security-Token",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-Signature",
+                "value": ""
+              },
+              {
+                "name": "X-Amz-SignedHeaders",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ApplicationInstanceId",
+                "value": "",
+                "type": "path",
+                "description": "An application instance ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Signal camera nodes to stop or resume."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
