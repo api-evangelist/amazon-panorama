@@ -21,6 +21,12 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-panorama.png
 tags:
   - AWS
+  - Camera
+  - Computer-Vision
+  - Edge ML
+  - Industrial IoT
+tags_raw:
+  - AWS
   - Cameras
   - Computer Vision
   - Edge ML
@@ -73,6 +79,8 @@ apis:
   humanURL: https://aws.amazon.com/panorama/
   baseURL: https://panorama.amazonaws.com
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
