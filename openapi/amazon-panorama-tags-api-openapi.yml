@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: AWS Panorama Application Instances Tags API
   description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
@@ -297,39 +297,42 @@ paths:
       tags:
       - Tags
 components:
+  schemas:
+    TagValue:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 256
+    UntagResourceResponse:
+      type: object
+      properties: {}
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    ResourceNotFoundException: {}
+    ValidationException: {}
+    InternalServerException: {}
+    TagResourceResponse:
+      type: object
+      properties: {}
+    ListTagsForResourceResponse:
+      type: object
+      properties:
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: A list of tags.
+    TagKey:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 128
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -340,39 +343,36 @@ components:
       schema:
         type: string
       required: false
-  schemas:
-    TagKey:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 128
-    TagMap:
-      type: object
-      minProperties: 0
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    TagResourceResponse:
-      type: object
-      properties: {}
-    ResourceNotFoundException: {}
-    ValidationException: {}
-    TagValue:
-      type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 256
-    UntagResourceResponse:
-      type: object
-      properties: {}
-    ListTagsForResourceResponse:
-      type: object
-      properties:
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: A list of tags.
-    InternalServerException: {}
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

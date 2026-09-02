@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: AWS Panorama Application Instances Devices API
   description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
@@ -550,70 +550,30 @@ paths:
       - Devices
 components:
   schemas:
-    LatestDeviceJob:
-      type: object
-      properties:
-        ImageVersion:
-          allOf:
-          - $ref: '#/components/schemas/ImageVersion'
-          - description: The target version of the device software.
-        JobType:
-          allOf:
-          - $ref: '#/components/schemas/JobType'
-          - description: The job's type.
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/UpdateProgress'
-          - description: Status of the latest device job.
-      description: Returns information about the latest device job.
-    Mask:
+    ImageVersion:
       type: string
       pattern: ^.+$
       minLength: 1
       maxLength: 255
-    DeviceArn:
-      type: string
-      minLength: 1
-      maxLength: 255
-    LatestSoftware:
-      type: string
-      minLength: 1
-      maxLength: 255
-    NetworkPayload:
+    AlternateSoftwareMetadata:
       type: object
       properties:
-        Ethernet0:
+        Version:
           allOf:
-          - $ref: '#/components/schemas/EthernetPayload'
-          - description: Settings for Ethernet port 0.
-        Ethernet1:
-          allOf:
-          - $ref: '#/components/schemas/EthernetPayload'
-          - description: Settings for Ethernet port 1.
-        Ntp:
-          allOf:
-          - $ref: '#/components/schemas/NtpPayload'
-          - description: Network time protocol (NTP) server settings.
-      description: The network configuration for a device.
-    NtpServerList:
-      type: array
-      items:
-        $ref: '#/components/schemas/IpAddressOrServerName'
-      minItems: 0
-      maxItems: 5
-    IpAddress:
+          - $ref: '#/components/schemas/Version'
+          - description: The appliance software version.
+      description: Details about a beta appliance software update.
+    Dns:
       type: string
-      pattern: ^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d))(:(6553[0-5]|655[0-2]\d|65[0-4]\d{2}|6[0-4]\d{3}|[1-5]\d{4}|[1-9]\d{0,3}))?$
+      pattern: ^.+$
       minLength: 1
       maxLength: 255
-    AlternateSoftwares:
-      type: array
-      items:
-        $ref: '#/components/schemas/AlternateSoftwareMetadata'
-    Description:
+    LeaseExpirationTime:
       type: string
-      pattern: ^.*$
-      minLength: 0
+      format: date-time
+    NtpServerName:
+      type: string
+      minLength: 1
       maxLength: 255
     DnsList:
       type: array
@@ -628,123 +588,43 @@ components:
       - FAILED
       - ERROR
       - DELETING
-    DeviceAggregatedStatus:
-      type: string
-      enum:
-      - ERROR
-      - AWAITING_PROVISIONING
-      - PENDING
-      - FAILED
-      - DELETING
-      - ONLINE
-      - OFFLINE
-      - LEASE_EXPIRED
-      - UPDATE_NEEDED
-      - REBOOTING
-    DeviceSerialNumber:
-      type: string
-      pattern: ^[0-9]{1,20}$
-    CurrentSoftware:
-      type: string
-      minLength: 1
-      maxLength: 255
-    ConnectionType:
-      type: string
-      enum:
-      - STATIC_IP
-      - DHCP
-    ServiceQuotaExceededException: {}
-    Dns:
+    Mask:
       type: string
       pattern: ^.+$
       minLength: 1
       maxLength: 255
-    TagMap:
-      type: object
-      minProperties: 0
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    DeviceConnectionStatus:
+    Certificates:
       type: string
-      enum:
-      - ONLINE
-      - OFFLINE
-      - AWAITING_CREDENTIALS
-      - NOT_AVAILABLE
-      - ERROR
-    Device:
+    HwAddress:
+      type: string
+      minLength: 1
+      maxLength: 255
+    ProvisionDeviceResponse:
       type: object
+      required:
+      - Arn
+      - Status
       properties:
-        Brand:
+        Arn:
           allOf:
-          - $ref: '#/components/schemas/DeviceBrand'
-          - description: The device's maker.
-        CreatedTime:
+          - $ref: '#/components/schemas/DeviceArn'
+          - description: The device's ARN.
+        Certificates:
           allOf:
-          - $ref: '#/components/schemas/CreatedTime'
-          - description: When the device was created.
-        CurrentSoftware:
-          allOf:
-          - $ref: '#/components/schemas/CurrentSoftware'
-          - description: A device's current software.
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: A description for the device.
-        DeviceAggregatedStatus:
-          allOf:
-          - $ref: '#/components/schemas/DeviceAggregatedStatus'
-          - description: A device's aggregated status. Including the device's connection status, provisioning status, and lease status.
+          - $ref: '#/components/schemas/Certificates'
+          - description: The device's configuration bundle.
         DeviceId:
           allOf:
           - $ref: '#/components/schemas/DeviceId'
           - description: The device's ID.
-        LastUpdatedTime:
+        IotThingName:
           allOf:
-          - $ref: '#/components/schemas/LastUpdatedTime'
-          - description: When the device was updated.
-        LatestDeviceJob:
-          allOf:
-          - $ref: '#/components/schemas/LatestDeviceJob'
-          - description: A device's latest job. Includes the target image version, and the update job status.
-        LeaseExpirationTime:
-          allOf:
-          - $ref: '#/components/schemas/LeaseExpirationTime'
-          - description: The device's lease expiration time.
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/DeviceName'
-          - description: The device's name.
-        ProvisioningStatus:
+          - $ref: '#/components/schemas/IotThingName'
+          - description: The device's IoT thing name.
+        Status:
           allOf:
           - $ref: '#/components/schemas/DeviceStatus'
-          - description: The device's provisioning status.
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The device's tags.
-        Type:
-          allOf:
-          - $ref: '#/components/schemas/DeviceType'
-          - description: The device's type.
-      description: A device.
-    NextToken:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 4096
-    Certificates:
-      type: string
-    ImageVersion:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 255
-    AccessDeniedException: {}
-    CreatedTime:
-      type: string
-      format: date-time
+          - description: The device's status.
     ListDevicesResponse:
       type: object
       required:
@@ -758,21 +638,38 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: A pagination token that's included if more results are available.
+    AlternateSoftwares:
+      type: array
+      items:
+        $ref: '#/components/schemas/AlternateSoftwareMetadata'
+    InternalServerException: {}
+    AccessDeniedException: {}
+    NtpServerList:
+      type: array
+      items:
+        $ref: '#/components/schemas/IpAddressOrServerName'
+      minItems: 0
+      maxItems: 5
+    ServiceQuotaExceededException: {}
+    IpAddress:
+      type: string
+      pattern: ^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d))(:(6553[0-5]|655[0-2]\d|65[0-4]\d{2}|6[0-4]\d{3}|[1-5]\d{4}|[1-9]\d{0,3}))?$
+      minLength: 1
+      maxLength: 255
+    IotThingName:
+      type: string
+      minLength: 1
+      maxLength: 255
     NetworkConnectionStatus:
       type: string
       enum:
       - CONNECTED
       - NOT_CONNECTED
       - CONNECTING
-    LeaseExpirationTime:
+    Description:
       type: string
-      format: date-time
-    LastUpdatedTime:
-      type: string
-      format: date-time
-    HwAddress:
-      type: string
-      minLength: 1
+      pattern: ^.*$
+      minLength: 0
       maxLength: 255
     EthernetPayload:
       type: object
@@ -788,33 +685,6 @@ components:
           - $ref: '#/components/schemas/StaticIpConnectionInfo'
           - description: Network configuration for a static IP connection.
       description: A device's network configuration.
-    IpAddressOrServerName:
-      type: string
-      pattern: (^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$)|(^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d))(:(6553[0-5]|655[0-2]\d|65[0-4]\d{2}|6[0-4]\d{3}|[1-5]\d{4}|[1-9]\d{0,3}))?$)
-      minLength: 1
-      maxLength: 255
-    UpdateProgress:
-      type: string
-      enum:
-      - PENDING
-      - IN_PROGRESS
-      - VERIFYING
-      - REBOOTING
-      - DOWNLOADING
-      - COMPLETED
-      - FAILED
-    ResourceNotFoundException: {}
-    JobType:
-      type: string
-      enum:
-      - OTA
-      - REBOOT
-    DefaultGateway:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 255
-    ConflictException: {}
     EthernetStatus:
       type: object
       properties:
@@ -831,67 +701,16 @@ components:
           - $ref: '#/components/schemas/IpAddress'
           - description: The device's IP address.
       description: A device's Ethernet status.
-    Version:
-      type: string
-      minLength: 1
-      maxLength: 255
-    StaticIpConnectionInfo:
+    NtpPayload:
       type: object
       required:
-      - DefaultGateway
-      - Dns
-      - IpAddress
-      - Mask
+      - NtpServers
       properties:
-        DefaultGateway:
+        NtpServers:
           allOf:
-          - $ref: '#/components/schemas/DefaultGateway'
-          - description: The connection's default gateway.
-        Dns:
-          allOf:
-          - $ref: '#/components/schemas/DnsList'
-          - description: The connection's DNS address.
-        IpAddress:
-          allOf:
-          - $ref: '#/components/schemas/IpAddress'
-          - description: The connection's IP address.
-        Mask:
-          allOf:
-          - $ref: '#/components/schemas/Mask'
-          - description: The connection's DNS mask.
-      description: A static IP configuration.
-    UpdateDeviceMetadataResponse:
-      type: object
-      properties:
-        DeviceId:
-          allOf:
-          - $ref: '#/components/schemas/DeviceId'
-          - description: The device's ID.
-    NtpServerName:
-      type: string
-      minLength: 1
-      maxLength: 255
-    DeviceType:
-      type: string
-      enum:
-      - PANORAMA_APPLIANCE_DEVELOPER_KIT
-      - PANORAMA_APPLIANCE
-    DeviceBrand:
-      type: string
-      enum:
-      - AWS_PANORAMA
-      - LENOVO
-    LatestAlternateSoftware:
-      type: string
-      minLength: 1
-      maxLength: 255
-    DeleteDeviceResponse:
-      type: object
-      properties:
-        DeviceId:
-          allOf:
-          - $ref: '#/components/schemas/DeviceId'
-          - description: The device's ID.
+          - $ref: '#/components/schemas/NtpServerList'
+          - description: NTP servers to use, in order of preference.
+      description: Network time protocol (NTP) server settings. Use this option to connect to local NTP servers instead of <code>pool.ntp.org</code>.
     NtpStatus:
       type: object
       properties:
@@ -908,6 +727,27 @@ components:
           - $ref: '#/components/schemas/NtpServerName'
           - description: The domain name of the server.
       description: Details about an NTP server connection.
+    ConflictException: {}
+    NetworkStatus:
+      type: object
+      properties:
+        Ethernet0Status:
+          allOf:
+          - $ref: '#/components/schemas/EthernetStatus'
+          - description: The status of Ethernet port 0.
+        Ethernet1Status:
+          allOf:
+          - $ref: '#/components/schemas/EthernetStatus'
+          - description: The status of Ethernet port 1.
+        LastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedTime'
+          - description: When the network status changed.
+        NtpStatus:
+          allOf:
+          - $ref: '#/components/schemas/NtpStatus'
+          - description: Details about a network time protocol (NTP) server connection.
+      description: The network status of a device.
     DescribeDeviceResponse:
       type: object
       properties:
@@ -991,98 +831,270 @@ components:
           allOf:
           - $ref: '#/components/schemas/DeviceType'
           - description: The device's type.
-    ValidationException: {}
-    NtpPayload:
-      type: object
-      required:
-      - NtpServers
-      properties:
-        NtpServers:
-          allOf:
-          - $ref: '#/components/schemas/NtpServerList'
-          - description: NTP servers to use, in order of preference.
-      description: Network time protocol (NTP) server settings. Use this option to connect to local NTP servers instead of <code>pool.ntp.org</code>.
-    IotThingName:
-      type: string
-      minLength: 1
-      maxLength: 255
-    ProvisionDeviceResponse:
-      type: object
-      required:
-      - Arn
-      - Status
-      properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/DeviceArn'
-          - description: The device's ARN.
-        Certificates:
-          allOf:
-          - $ref: '#/components/schemas/Certificates'
-          - description: The device's configuration bundle.
-        DeviceId:
-          allOf:
-          - $ref: '#/components/schemas/DeviceId'
-          - description: The device's ID.
-        IotThingName:
-          allOf:
-          - $ref: '#/components/schemas/IotThingName'
-          - description: The device's IoT thing name.
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/DeviceStatus'
-          - description: The device's status.
-    TagValue:
-      type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 256
-    DeviceId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
-    AlternateSoftwareMetadata:
-      type: object
-      properties:
-        Version:
-          allOf:
-          - $ref: '#/components/schemas/Version'
-          - description: The appliance software version.
-      description: Details about a beta appliance software update.
-    InternalServerException: {}
     DeviceName:
       type: string
       pattern: ^[a-zA-Z0-9\-\_]+$
       minLength: 1
       maxLength: 255
+    CreatedTime:
+      type: string
+      format: date-time
+    ValidationException: {}
+    DeviceConnectionStatus:
+      type: string
+      enum:
+      - ONLINE
+      - OFFLINE
+      - AWAITING_CREDENTIALS
+      - NOT_AVAILABLE
+      - ERROR
+    LatestSoftware:
+      type: string
+      minLength: 1
+      maxLength: 255
+    CurrentSoftware:
+      type: string
+      minLength: 1
+      maxLength: 255
+    UpdateDeviceMetadataResponse:
+      type: object
+      properties:
+        DeviceId:
+          allOf:
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The device's ID.
+    JobType:
+      type: string
+      enum:
+      - OTA
+      - REBOOT
+    DeviceId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    TagValue:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 256
+    StaticIpConnectionInfo:
+      type: object
+      required:
+      - DefaultGateway
+      - Dns
+      - IpAddress
+      - Mask
+      properties:
+        DefaultGateway:
+          allOf:
+          - $ref: '#/components/schemas/DefaultGateway'
+          - description: The connection's default gateway.
+        Dns:
+          allOf:
+          - $ref: '#/components/schemas/DnsList'
+          - description: The connection's DNS address.
+        IpAddress:
+          allOf:
+          - $ref: '#/components/schemas/IpAddress'
+          - description: The connection's IP address.
+        Mask:
+          allOf:
+          - $ref: '#/components/schemas/Mask'
+          - description: The connection's DNS mask.
+      description: A static IP configuration.
+    LatestAlternateSoftware:
+      type: string
+      minLength: 1
+      maxLength: 255
+    ConnectionType:
+      type: string
+      enum:
+      - STATIC_IP
+      - DHCP
+    DeviceAggregatedStatus:
+      type: string
+      enum:
+      - ERROR
+      - AWAITING_PROVISIONING
+      - PENDING
+      - FAILED
+      - DELETING
+      - ONLINE
+      - OFFLINE
+      - LEASE_EXPIRED
+      - UPDATE_NEEDED
+      - REBOOTING
+    Device:
+      type: object
+      properties:
+        Brand:
+          allOf:
+          - $ref: '#/components/schemas/DeviceBrand'
+          - description: The device's maker.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTime'
+          - description: When the device was created.
+        CurrentSoftware:
+          allOf:
+          - $ref: '#/components/schemas/CurrentSoftware'
+          - description: A device's current software.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: A description for the device.
+        DeviceAggregatedStatus:
+          allOf:
+          - $ref: '#/components/schemas/DeviceAggregatedStatus'
+          - description: A device's aggregated status. Including the device's connection status, provisioning status, and lease status.
+        DeviceId:
+          allOf:
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The device's ID.
+        LastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedTime'
+          - description: When the device was updated.
+        LatestDeviceJob:
+          allOf:
+          - $ref: '#/components/schemas/LatestDeviceJob'
+          - description: A device's latest job. Includes the target image version, and the update job status.
+        LeaseExpirationTime:
+          allOf:
+          - $ref: '#/components/schemas/LeaseExpirationTime'
+          - description: The device's lease expiration time.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/DeviceName'
+          - description: The device's name.
+        ProvisioningStatus:
+          allOf:
+          - $ref: '#/components/schemas/DeviceStatus'
+          - description: The device's provisioning status.
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The device's tags.
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/DeviceType'
+          - description: The device's type.
+      description: A device.
+    LatestDeviceJob:
+      type: object
+      properties:
+        ImageVersion:
+          allOf:
+          - $ref: '#/components/schemas/ImageVersion'
+          - description: The target version of the device software.
+        JobType:
+          allOf:
+          - $ref: '#/components/schemas/JobType'
+          - description: The job's type.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/UpdateProgress'
+          - description: Status of the latest device job.
+      description: Returns information about the latest device job.
+    DefaultGateway:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    DeviceSerialNumber:
+      type: string
+      pattern: ^[0-9]{1,20}$
+    DeviceType:
+      type: string
+      enum:
+      - PANORAMA_APPLIANCE_DEVELOPER_KIT
+      - PANORAMA_APPLIANCE
+    NextToken:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 4096
+    DeviceArn:
+      type: string
+      minLength: 1
+      maxLength: 255
+    IpAddressOrServerName:
+      type: string
+      pattern: (^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$)|(^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d))(:(6553[0-5]|655[0-2]\d|65[0-4]\d{2}|6[0-4]\d{3}|[1-5]\d{4}|[1-9]\d{0,3}))?$)
+      minLength: 1
+      maxLength: 255
+    ResourceNotFoundException: {}
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    NetworkPayload:
+      type: object
+      properties:
+        Ethernet0:
+          allOf:
+          - $ref: '#/components/schemas/EthernetPayload'
+          - description: Settings for Ethernet port 0.
+        Ethernet1:
+          allOf:
+          - $ref: '#/components/schemas/EthernetPayload'
+          - description: Settings for Ethernet port 1.
+        Ntp:
+          allOf:
+          - $ref: '#/components/schemas/NtpPayload'
+          - description: Network time protocol (NTP) server settings.
+      description: The network configuration for a device.
     DeviceList:
       type: array
       items:
         $ref: '#/components/schemas/Device'
-    NetworkStatus:
+    DeleteDeviceResponse:
       type: object
       properties:
-        Ethernet0Status:
+        DeviceId:
           allOf:
-          - $ref: '#/components/schemas/EthernetStatus'
-          - description: The status of Ethernet port 0.
-        Ethernet1Status:
-          allOf:
-          - $ref: '#/components/schemas/EthernetStatus'
-          - description: The status of Ethernet port 1.
-        LastUpdatedTime:
-          allOf:
-          - $ref: '#/components/schemas/LastUpdatedTime'
-          - description: When the network status changed.
-        NtpStatus:
-          allOf:
-          - $ref: '#/components/schemas/NtpStatus'
-          - description: Details about a network time protocol (NTP) server connection.
-      description: The network status of a device.
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The device's ID.
+    DeviceBrand:
+      type: string
+      enum:
+      - AWS_PANORAMA
+      - LENOVO
+    Version:
+      type: string
+      minLength: 1
+      maxLength: 255
+    UpdateProgress:
+      type: string
+      enum:
+      - PENDING
+      - IN_PROGRESS
+      - VERIFYING
+      - REBOOTING
+      - DOWNLOADING
+      - COMPLETED
+      - FAILED
+    LastUpdatedTime:
+      type: string
+      format: date-time
   parameters:
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -1099,12 +1111,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -1113,12 +1119,6 @@ components:
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string

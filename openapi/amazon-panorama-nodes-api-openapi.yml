@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
   title: AWS Panorama Application Instances Nodes API
   description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
@@ -335,66 +335,55 @@ paths:
       tags:
       - Nodes
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    NodeOutputPort:
-      type: object
-      properties:
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The output port's description.
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/PortName'
-          - description: The output port's name.
-        Type:
-          allOf:
-          - $ref: '#/components/schemas/PortType'
-          - description: The output port's type.
-      description: A node output port.
+    NodePackageVersion:
+      type: string
+      pattern: ^([0-9]+)\.([0-9]+)$
+      minLength: 1
+      maxLength: 255
+    OutputPortList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeOutputPort'
+    NodePackageName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    PortName:
+      type: string
+      pattern: ^[a-zA-Z0-9\_]+$
+      minLength: 1
+      maxLength: 50
+    NodeAssetName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    NodePackageId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_\/]+$
+      minLength: 1
+      maxLength: 255
+    InternalServerException: {}
+    PackageOwnerAccount:
+      type: string
+      pattern: ^[0-9a-z\_]+$
+      minLength: 1
+      maxLength: 12
+    AccessDeniedException: {}
+    Description:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 255
+    MaxConnections:
+      type: integer
+    NodePackagePatchVersion:
+      type: string
+      pattern: ^[a-z0-9]+$
+      minLength: 1
+      maxLength: 255
     NodeCategory:
       type: string
       enum:
@@ -402,10 +391,36 @@ components:
       - ML_MODEL
       - MEDIA_SOURCE
       - MEDIA_SINK
-    NodePackageArn:
-      type: string
-      minLength: 1
-      maxLength: 255
+    ConflictException: {}
+    ValidationException: {}
+    NodeInputPort:
+      type: object
+      properties:
+        DefaultValue:
+          allOf:
+          - $ref: '#/components/schemas/PortDefaultValue'
+          - description: The input port's default value.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The input port's description.
+        MaxConnections:
+          allOf:
+          - $ref: '#/components/schemas/MaxConnections'
+          - description: The input port's max connections.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/PortName'
+          - description: The input port's name.
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/PortType'
+          - description: The input port's type.
+      description: A node input port.
+    NodesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Node'
     DescribeNodeResponse:
       type: object
       required:
@@ -478,16 +493,14 @@ components:
           allOf:
           - $ref: '#/components/schemas/NodePackagePatchVersion'
           - description: The node's patch version.
-    Description:
+    PortType:
       type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 255
-    PortName:
-      type: string
-      pattern: ^[a-zA-Z0-9\_]+$
-      minLength: 1
-      maxLength: 50
+      enum:
+      - BOOLEAN
+      - STRING
+      - INT32
+      - FLOAT32
+      - MEDIA
     ListNodesResponse:
       type: object
       properties:
@@ -499,65 +512,48 @@ components:
           allOf:
           - $ref: '#/components/schemas/NodesList'
           - description: A list of nodes.
-    InputPortList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NodeInputPort'
     Token:
       type: string
       pattern: ^.+$
       minLength: 1
       maxLength: 4096
-    PackageOwnerAccount:
-      type: string
-      pattern: ^[0-9a-z\_]+$
-      minLength: 1
-      maxLength: 12
-    PortType:
-      type: string
-      enum:
-      - BOOLEAN
-      - STRING
-      - INT32
-      - FLOAT32
-      - MEDIA
-    OutputPortList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NodeOutputPort'
+    NodeOutputPort:
+      type: object
+      properties:
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The output port's description.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/PortName'
+          - description: The output port's name.
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/PortType'
+          - description: The output port's type.
+      description: A node output port.
     PortDefaultValue:
       type: string
       minLength: 1
       maxLength: 255
-    NodeInputPort:
-      type: object
-      properties:
-        DefaultValue:
-          allOf:
-          - $ref: '#/components/schemas/PortDefaultValue'
-          - description: The input port's default value.
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The input port's description.
-        MaxConnections:
-          allOf:
-          - $ref: '#/components/schemas/MaxConnections'
-          - description: The input port's max connections.
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/PortName'
-          - description: The input port's name.
-        Type:
-          allOf:
-          - $ref: '#/components/schemas/PortType'
-          - description: The input port's type.
-      description: A node input port.
-    NodesList:
+    TimeStamp:
+      type: string
+      format: date-time
+    InputPortList:
       type: array
       items:
-        $ref: '#/components/schemas/Node'
-    AccessDeniedException: {}
+        $ref: '#/components/schemas/NodeInputPort'
+    NodePackageArn:
+      type: string
+      minLength: 1
+      maxLength: 255
+    ResourceNotFoundException: {}
+    NodeId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_\.]+$
+      minLength: 1
+      maxLength: 255
     Node:
       type: object
       required:
@@ -615,17 +611,6 @@ components:
           - $ref: '#/components/schemas/NodePackagePatchVersion'
           - description: The node's patch version.
       description: An application node that represents a camera stream, a model, code, or output.
-    NodePackageId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_\/]+$
-      minLength: 1
-      maxLength: 255
-    TimeStamp:
-      type: string
-      format: date-time
-    MaxConnections:
-      type: integer
-    ResourceNotFoundException: {}
     NodeInterface:
       type: object
       required:
@@ -641,39 +626,54 @@ components:
           - $ref: '#/components/schemas/OutputPortList'
           - description: The node interface's outputs.
       description: A node interface.
-    NodeId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_\.]+$
-      minLength: 1
-      maxLength: 255
-    NodePackageVersion:
-      type: string
-      pattern: ^([0-9]+)\.([0-9]+)$
-      minLength: 1
-      maxLength: 255
-    NodePackagePatchVersion:
-      type: string
-      pattern: ^[a-z0-9]+$
-      minLength: 1
-      maxLength: 255
-    ConflictException: {}
     NodeName:
       type: string
       pattern: ^[a-zA-Z0-9\-\_]+$
       minLength: 1
       maxLength: 128
-    ValidationException: {}
-    NodeAssetName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
-    InternalServerException: {}
-    NodePackageName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 128
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
