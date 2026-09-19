@@ -112,6 +112,8 @@ apis:
   humanURL: https://aws.amazon.com/panorama/
   baseURL: https://panorama.amazonaws.com
   tags:
+  - Node
+  tags_raw:
   - Nodes
   properties:
   - type: OpenAPI
