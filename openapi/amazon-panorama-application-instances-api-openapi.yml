@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2019-07-24'
   x-release: v4
   title: AWS Panorama Application Instances API
-  description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
+  description: 'AWS Panorama
+
+    Overview
+
+
+    This is the AWS Panorama API Reference. For an introduction to the service, see What is AWS Panorama? in the AWS Panorama Developer Guide.'
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +29,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/panorama-2019-07-24.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -788,42 +794,42 @@ paths:
       - Application Instances
 components:
   schemas:
-    ListApplicationInstancesResponse:
+    ManifestOverridesPayload:
       type: object
       properties:
-        ApplicationInstances:
+        PayloadData:
           allOf:
-          - $ref: '#/components/schemas/ApplicationInstances'
-          - description: A list of application instances.
-        NextToken:
+          - $ref: '#/components/schemas/ManifestOverridesPayloadData'
+          - description: The overrides document.
+      description: Parameter overrides for an application instance. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the overrides document.
+    ManifestPayload:
+      type: object
+      properties:
+        PayloadData:
           allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A pagination token that's included if more results are available.
-    NodePackageVersion:
-      type: string
-      pattern: ^([0-9]+)\.([0-9]+)$
-      minLength: 1
-      maxLength: 255
-    ApplicationInstanceName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
-    NodeInstanceId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 128
-    NodeSignalValue:
-      type: string
-      enum:
-      - PAUSE
-      - RESUME
-    NodePackageName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 128
+          - $ref: '#/components/schemas/ManifestPayloadData'
+          - description: The application manifest.
+      description: A application verion's manifest file. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the application manifest (<code>graph.json</code>). This file is located in the <code>graphs</code> folder in your application source.
+    PackageObject:
+      type: object
+      required:
+      - Name
+      - PackageVersion
+      - PatchVersion
+      properties:
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The object's name.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The object's package version.
+        PatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The object's patch version.
+      description: A package object.
     ManifestOverridesPayloadData:
       type: string
       pattern: ^.*$
@@ -843,17 +849,21 @@ components:
       - LAUNCHED
       - LAUNCH_ERROR
       - INSTALL_IN_PROGRESS
-    ApplicationInstance:
+    ApplicationInstanceStatusDescription:
+      type: string
+      minLength: 1
+      maxLength: 255
+    DescribeApplicationInstanceDetailsResponse:
       type: object
       properties:
         ApplicationInstanceId:
           allOf:
           - $ref: '#/components/schemas/ApplicationInstanceId'
           - description: The application instance's ID.
-        Arn:
+        ApplicationInstanceIdToReplace:
           allOf:
-          - $ref: '#/components/schemas/ApplicationInstanceArn'
-          - description: The application instance's ARN.
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: The ID of the application instance that this instance replaced.
         CreatedTime:
           allOf:
           - $ref: '#/components/schemas/TimeStamp'
@@ -861,83 +871,34 @@ components:
         DefaultRuntimeContextDevice:
           allOf:
           - $ref: '#/components/schemas/DefaultRuntimeContextDevice'
-          - description: The device's ID.
-        DefaultRuntimeContextDeviceName:
-          allOf:
-          - $ref: '#/components/schemas/DeviceName'
-          - description: The device's name.
+          - description: The application instance's default runtime context device.
         Description:
           allOf:
           - $ref: '#/components/schemas/Description'
           - description: The application instance's description.
-        HealthStatus:
+        ManifestOverridesPayload:
           allOf:
-          - $ref: '#/components/schemas/ApplicationInstanceHealthStatus'
-          - description: The application instance's health status.
+          - $ref: '#/components/schemas/ManifestOverridesPayload'
+          - description: Parameter overrides for the configuration manifest.
+        ManifestPayload:
+          allOf:
+          - $ref: '#/components/schemas/ManifestPayload'
+          - description: The application instance's configuration manifest.
         Name:
           allOf:
           - $ref: '#/components/schemas/ApplicationInstanceName'
           - description: The application instance's name.
-        RuntimeContextStates:
-          allOf:
-          - $ref: '#/components/schemas/ReportedRuntimeContextStates'
-          - description: The application's state.
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationInstanceStatus'
-          - description: The application instance's status.
-        StatusDescription:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationInstanceStatusDescription'
-          - description: The application instance's status description.
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The application instance's tags.
-      description: An application instance on a device.
-    InternalServerException: {}
-    AccessDeniedException: {}
-    NodeInstanceStatus:
-      type: string
-      enum:
-      - RUNNING
-      - ERROR
-      - NOT_AVAILABLE
-      - PAUSED
-    ServiceQuotaExceededException: {}
-    ManifestOverridesPayload:
+    TagMap:
       type: object
-      properties:
-        PayloadData:
-          allOf:
-          - $ref: '#/components/schemas/ManifestOverridesPayloadData'
-          - description: The overrides document.
-      description: Parameter overrides for an application instance. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the overrides document.
-    Description:
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    NodeInstanceId:
       type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 255
-    DesiredState:
-      type: string
-      enum:
-      - RUNNING
-      - STOPPED
-      - REMOVED
-    ApplicationInstanceStatus:
-      type: string
-      enum:
-      - DEPLOYMENT_PENDING
-      - DEPLOYMENT_REQUESTED
-      - DEPLOYMENT_IN_PROGRESS
-      - DEPLOYMENT_ERROR
-      - DEPLOYMENT_SUCCEEDED
-      - REMOVAL_PENDING
-      - REMOVAL_REQUESTED
-      - REMOVAL_IN_PROGRESS
-      - REMOVAL_FAILED
-      - REMOVAL_SUCCEEDED
-      - DEPLOYMENT_FAILED
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
     NodeSignal:
       type: object
       required:
@@ -953,11 +914,7 @@ components:
           - $ref: '#/components/schemas/NodeSignalValue'
           - description: The signal value.
       description: A signal to a camera node to start or stop processing video.
-    NodePackagePatchVersion:
-      type: string
-      pattern: ^[a-z0-9]+$
-      minLength: 1
-      maxLength: 255
+    ConflictException: {}
     DescribeApplicationInstanceResponse:
       type: object
       properties:
@@ -1021,14 +978,23 @@ components:
           allOf:
           - $ref: '#/components/schemas/TagMap'
           - description: The application instance's tags.
-    ApplicationInstances:
-      type: array
-      items:
-        $ref: '#/components/schemas/ApplicationInstance'
-    ApplicationInstanceArn:
+    ResourceNotFoundException: {}
+    SignalApplicationInstanceNodeInstancesResponse:
+      type: object
+      required:
+      - ApplicationInstanceId
+      properties:
+        ApplicationInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: An application instance ID.
+    NodeName:
       type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
       minLength: 1
-      maxLength: 255
+      maxLength: 128
+    AccessDeniedException: {}
+    ServiceQuotaExceededException: {}
     ListApplicationInstanceDependenciesResponse:
       type: object
       properties:
@@ -1040,93 +1006,122 @@ components:
           allOf:
           - $ref: '#/components/schemas/PackageObjects'
           - description: A list of package objects.
-    ConflictException: {}
-    ValidationException: {}
-    DeviceName:
+    NodeSignalValue:
       type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
-    TagValue:
+      enum:
+      - PAUSE
+      - RESUME
+    NodeInstanceStatus:
+      type: string
+      enum:
+      - RUNNING
+      - ERROR
+      - NOT_AVAILABLE
+      - PAUSED
+    Description:
       type: string
       pattern: ^.*$
       minLength: 0
-      maxLength: 256
-    NodeInstances:
-      type: array
-      items:
-        $ref: '#/components/schemas/NodeInstance'
-    RemoveApplicationInstanceResponse:
-      type: object
-      properties: {}
-    RuntimeContextName:
-      type: string
-      pattern: ^.+$
-      minLength: 1
       maxLength: 255
-    ReportedRuntimeContextStates:
-      type: array
-      items:
-        $ref: '#/components/schemas/ReportedRuntimeContextState'
-    ManifestPayload:
-      type: object
-      properties:
-        PayloadData:
-          allOf:
-          - $ref: '#/components/schemas/ManifestPayloadData'
-          - description: The application manifest.
-      description: A application verion's manifest file. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the application manifest (<code>graph.json</code>). This file is located in the <code>graphs</code> folder in your application source.
-    PackageObjects:
-      type: array
-      items:
-        $ref: '#/components/schemas/PackageObject'
-    ReportedRuntimeContextState:
-      type: object
-      required:
-      - DesiredState
-      - DeviceReportedStatus
-      - DeviceReportedTime
-      - RuntimeContextName
-      properties:
-        DesiredState:
-          allOf:
-          - $ref: '#/components/schemas/DesiredState'
-          - description: The application's desired state.
-        DeviceReportedStatus:
-          allOf:
-          - $ref: '#/components/schemas/DeviceReportedStatus'
-          - description: The application's reported status.
-        DeviceReportedTime:
-          allOf:
-          - $ref: '#/components/schemas/TimeStamp'
-          - description: When the device reported the application's state.
-        RuntimeContextName:
-          allOf:
-          - $ref: '#/components/schemas/RuntimeContextName'
-          - description: The device's name.
-      description: An application instance's state.
     NextToken:
       type: string
       pattern: ^.+$
       minLength: 1
       maxLength: 4096
-    RuntimeRoleArn:
+    NodePackagePatchVersion:
       type: string
-      pattern: ^arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:role/.+$
-      minLength: 1
-      maxLength: 255
-    ManifestPayloadData:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 51200
-    ApplicationInstanceStatusDescription:
-      type: string
+      pattern: ^[a-z0-9]+$
       minLength: 1
       maxLength: 255
     TimeStamp:
       type: string
       format: date-time
+    RemoveApplicationInstanceResponse:
+      type: object
+      properties: {}
+    ApplicationInstanceHealthStatus:
+      type: string
+      enum:
+      - RUNNING
+      - ERROR
+      - NOT_AVAILABLE
+    ApplicationInstance:
+      type: object
+      properties:
+        ApplicationInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: The application instance's ID.
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceArn'
+          - description: The application instance's ARN.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the application instance was created.
+        DefaultRuntimeContextDevice:
+          allOf:
+          - $ref: '#/components/schemas/DefaultRuntimeContextDevice'
+          - description: The device's ID.
+        DefaultRuntimeContextDeviceName:
+          allOf:
+          - $ref: '#/components/schemas/DeviceName'
+          - description: The device's name.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The application instance's description.
+        HealthStatus:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceHealthStatus'
+          - description: The application instance's health status.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceName'
+          - description: The application instance's name.
+        RuntimeContextStates:
+          allOf:
+          - $ref: '#/components/schemas/ReportedRuntimeContextStates'
+          - description: The application's state.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceStatus'
+          - description: The application instance's status.
+        StatusDescription:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceStatusDescription'
+          - description: The application instance's status description.
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The application instance's tags.
+      description: An application instance on a device.
+    RuntimeContextName:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    ValidationException: {}
+    ApplicationInstanceStatus:
+      type: string
+      enum:
+      - DEPLOYMENT_PENDING
+      - DEPLOYMENT_REQUESTED
+      - DEPLOYMENT_IN_PROGRESS
+      - DEPLOYMENT_ERROR
+      - DEPLOYMENT_SUCCEEDED
+      - REMOVAL_PENDING
+      - REMOVAL_REQUESTED
+      - REMOVAL_IN_PROGRESS
+      - REMOVAL_FAILED
+      - REMOVAL_SUCCEEDED
+      - DEPLOYMENT_FAILED
+    ManifestPayloadData:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 51200
     NodeInstance:
       type: object
       required:
@@ -1162,6 +1157,110 @@ components:
           - $ref: '#/components/schemas/NodePackageVersion'
           - description: The instance's package version.
       description: A node instance.
+    PackageObjects:
+      type: array
+      items:
+        $ref: '#/components/schemas/PackageObject'
+    NodePackageName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    ReportedRuntimeContextStates:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReportedRuntimeContextState'
+    DefaultRuntimeContextDevice:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    ApplicationInstanceArn:
+      type: string
+      minLength: 1
+      maxLength: 255
+    ApplicationInstanceName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    InternalServerException: {}
+    TagValue:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 256
+    ApplicationInstanceId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    DeviceName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    DesiredState:
+      type: string
+      enum:
+      - RUNNING
+      - STOPPED
+      - REMOVED
+    RuntimeRoleArn:
+      type: string
+      pattern: ^arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:role/.+$
+      minLength: 1
+      maxLength: 255
+    ReportedRuntimeContextState:
+      type: object
+      required:
+      - DesiredState
+      - DeviceReportedStatus
+      - DeviceReportedTime
+      - RuntimeContextName
+      properties:
+        DesiredState:
+          allOf:
+          - $ref: '#/components/schemas/DesiredState'
+          - description: The application's desired state.
+        DeviceReportedStatus:
+          allOf:
+          - $ref: '#/components/schemas/DeviceReportedStatus'
+          - description: The application's reported status.
+        DeviceReportedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the device reported the application's state.
+        RuntimeContextName:
+          allOf:
+          - $ref: '#/components/schemas/RuntimeContextName'
+          - description: The device's name.
+      description: An application instance's state.
+    CreateApplicationInstanceResponse:
+      type: object
+      required:
+      - ApplicationInstanceId
+      properties:
+        ApplicationInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: The application instance's ID.
+    ListApplicationInstancesResponse:
+      type: object
+      properties:
+        ApplicationInstances:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstances'
+          - description: A list of application instances.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+    NodePackageVersion:
+      type: string
+      pattern: ^([0-9]+)\.([0-9]+)$
+      minLength: 1
+      maxLength: 255
     ListApplicationInstanceNodeInstancesResponse:
       type: object
       properties:
@@ -1173,133 +1272,28 @@ components:
           allOf:
           - $ref: '#/components/schemas/NodeInstances'
           - description: A list of node instances.
-    ApplicationInstanceHealthStatus:
-      type: string
-      enum:
-      - RUNNING
-      - ERROR
-      - NOT_AVAILABLE
-    ResourceNotFoundException: {}
-    TagMap:
-      type: object
-      minProperties: 0
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    DescribeApplicationInstanceDetailsResponse:
-      type: object
-      properties:
-        ApplicationInstanceId:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationInstanceId'
-          - description: The application instance's ID.
-        ApplicationInstanceIdToReplace:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationInstanceId'
-          - description: The ID of the application instance that this instance replaced.
-        CreatedTime:
-          allOf:
-          - $ref: '#/components/schemas/TimeStamp'
-          - description: When the application instance was created.
-        DefaultRuntimeContextDevice:
-          allOf:
-          - $ref: '#/components/schemas/DefaultRuntimeContextDevice'
-          - description: The application instance's default runtime context device.
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The application instance's description.
-        ManifestOverridesPayload:
-          allOf:
-          - $ref: '#/components/schemas/ManifestOverridesPayload'
-          - description: Parameter overrides for the configuration manifest.
-        ManifestPayload:
-          allOf:
-          - $ref: '#/components/schemas/ManifestPayload'
-          - description: The application instance's configuration manifest.
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationInstanceName'
-          - description: The application instance's name.
     NodeId:
       type: string
       pattern: ^[a-zA-Z0-9\-\_\.]+$
       minLength: 1
       maxLength: 255
-    ApplicationInstanceId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
-    PackageObject:
-      type: object
-      required:
-      - Name
-      - PackageVersion
-      - PatchVersion
-      properties:
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageName'
-          - description: The object's name.
-        PackageVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageVersion'
-          - description: The object's package version.
-        PatchVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackagePatchVersion'
-          - description: The object's patch version.
-      description: A package object.
-    CreateApplicationInstanceResponse:
-      type: object
-      required:
-      - ApplicationInstanceId
-      properties:
-        ApplicationInstanceId:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationInstanceId'
-          - description: The application instance's ID.
-    DefaultRuntimeContextDevice:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
-    SignalApplicationInstanceNodeInstancesResponse:
-      type: object
-      required:
-      - ApplicationInstanceId
-      properties:
-        ApplicationInstanceId:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationInstanceId'
-          - description: An application instance ID.
-    NodeName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 128
+    ApplicationInstances:
+      type: array
+      items:
+        $ref: '#/components/schemas/ApplicationInstance'
+    NodeInstances:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeInstance'
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -1316,8 +1310,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

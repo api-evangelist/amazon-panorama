@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2019-07-24'
   x-release: v4
-  title: AWS Panorama Application Instances Tags API
-  description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
+  title: AWS Panorama Tags API
+  description: 'AWS Panorama
+
+    Overview
+
+
+    This is the AWS Panorama API Reference. For an introduction to the service, see What is AWS Panorama? in the AWS Panorama Developer Guide.'
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +29,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/panorama-2019-07-24.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -297,54 +303,21 @@ paths:
       tags:
       - Tags
 components:
-  schemas:
-    TagValue:
-      type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 256
-    UntagResourceResponse:
-      type: object
-      properties: {}
-    TagMap:
-      type: object
-      minProperties: 0
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    ResourceNotFoundException: {}
-    ValidationException: {}
-    InternalServerException: {}
-    TagResourceResponse:
-      type: object
-      properties: {}
-    ListTagsForResourceResponse:
-      type: object
-      properties:
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: A list of tags.
-    TagKey:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 128
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -361,18 +334,51 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
+  schemas:
+    TagResourceResponse:
+      type: object
+      properties: {}
+    InternalServerException: {}
+    TagKey:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 128
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    ListTagsForResourceResponse:
+      type: object
+      properties:
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: A list of tags.
+    ResourceNotFoundException: {}
+    ValidationException: {}
+    UntagResourceResponse:
+      type: object
+      properties: {}
+    TagValue:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 256
   securitySchemes:
     hmac:
       type: apiKey

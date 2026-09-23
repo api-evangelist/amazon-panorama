@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2019-07-24'
   x-release: v4
-  title: AWS Panorama Application Instances Jobs API
-  description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
+  title: AWS Panorama Jobs API
+  description: 'AWS Panorama
+
+    Overview
+
+
+    This is the AWS Panorama API Reference. For an introduction to the service, see What is AWS Panorama? in the AWS Panorama Developer Guide.'
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +29,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/panorama-2019-07-24.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -368,59 +374,36 @@ paths:
       - Jobs
 components:
   schemas:
+    DeviceType:
+      type: string
+      enum:
+      - PANORAMA_APPLIANCE_DEVELOPER_KIT
+      - PANORAMA_APPLIANCE
     ImageVersion:
       type: string
       pattern: ^.+$
       minLength: 1
       maxLength: 255
-    DeviceJobList:
-      type: array
-      items:
-        $ref: '#/components/schemas/DeviceJob'
-    Boolean:
-      type: boolean
-    InternalServerException: {}
-    AccessDeniedException: {}
     ConflictException: {}
-    ValidationException: {}
-    DeviceName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
-    CreatedTime:
-      type: string
-      format: date-time
-    ListDevicesJobsResponse:
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    Job:
       type: object
       properties:
-        DeviceJobs:
+        DeviceId:
           allOf:
-          - $ref: '#/components/schemas/DeviceJobList'
-          - description: A list of jobs.
-        NextToken:
+          - $ref: '#/components/schemas/DeviceId'
+          - description: The target device's ID.
+        JobId:
           allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A pagination token that's included if more results are available.
-    JobType:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+      description: A job for a device.
+    NextToken:
       type: string
-      enum:
-      - OTA
-      - REBOOT
-    DeviceId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
+      pattern: ^.+$
       minLength: 1
-      maxLength: 255
-    CreateJobForDevicesResponse:
-      type: object
-      required:
-      - Jobs
-      properties:
-        Jobs:
-          allOf:
-          - $ref: '#/components/schemas/JobList'
-          - description: A list of jobs.
+      maxLength: 4096
     DescribeDeviceJobResponse:
       type: object
       properties:
@@ -460,47 +443,17 @@ components:
           allOf:
           - $ref: '#/components/schemas/UpdateProgress'
           - description: The job's status.
-    NextToken:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 4096
-    JobId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
-    DeviceType:
-      type: string
-      enum:
-      - PANORAMA_APPLIANCE_DEVELOPER_KIT
-      - PANORAMA_APPLIANCE
-    DeviceArn:
-      type: string
-      minLength: 1
-      maxLength: 255
-    OTAJobConfig:
+    ListDevicesJobsResponse:
       type: object
-      required:
-      - ImageVersion
       properties:
-        AllowMajorVersionUpdate:
+        DeviceJobs:
           allOf:
-          - $ref: '#/components/schemas/Boolean'
-          - description: Whether to apply the update if it is a major version change.
-        ImageVersion:
+          - $ref: '#/components/schemas/DeviceJobList'
+          - description: A list of jobs.
+        NextToken:
           allOf:
-          - $ref: '#/components/schemas/ImageVersion'
-          - description: The target version of the device software.
-      description: An over-the-air update (OTA) job configuration.
-    UpdateCreatedTime:
-      type: string
-      format: date-time
-    ResourceNotFoundException: {}
-    JobList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Job'
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
     DeviceJob:
       type: object
       properties:
@@ -525,6 +478,37 @@ components:
           - $ref: '#/components/schemas/JobType'
           - description: The job's type.
       description: A job that runs on a device.
+    CreateJobForDevicesResponse:
+      type: object
+      required:
+      - Jobs
+      properties:
+        Jobs:
+          allOf:
+          - $ref: '#/components/schemas/JobList'
+          - description: A list of jobs.
+    UpdateCreatedTime:
+      type: string
+      format: date-time
+    ValidationException: {}
+    CreatedTime:
+      type: string
+      format: date-time
+    JobType:
+      type: string
+      enum:
+      - OTA
+      - REBOOT
+    DeviceJobList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DeviceJob'
+    DeviceArn:
+      type: string
+      minLength: 1
+      maxLength: 255
+    Boolean:
+      type: boolean
     UpdateProgress:
       type: string
       enum:
@@ -535,39 +519,49 @@ components:
       - DOWNLOADING
       - COMPLETED
       - FAILED
-    Job:
+    JobId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    InternalServerException: {}
+    JobList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Job'
+    DeviceName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    OTAJobConfig:
       type: object
+      required:
+      - ImageVersion
       properties:
-        DeviceId:
+        AllowMajorVersionUpdate:
           allOf:
-          - $ref: '#/components/schemas/DeviceId'
-          - description: The target device's ID.
-        JobId:
+          - $ref: '#/components/schemas/Boolean'
+          - description: Whether to apply the update if it is a major version change.
+        ImageVersion:
           allOf:
-          - $ref: '#/components/schemas/JobId'
-          - description: The job's ID.
-      description: A job for a device.
+          - $ref: '#/components/schemas/ImageVersion'
+          - description: The target version of the device software.
+      description: An over-the-air update (OTA) job configuration.
+    DeviceId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -584,8 +578,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

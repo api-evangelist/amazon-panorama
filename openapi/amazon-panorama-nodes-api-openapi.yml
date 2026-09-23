@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2019-07-24'
   x-release: v4
-  title: AWS Panorama Application Instances Nodes API
-  description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
+  title: AWS Panorama Nodes API
+  description: 'AWS Panorama
+
+    Overview
+
+
+    This is the AWS Panorama API Reference. For an introduction to the service, see What is AWS Panorama? in the AWS Panorama Developer Guide.'
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +29,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/panorama-2019-07-24.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -336,63 +342,38 @@ paths:
       - Nodes
 components:
   schemas:
-    NodePackageVersion:
+    NodePackageArn:
       type: string
-      pattern: ^([0-9]+)\.([0-9]+)$
       minLength: 1
       maxLength: 255
     OutputPortList:
       type: array
       items:
         $ref: '#/components/schemas/NodeOutputPort'
-    NodePackageName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 128
     PortName:
       type: string
       pattern: ^[a-zA-Z0-9\_]+$
       minLength: 1
       maxLength: 50
-    NodeAssetName:
+    ConflictException: {}
+    ResourceNotFoundException: {}
+    ListNodesResponse:
+      type: object
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/Token'
+          - description: A pagination token that's included if more results are available.
+        Nodes:
+          allOf:
+          - $ref: '#/components/schemas/NodesList'
+          - description: A list of nodes.
+    NodeName:
       type: string
       pattern: ^[a-zA-Z0-9\-\_]+$
       minLength: 1
-      maxLength: 255
-    NodePackageId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_\/]+$
-      minLength: 1
-      maxLength: 255
-    InternalServerException: {}
-    PackageOwnerAccount:
-      type: string
-      pattern: ^[0-9a-z\_]+$
-      minLength: 1
-      maxLength: 12
+      maxLength: 128
     AccessDeniedException: {}
-    Description:
-      type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 255
-    MaxConnections:
-      type: integer
-    NodePackagePatchVersion:
-      type: string
-      pattern: ^[a-z0-9]+$
-      minLength: 1
-      maxLength: 255
-    NodeCategory:
-      type: string
-      enum:
-      - BUSINESS_LOGIC
-      - ML_MODEL
-      - MEDIA_SOURCE
-      - MEDIA_SINK
-    ConflictException: {}
-    ValidationException: {}
     NodeInputPort:
       type: object
       properties:
@@ -417,6 +398,103 @@ components:
           - $ref: '#/components/schemas/PortType'
           - description: The input port's type.
       description: A node input port.
+    Description:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 255
+    PortDefaultValue:
+      type: string
+      minLength: 1
+      maxLength: 255
+    NodePackagePatchVersion:
+      type: string
+      pattern: ^[a-z0-9]+$
+      minLength: 1
+      maxLength: 255
+    TimeStamp:
+      type: string
+      format: date-time
+    Token:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 4096
+    Node:
+      type: object
+      required:
+      - Category
+      - CreatedTime
+      - Name
+      - NodeId
+      - PackageId
+      - PackageName
+      - PackageVersion
+      - PatchVersion
+      properties:
+        Category:
+          allOf:
+          - $ref: '#/components/schemas/NodeCategory'
+          - description: The node's category.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the node was created.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The node's description.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/NodeName'
+          - description: The node's name.
+        NodeId:
+          allOf:
+          - $ref: '#/components/schemas/NodeId'
+          - description: The node's ID.
+        OwnerAccount:
+          allOf:
+          - $ref: '#/components/schemas/PackageOwnerAccount'
+          - description: The account ID of the node's owner.
+        PackageArn:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageArn'
+          - description: The node's ARN.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The node's package ID.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The node's package name.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The node's package version.
+        PatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The node's patch version.
+      description: An application node that represents a camera stream, a model, code, or output.
+    ValidationException: {}
+    NodeCategory:
+      type: string
+      enum:
+      - BUSINESS_LOGIC
+      - ML_MODEL
+      - MEDIA_SOURCE
+      - MEDIA_SINK
+    PackageOwnerAccount:
+      type: string
+      pattern: ^[0-9a-z\_]+$
+      minLength: 1
+      maxLength: 12
+    NodePackageName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
     NodesList:
       type: array
       items:
@@ -493,30 +571,8 @@ components:
           allOf:
           - $ref: '#/components/schemas/NodePackagePatchVersion'
           - description: The node's patch version.
-    PortType:
-      type: string
-      enum:
-      - BOOLEAN
-      - STRING
-      - INT32
-      - FLOAT32
-      - MEDIA
-    ListNodesResponse:
-      type: object
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/Token'
-          - description: A pagination token that's included if more results are available.
-        Nodes:
-          allOf:
-          - $ref: '#/components/schemas/NodesList'
-          - description: A list of nodes.
-    Token:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 4096
+    MaxConnections:
+      type: integer
     NodeOutputPort:
       type: object
       properties:
@@ -533,84 +589,39 @@ components:
           - $ref: '#/components/schemas/PortType'
           - description: The output port's type.
       description: A node output port.
-    PortDefaultValue:
-      type: string
-      minLength: 1
-      maxLength: 255
-    TimeStamp:
-      type: string
-      format: date-time
+    InternalServerException: {}
     InputPortList:
       type: array
       items:
         $ref: '#/components/schemas/NodeInputPort'
-    NodePackageArn:
+    PortType:
       type: string
+      enum:
+      - BOOLEAN
+      - STRING
+      - INT32
+      - FLOAT32
+      - MEDIA
+    NodePackageId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_\/]+$
       minLength: 1
       maxLength: 255
-    ResourceNotFoundException: {}
+    NodeAssetName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    NodePackageVersion:
+      type: string
+      pattern: ^([0-9]+)\.([0-9]+)$
+      minLength: 1
+      maxLength: 255
     NodeId:
       type: string
       pattern: ^[a-zA-Z0-9\-\_\.]+$
       minLength: 1
       maxLength: 255
-    Node:
-      type: object
-      required:
-      - Category
-      - CreatedTime
-      - Name
-      - NodeId
-      - PackageId
-      - PackageName
-      - PackageVersion
-      - PatchVersion
-      properties:
-        Category:
-          allOf:
-          - $ref: '#/components/schemas/NodeCategory'
-          - description: The node's category.
-        CreatedTime:
-          allOf:
-          - $ref: '#/components/schemas/TimeStamp'
-          - description: When the node was created.
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The node's description.
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/NodeName'
-          - description: The node's name.
-        NodeId:
-          allOf:
-          - $ref: '#/components/schemas/NodeId'
-          - description: The node's ID.
-        OwnerAccount:
-          allOf:
-          - $ref: '#/components/schemas/PackageOwnerAccount'
-          - description: The account ID of the node's owner.
-        PackageArn:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageArn'
-          - description: The node's ARN.
-        PackageId:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageId'
-          - description: The node's package ID.
-        PackageName:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageName'
-          - description: The node's package name.
-        PackageVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageVersion'
-          - description: The node's package version.
-        PatchVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackagePatchVersion'
-          - description: The node's patch version.
-      description: An application node that represents a camera stream, a model, code, or output.
     NodeInterface:
       type: object
       required:
@@ -626,32 +637,15 @@ components:
           - $ref: '#/components/schemas/OutputPortList'
           - description: The node interface's outputs.
       description: A node interface.
-    NodeName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 128
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -668,8 +662,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

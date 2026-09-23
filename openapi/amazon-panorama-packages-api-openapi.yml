@@ -1,9 +1,14 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2019-07-24'
   x-release: v4
-  title: AWS Panorama Application Instances Packages API
-  description: <p><fullname>AWS Panorama</fullname> <p> <b>Overview</b> </p> <p>This is the <i>AWS Panorama API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/panorama/latest/dev/panorama-welcome.html">What is AWS Panorama?</a> in the <i>AWS Panorama Developer Guide</i>.</p></p>
+  title: AWS Panorama Packages API
+  description: 'AWS Panorama
+
+    Overview
+
+
+    This is the AWS Panorama API Reference. For an introduction to the service, see What is AWS Panorama? in the AWS Panorama Developer Guide.'
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +29,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/panorama-2019-07-24.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -627,7 +633,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     delete:
       operationId: DeletePackage
-      description: <p>Deletes a package.</p> <note> <p>To delete a package, you need permission to call <code>s3:DeleteObject</code> in addition to permissions for the AWS Panorama API.</p> </note>
+      description: 'Deletes a package.
+
+
+        To delete a package, you need permission to call s3:DeleteObject in addition to permissions for the AWS Panorama API.'
       responses:
         '200':
           description: Success
@@ -1210,21 +1219,191 @@ paths:
       - Packages
 components:
   schemas:
-    JobResourceTags:
+    ClientToken:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 64
+    ObjectKey:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    PackageVersionStatusDescription:
+      type: string
+      minLength: 1
+      maxLength: 255
+    ValidationException: {}
+    DeregisterPackageVersionResponse:
+      type: object
+      properties: {}
+    TemplateParametersMap:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/TemplateValue'
+    PackageOwnerAccount:
+      type: string
+      pattern: ^[0-9a-z\_]+$
+      minLength: 1
+      maxLength: 12
+    OutPutS3Location:
       type: object
       required:
-      - ResourceType
-      - Tags
+      - BucketName
+      - ObjectKey
       properties:
-        ResourceType:
+        BucketName:
           allOf:
-          - $ref: '#/components/schemas/JobResourceType'
-          - description: The job's type.
+          - $ref: '#/components/schemas/BucketName'
+          - description: The object's bucket.
+        ObjectKey:
+          allOf:
+          - $ref: '#/components/schemas/ObjectKey'
+          - description: The object's key.
+      description: The location of an output object in Amazon S3.
+    NodePackageName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    PackageImportJobInputConfig:
+      type: object
+      properties:
+        PackageVersionInputConfig:
+          allOf:
+          - $ref: '#/components/schemas/PackageVersionInputConfig'
+          - description: The package version's input configuration.
+      description: A configuration for a package import job.
+    RegisterPackageVersionResponse:
+      type: object
+      properties: {}
+    Bucket:
+      type: string
+    TemplateType:
+      type: string
+      enum:
+      - RTSP_CAMERA_STREAM
+    NodePackageId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_\/]+$
+      minLength: 1
+      maxLength: 255
+    PackageImportJobOutput:
+      type: object
+      required:
+      - OutputS3Location
+      - PackageId
+      - PackageVersion
+      - PatchVersion
+      properties:
+        OutputS3Location:
+          allOf:
+          - $ref: '#/components/schemas/OutPutS3Location'
+          - description: The package's output location.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The package's ID.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The package's version.
+        PatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The package's patch version.
+      description: Results of a package import job.
+    PackageListItem:
+      type: object
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageArn'
+          - description: The package's ARN.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the package was created.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The package's ID.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The package's name.
         Tags:
           allOf:
           - $ref: '#/components/schemas/TagMap'
+          - description: The package's tags.
+      description: A package summary.
+    NodePackageVersion:
+      type: string
+      pattern: ^([0-9]+)\.([0-9]+)$
+      minLength: 1
+      maxLength: 255
+    DescribeNodeFromTemplateJobResponse:
+      type: object
+      required:
+      - CreatedTime
+      - JobId
+      - LastUpdatedTime
+      - NodeName
+      - OutputPackageName
+      - OutputPackageVersion
+      - Status
+      - StatusMessage
+      - TemplateParameters
+      - TemplateType
+      properties:
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTime'
+          - description: When the job was created.
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+        JobTags:
+          allOf:
+          - $ref: '#/components/schemas/JobTagsList'
           - description: The job's tags.
-      description: Tags for a job.
+        LastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedTime'
+          - description: When the job was updated.
+        NodeDescription:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The node's description.
+        NodeName:
+          allOf:
+          - $ref: '#/components/schemas/NodeName'
+          - description: The node's name.
+        OutputPackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The job's output package name.
+        OutputPackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The job's output package version.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/NodeFromTemplateJobStatus'
+          - description: The job's status.
+        StatusMessage:
+          allOf:
+          - $ref: '#/components/schemas/NodeFromTemplateJobStatusMessage'
+          - description: The job's status message.
+        TemplateParameters:
+          allOf:
+          - $ref: '#/components/schemas/TemplateParametersMap'
+          - description: The job's template parameters.
+        TemplateType:
+          allOf:
+          - $ref: '#/components/schemas/TemplateType'
+          - description: The job's template type.
     StorageLocation:
       type: object
       required:
@@ -1255,16 +1434,218 @@ components:
           - $ref: '#/components/schemas/Object'
           - description: The location's repo prefix.
       description: A storage location.
-    BucketName:
+    JobResourceType:
+      type: string
+      enum:
+      - PACKAGE
+    ResourceNotFoundException: {}
+    S3Location:
+      type: object
+      required:
+      - BucketName
+      - ObjectKey
+      properties:
+        BucketName:
+          allOf:
+          - $ref: '#/components/schemas/BucketName'
+          - description: A bucket name.
+        ObjectKey:
+          allOf:
+          - $ref: '#/components/schemas/ObjectKey'
+          - description: An object key.
+        Region:
+          allOf:
+          - $ref: '#/components/schemas/Region'
+          - description: The bucket's Region.
+      description: A location in Amazon S3.
+    PackageImportJobStatus:
+      type: string
+      enum:
+      - PENDING
+      - SUCCEEDED
+      - FAILED
+    AccessDeniedException: {}
+    ListPackageImportJobsResponse:
+      type: object
+      required:
+      - PackageImportJobs
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+        PackageImportJobs:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobList'
+          - description: A list of package import jobs.
+    NextToken:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 4096
+    Boolean:
+      type: boolean
+    JobId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
+    InternalServerException: {}
+    PackageList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PackageListItem'
+    NodeFromTemplateJobStatus:
+      type: string
+      enum:
+      - PENDING
+      - SUCCEEDED
+      - FAILED
+    MarkLatestPatch:
+      type: boolean
+    TemplateValue:
       type: string
       pattern: ^.+$
       minLength: 1
       maxLength: 255
+      format: password
+    LastUpdatedTime:
+      type: string
+      format: date-time
+    PrincipalArn:
+      type: string
+      pattern: ^arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:[a-zA-Z0-9+=,.@\-_/]+$
+      minLength: 1
+      maxLength: 255
+    NodePackageArn:
+      type: string
+      minLength: 1
+      maxLength: 255
+    Object:
+      type: string
+    ConflictException: {}
+    CreatePackageResponse:
+      type: object
+      required:
+      - StorageLocation
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageArn'
+          - description: The package's ARN.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The package's ID.
+        StorageLocation:
+          allOf:
+          - $ref: '#/components/schemas/StorageLocation'
+          - description: The package's storage location.
+    NodeFromTemplateJobList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeFromTemplateJob'
+    DescribePackageResponse:
+      type: object
+      required:
+      - Arn
+      - CreatedTime
+      - PackageId
+      - PackageName
+      - StorageLocation
+      - Tags
+      properties:
+        Arn:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageArn'
+          - description: The package's ARN.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the package was created.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The package's ID.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The package's name.
+        ReadAccessPrincipalArns:
+          allOf:
+          - $ref: '#/components/schemas/PrincipalArnsList'
+          - description: ARNs of accounts that have read access to the package.
+        StorageLocation:
+          allOf:
+          - $ref: '#/components/schemas/StorageLocation'
+          - description: The package's storage location.
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagMap'
+          - description: The package's tags.
+        WriteAccessPrincipalArns:
+          allOf:
+          - $ref: '#/components/schemas/PrincipalArnsList'
+          - description: ARNs of accounts that have write access to the package.
     NodePackagePatchVersion:
       type: string
       pattern: ^[a-z0-9]+$
       minLength: 1
       maxLength: 255
+    ListPackagesResponse:
+      type: object
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+        Packages:
+          allOf:
+          - $ref: '#/components/schemas/PackageList'
+          - description: A list of packages.
+    BucketName:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    PackageImportJob:
+      type: object
+      properties:
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTime'
+          - description: When the job was created.
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+        JobType:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobType'
+          - description: The job's type.
+        LastUpdatedTime:
+          allOf:
+          - $ref: '#/components/schemas/LastUpdatedTime'
+          - description: When the job was updated.
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobStatus'
+          - description: The job's status.
+        StatusMessage:
+          allOf:
+          - $ref: '#/components/schemas/PackageImportJobStatusMessage'
+          - description: The job's status message.
+      description: A job to import a package version.
+    Region:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 255
+    TagValue:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 256
     PackageVersionOutputConfig:
       type: object
       required:
@@ -1284,11 +1665,86 @@ components:
           - $ref: '#/components/schemas/NodePackageVersion'
           - description: The output's package version.
       description: A package version output configuration.
+    CreateNodeFromTemplateJobResponse:
+      type: object
+      required:
+      - JobId
+      properties:
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+    NodeFromTemplateJobStatusMessage:
+      type: string
+    PackageImportJobOutputConfig:
+      type: object
+      properties:
+        PackageVersionOutputConfig:
+          allOf:
+          - $ref: '#/components/schemas/PackageVersionOutputConfig'
+          - description: The package version's output configuration.
+      description: An output configuration for a package import job.
+    JobTagsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/JobResourceTags'
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
     PackageImportJobType:
       type: string
       enum:
       - NODE_PACKAGE_VERSION
       - MARKETPLACE_NODE_PACKAGE_VERSION
+    PrincipalArnsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrincipalArn'
+    CreatePackageImportJobResponse:
+      type: object
+      required:
+      - JobId
+      properties:
+        JobId:
+          allOf:
+          - $ref: '#/components/schemas/JobId'
+          - description: The job's ID.
+    NodeName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    Description:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 255
+    PackageVersionStatus:
+      type: string
+      enum:
+      - REGISTER_PENDING
+      - REGISTER_COMPLETED
+      - FAILED
+      - DELETING
+    ListNodeFromTemplateJobsResponse:
+      type: object
+      required:
+      - NodeFromTemplateJobs
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+        NodeFromTemplateJobs:
+          allOf:
+          - $ref: '#/components/schemas/NodeFromTemplateJobList'
+          - description: A list of jobs.
+    TimeStamp:
+      type: string
+      format: date-time
     DescribePackageImportJobResponse:
       type: object
       required:
@@ -1396,6 +1852,19 @@ components:
           allOf:
           - $ref: '#/components/schemas/PackageVersionStatusDescription'
           - description: The version's status description.
+    CreatedTime:
+      type: string
+      format: date-time
+    PackageVersionInputConfig:
+      type: object
+      required:
+      - S3Location
+      properties:
+        S3Location:
+          allOf:
+          - $ref: '#/components/schemas/S3Location'
+          - description: A location in Amazon S3.
+      description: A package version input configuration.
     NodeFromTemplateJob:
       type: object
       properties:
@@ -1424,493 +1893,39 @@ components:
           - $ref: '#/components/schemas/TemplateType'
           - description: The job's template type.
       description: A job to create a camera stream node.
-    NextToken:
+    PackageImportJobStatusMessage:
       type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 4096
-    TimeStamp:
-      type: string
-      format: date-time
-    CreatePackageResponse:
-      type: object
-      required:
-      - StorageLocation
-      properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageArn'
-          - description: The package's ARN.
-        PackageId:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageId'
-          - description: The package's ID.
-        StorageLocation:
-          allOf:
-          - $ref: '#/components/schemas/StorageLocation'
-          - description: The package's storage location.
-    S3Location:
-      type: object
-      required:
-      - BucketName
-      - ObjectKey
-      properties:
-        BucketName:
-          allOf:
-          - $ref: '#/components/schemas/BucketName'
-          - description: A bucket name.
-        ObjectKey:
-          allOf:
-          - $ref: '#/components/schemas/ObjectKey'
-          - description: An object key.
-        Region:
-          allOf:
-          - $ref: '#/components/schemas/Region'
-          - description: The bucket's Region.
-      description: A location in Amazon S3.
-    NodeFromTemplateJobStatusMessage:
-      type: string
-    MarkLatestPatch:
-      type: boolean
-    PackageVersionInputConfig:
-      type: object
-      required:
-      - S3Location
-      properties:
-        S3Location:
-          allOf:
-          - $ref: '#/components/schemas/S3Location'
-          - description: A location in Amazon S3.
-      description: A package version input configuration.
-    OutPutS3Location:
-      type: object
-      required:
-      - BucketName
-      - ObjectKey
-      properties:
-        BucketName:
-          allOf:
-          - $ref: '#/components/schemas/BucketName'
-          - description: The object's bucket.
-        ObjectKey:
-          allOf:
-          - $ref: '#/components/schemas/ObjectKey'
-          - description: The object's key.
-      description: The location of an output object in Amazon S3.
-    TemplateValue:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 255
-      format: password
-    PackageList:
-      type: array
-      items:
-        $ref: '#/components/schemas/PackageListItem'
-    PackageOwnerAccount:
-      type: string
-      pattern: ^[0-9a-z\_]+$
-      minLength: 1
-      maxLength: 12
-    AccessDeniedException: {}
     DeletePackageResponse:
       type: object
       properties: {}
-    DescribePackageResponse:
-      type: object
-      required:
-      - Arn
-      - CreatedTime
-      - PackageId
-      - PackageName
-      - StorageLocation
-      - Tags
-      properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageArn'
-          - description: The package's ARN.
-        CreatedTime:
-          allOf:
-          - $ref: '#/components/schemas/TimeStamp'
-          - description: When the package was created.
-        PackageId:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageId'
-          - description: The package's ID.
-        PackageName:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageName'
-          - description: The package's name.
-        ReadAccessPrincipalArns:
-          allOf:
-          - $ref: '#/components/schemas/PrincipalArnsList'
-          - description: ARNs of accounts that have read access to the package.
-        StorageLocation:
-          allOf:
-          - $ref: '#/components/schemas/StorageLocation'
-          - description: The package's storage location.
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The package's tags.
-        WriteAccessPrincipalArns:
-          allOf:
-          - $ref: '#/components/schemas/PrincipalArnsList'
-          - description: ARNs of accounts that have write access to the package.
-    PackageImportJob:
-      type: object
-      properties:
-        CreatedTime:
-          allOf:
-          - $ref: '#/components/schemas/CreatedTime'
-          - description: When the job was created.
-        JobId:
-          allOf:
-          - $ref: '#/components/schemas/JobId'
-          - description: The job's ID.
-        JobType:
-          allOf:
-          - $ref: '#/components/schemas/PackageImportJobType'
-          - description: The job's type.
-        LastUpdatedTime:
-          allOf:
-          - $ref: '#/components/schemas/LastUpdatedTime'
-          - description: When the job was updated.
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/PackageImportJobStatus'
-          - description: The job's status.
-        StatusMessage:
-          allOf:
-          - $ref: '#/components/schemas/PackageImportJobStatusMessage'
-          - description: The job's status message.
-      description: A job to import a package version.
-    PrincipalArn:
-      type: string
-      pattern: ^arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:[a-zA-Z0-9+=,.@\-_/]+$
-      minLength: 1
-      maxLength: 255
-    PackageImportJobOutput:
-      type: object
-      required:
-      - OutputS3Location
-      - PackageId
-      - PackageVersion
-      - PatchVersion
-      properties:
-        OutputS3Location:
-          allOf:
-          - $ref: '#/components/schemas/OutPutS3Location'
-          - description: The package's output location.
-        PackageId:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageId'
-          - description: The package's ID.
-        PackageVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageVersion'
-          - description: The package's version.
-        PatchVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackagePatchVersion'
-          - description: The package's patch version.
-      description: Results of a package import job.
-    PackageVersionStatusDescription:
-      type: string
-      minLength: 1
-      maxLength: 255
-    ClientToken:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 64
-    PrincipalArnsList:
-      type: array
-      items:
-        $ref: '#/components/schemas/PrincipalArn'
-    DescribeNodeFromTemplateJobResponse:
-      type: object
-      required:
-      - CreatedTime
-      - JobId
-      - LastUpdatedTime
-      - NodeName
-      - OutputPackageName
-      - OutputPackageVersion
-      - Status
-      - StatusMessage
-      - TemplateParameters
-      - TemplateType
-      properties:
-        CreatedTime:
-          allOf:
-          - $ref: '#/components/schemas/CreatedTime'
-          - description: When the job was created.
-        JobId:
-          allOf:
-          - $ref: '#/components/schemas/JobId'
-          - description: The job's ID.
-        JobTags:
-          allOf:
-          - $ref: '#/components/schemas/JobTagsList'
-          - description: The job's tags.
-        LastUpdatedTime:
-          allOf:
-          - $ref: '#/components/schemas/LastUpdatedTime'
-          - description: When the job was updated.
-        NodeDescription:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The node's description.
-        NodeName:
-          allOf:
-          - $ref: '#/components/schemas/NodeName'
-          - description: The node's name.
-        OutputPackageName:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageName'
-          - description: The job's output package name.
-        OutputPackageVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageVersion'
-          - description: The job's output package version.
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/NodeFromTemplateJobStatus'
-          - description: The job's status.
-        StatusMessage:
-          allOf:
-          - $ref: '#/components/schemas/NodeFromTemplateJobStatusMessage'
-          - description: The job's status message.
-        TemplateParameters:
-          allOf:
-          - $ref: '#/components/schemas/TemplateParametersMap'
-          - description: The job's template parameters.
-        TemplateType:
-          allOf:
-          - $ref: '#/components/schemas/TemplateType'
-          - description: The job's template type.
-    ResourceNotFoundException: {}
-    PackageListItem:
-      type: object
-      properties:
-        Arn:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageArn'
-          - description: The package's ARN.
-        CreatedTime:
-          allOf:
-          - $ref: '#/components/schemas/TimeStamp'
-          - description: When the package was created.
-        PackageId:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageId'
-          - description: The package's ID.
-        PackageName:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageName'
-          - description: The package's name.
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/TagMap'
-          - description: The package's tags.
-      description: A package summary.
-    LastUpdatedTime:
-      type: string
-      format: date-time
-    NodePackageName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 128
-    Boolean:
-      type: boolean
-    NodeFromTemplateJobList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NodeFromTemplateJob'
-    TemplateParametersMap:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/TemplateValue'
-    InternalServerException: {}
-    DeregisterPackageVersionResponse:
-      type: object
-      properties: {}
-    JobTagsList:
-      type: array
-      items:
-        $ref: '#/components/schemas/JobResourceTags'
-    Object:
-      type: string
-    TemplateType:
-      type: string
-      enum:
-      - RTSP_CAMERA_STREAM
-    ConflictException: {}
-    ValidationException: {}
-    CreatedTime:
-      type: string
-      format: date-time
-    ListPackageImportJobsResponse:
-      type: object
-      required:
-      - PackageImportJobs
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A pagination token that's included if more results are available.
-        PackageImportJobs:
-          allOf:
-          - $ref: '#/components/schemas/PackageImportJobList'
-          - description: A list of package import jobs.
-    PackageImportJobStatusMessage:
-      type: string
-    TagValue:
-      type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 256
-    NodeFromTemplateJobStatus:
-      type: string
-      enum:
-      - PENDING
-      - SUCCEEDED
-      - FAILED
-    PackageImportJobOutputConfig:
-      type: object
-      properties:
-        PackageVersionOutputConfig:
-          allOf:
-          - $ref: '#/components/schemas/PackageVersionOutputConfig'
-          - description: The package version's output configuration.
-      description: An output configuration for a package import job.
-    JobId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
-    JobResourceType:
-      type: string
-      enum:
-      - PACKAGE
-    TagMap:
-      type: object
-      minProperties: 0
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    ObjectKey:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 255
-    PackageVersionStatus:
-      type: string
-      enum:
-      - REGISTER_PENDING
-      - REGISTER_COMPLETED
-      - FAILED
-      - DELETING
-    NodePackageVersion:
-      type: string
-      pattern: ^([0-9]+)\.([0-9]+)$
-      minLength: 1
-      maxLength: 255
-    ListPackagesResponse:
-      type: object
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A pagination token that's included if more results are available.
-        Packages:
-          allOf:
-          - $ref: '#/components/schemas/PackageList'
-          - description: A list of packages.
-    RegisterPackageVersionResponse:
-      type: object
-      properties: {}
-    NodePackageId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_\/]+$
-      minLength: 1
-      maxLength: 255
-    Description:
-      type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 255
-    PackageImportJobStatus:
-      type: string
-      enum:
-      - PENDING
-      - SUCCEEDED
-      - FAILED
-    Bucket:
-      type: string
-    ListNodeFromTemplateJobsResponse:
-      type: object
-      required:
-      - NodeFromTemplateJobs
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A pagination token that's included if more results are available.
-        NodeFromTemplateJobs:
-          allOf:
-          - $ref: '#/components/schemas/NodeFromTemplateJobList'
-          - description: A list of jobs.
-    Region:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 255
-    NodePackageArn:
-      type: string
-      minLength: 1
-      maxLength: 255
     PackageImportJobList:
       type: array
       items:
         $ref: '#/components/schemas/PackageImportJob'
-    CreatePackageImportJobResponse:
+    JobResourceTags:
       type: object
       required:
-      - JobId
+      - ResourceType
+      - Tags
       properties:
-        JobId:
+        ResourceType:
           allOf:
-          - $ref: '#/components/schemas/JobId'
-          - description: The job's ID.
-    PackageImportJobInputConfig:
-      type: object
-      properties:
-        PackageVersionInputConfig:
+          - $ref: '#/components/schemas/JobResourceType'
+          - description: The job's type.
+        Tags:
           allOf:
-          - $ref: '#/components/schemas/PackageVersionInputConfig'
-          - description: The package version's input configuration.
-      description: A configuration for a package import job.
-    CreateNodeFromTemplateJobResponse:
-      type: object
-      required:
-      - JobId
-      properties:
-        JobId:
-          allOf:
-          - $ref: '#/components/schemas/JobId'
-          - description: The job's ID.
-    NodeName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 128
+          - $ref: '#/components/schemas/TagMap'
+          - description: The job's tags.
+      description: Tags for a job.
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -1921,20 +1936,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
       in: header
       schema:
         type: string

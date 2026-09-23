@@ -1,12 +1,7 @@
 {
   "provider": "amazon-panorama",
   "sources": [
-    "amazon-panorama-application-instances-api-openapi.yml",
-    "amazon-panorama-devices-api-openapi.yml",
-    "amazon-panorama-jobs-api-openapi.yml",
-    "amazon-panorama-nodes-api-openapi.yml",
-    "amazon-panorama-packages-api-openapi.yml",
-    "amazon-panorama-tags-api-openapi.yml"
+    "_original/amazon-panorama-openapi.yml"
   ],
   "outputs": [
     "amazon-panorama-application-instances-api-openapi.yml",
@@ -20,7 +15,56 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-panorama-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "amazon-panorama-openapi.yml: tagged paths POST /application-instances -> Application Instances",
+    "amazon-panorama-openapi.yml: tagged paths GET /application-instances -> Application Instances",
+    "amazon-panorama-openapi.yml: tagged paths POST /jobs -> Jobs",
+    "amazon-panorama-openapi.yml: tagged paths GET /jobs -> Jobs",
+    "amazon-panorama-openapi.yml: tagged paths POST /packages/template-job -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths GET /packages/template-job -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths POST /packages -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths GET /packages -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths POST /packages/import-jobs -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths GET /packages/import-jobs -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths DELETE /devices/{DeviceId} -> Devices",
+    "amazon-panorama-openapi.yml: tagged paths GET /devices/{DeviceId} -> Devices",
+    "amazon-panorama-openapi.yml: tagged paths PUT /devices/{DeviceId} -> Devices",
+    "amazon-panorama-openapi.yml: tagged paths DELETE /packages/{PackageId} -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths DELETE /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion} -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths PUT /packages/{PackageId}/versions/{PackageVersion}/patch/{PatchVersion} -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths GET /application-instances/{ApplicationInstanceId} -> Application Instances",
+    "amazon-panorama-openapi.yml: tagged paths DELETE /application-instances/{ApplicationInstanceId} -> Application Instances",
+    "amazon-panorama-openapi.yml: tagged paths GET /application-instances/{ApplicationInstanceId}/details -> Application Instances",
+    "amazon-panorama-openapi.yml: tagged paths GET /jobs/{JobId} -> Jobs",
+    "amazon-panorama-openapi.yml: tagged paths GET /nodes/{NodeId} -> Nodes",
+    "amazon-panorama-openapi.yml: tagged paths GET /packages/template-job/{JobId} -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths GET /packages/metadata/{PackageId} -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths GET /packages/import-jobs/{JobId} -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths GET /packages/metadata/{PackageId}/versions/{PackageVersion} -> Packages",
+    "amazon-panorama-openapi.yml: tagged paths GET /application-instances/{ApplicationInstanceId}/package-dependencies -> Application Instances",
+    "amazon-panorama-openapi.yml: tagged paths GET /application-instances/{ApplicationInstanceId}/node-instances -> Application Instances",
+    "amazon-panorama-openapi.yml: tagged paths GET /devices -> Devices",
+    "amazon-panorama-openapi.yml: tagged paths POST /devices -> Devices",
+    "amazon-panorama-openapi.yml: tagged paths GET /nodes -> Nodes",
+    "amazon-panorama-openapi.yml: tagged paths GET /tags/{ResourceArn} -> Tags",
+    "amazon-panorama-openapi.yml: tagged paths POST /tags/{ResourceArn} -> Tags",
+    "amazon-panorama-openapi.yml: tagged paths PUT /application-instances/{ApplicationInstanceId}/node-signals -> Application Instances",
+    "amazon-panorama-openapi.yml: tagged paths DELETE /tags/{ResourceArn}#tagKeys -> Tags",
+    "amazon-panorama-openapi.yml: declared missing tag: Application Instances",
+    "amazon-panorama-openapi.yml: declared missing tag: Devices",
+    "amazon-panorama-openapi.yml: declared missing tag: Jobs",
+    "amazon-panorama-openapi.yml: declared missing tag: Nodes",
+    "amazon-panorama-openapi.yml: declared missing tag: Packages",
+    "amazon-panorama-openapi.yml: declared missing tag: Tags",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-panorama-application-instances-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-panorama-devices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-panorama-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-panorama-nodes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-panorama-packages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-panorama-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
