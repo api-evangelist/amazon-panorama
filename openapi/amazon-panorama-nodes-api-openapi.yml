@@ -342,21 +342,6 @@ paths:
       - Nodes
 components:
   schemas:
-    NodePackageArn:
-      type: string
-      minLength: 1
-      maxLength: 255
-    OutputPortList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NodeOutputPort'
-    PortName:
-      type: string
-      pattern: ^[a-zA-Z0-9\_]+$
-      minLength: 1
-      maxLength: 50
-    ConflictException: {}
-    ResourceNotFoundException: {}
     ListNodesResponse:
       type: object
       properties:
@@ -368,116 +353,34 @@ components:
           allOf:
           - $ref: '#/components/schemas/NodesList'
           - description: A list of nodes.
-    NodeName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 128
-    AccessDeniedException: {}
-    NodeInputPort:
-      type: object
-      properties:
-        DefaultValue:
-          allOf:
-          - $ref: '#/components/schemas/PortDefaultValue'
-          - description: The input port's default value.
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The input port's description.
-        MaxConnections:
-          allOf:
-          - $ref: '#/components/schemas/MaxConnections'
-          - description: The input port's max connections.
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/PortName'
-          - description: The input port's name.
-        Type:
-          allOf:
-          - $ref: '#/components/schemas/PortType'
-          - description: The input port's type.
-      description: A node input port.
-    Description:
-      type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 255
-    PortDefaultValue:
-      type: string
-      minLength: 1
-      maxLength: 255
-    NodePackagePatchVersion:
-      type: string
-      pattern: ^[a-z0-9]+$
-      minLength: 1
-      maxLength: 255
-    TimeStamp:
-      type: string
-      format: date-time
+    InternalServerException: {}
     Token:
       type: string
       pattern: ^.+$
       minLength: 1
       maxLength: 4096
-    Node:
-      type: object
-      required:
-      - Category
-      - CreatedTime
-      - Name
-      - NodeId
-      - PackageId
-      - PackageName
-      - PackageVersion
-      - PatchVersion
-      properties:
-        Category:
-          allOf:
-          - $ref: '#/components/schemas/NodeCategory'
-          - description: The node's category.
-        CreatedTime:
-          allOf:
-          - $ref: '#/components/schemas/TimeStamp'
-          - description: When the node was created.
-        Description:
-          allOf:
-          - $ref: '#/components/schemas/Description'
-          - description: The node's description.
-        Name:
-          allOf:
-          - $ref: '#/components/schemas/NodeName'
-          - description: The node's name.
-        NodeId:
-          allOf:
-          - $ref: '#/components/schemas/NodeId'
-          - description: The node's ID.
-        OwnerAccount:
-          allOf:
-          - $ref: '#/components/schemas/PackageOwnerAccount'
-          - description: The account ID of the node's owner.
-        PackageArn:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageArn'
-          - description: The node's ARN.
-        PackageId:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageId'
-          - description: The node's package ID.
-        PackageName:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageName'
-          - description: The node's package name.
-        PackageVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageVersion'
-          - description: The node's package version.
-        PatchVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackagePatchVersion'
-          - description: The node's patch version.
-      description: An application node that represents a camera stream, a model, code, or output.
     ValidationException: {}
+    NodeId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_\.]+$
+      minLength: 1
+      maxLength: 255
+    InputPortList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeInputPort'
+    NodesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Node'
+    PortType:
+      type: string
+      enum:
+      - BOOLEAN
+      - STRING
+      - INT32
+      - FLOAT32
+      - MEDIA
     NodeCategory:
       type: string
       enum:
@@ -485,20 +388,31 @@ components:
       - ML_MODEL
       - MEDIA_SOURCE
       - MEDIA_SINK
-    PackageOwnerAccount:
-      type: string
-      pattern: ^[0-9a-z\_]+$
-      minLength: 1
-      maxLength: 12
+    OutputPortList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeOutputPort'
     NodePackageName:
       type: string
       pattern: ^[a-zA-Z0-9\-\_]+$
       minLength: 1
       maxLength: 128
-    NodesList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Node'
+    Description:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 255
+    ConflictException: {}
+    NodePackageId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_\/]+$
+      minLength: 1
+      maxLength: 255
+    NodeAssetName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
     DescribeNodeResponse:
       type: object
       required:
@@ -571,8 +485,67 @@ components:
           allOf:
           - $ref: '#/components/schemas/NodePackagePatchVersion'
           - description: The node's patch version.
-    MaxConnections:
-      type: integer
+    Node:
+      type: object
+      required:
+      - Category
+      - CreatedTime
+      - Name
+      - NodeId
+      - PackageId
+      - PackageName
+      - PackageVersion
+      - PatchVersion
+      properties:
+        Category:
+          allOf:
+          - $ref: '#/components/schemas/NodeCategory'
+          - description: The node's category.
+        CreatedTime:
+          allOf:
+          - $ref: '#/components/schemas/TimeStamp'
+          - description: When the node was created.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The node's description.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/NodeName'
+          - description: The node's name.
+        NodeId:
+          allOf:
+          - $ref: '#/components/schemas/NodeId'
+          - description: The node's ID.
+        OwnerAccount:
+          allOf:
+          - $ref: '#/components/schemas/PackageOwnerAccount'
+          - description: The account ID of the node's owner.
+        PackageArn:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageArn'
+          - description: The node's ARN.
+        PackageId:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageId'
+          - description: The node's package ID.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The node's package name.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The node's package version.
+        PatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The node's patch version.
+      description: An application node that represents a camera stream, a model, code, or output.
+    PortDefaultValue:
+      type: string
+      minLength: 1
+      maxLength: 255
     NodeOutputPort:
       type: object
       properties:
@@ -589,39 +562,28 @@ components:
           - $ref: '#/components/schemas/PortType'
           - description: The output port's type.
       description: A node output port.
-    InternalServerException: {}
-    InputPortList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NodeInputPort'
-    PortType:
+    TimeStamp:
       type: string
-      enum:
-      - BOOLEAN
-      - STRING
-      - INT32
-      - FLOAT32
-      - MEDIA
-    NodePackageId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_\/]+$
-      minLength: 1
-      maxLength: 255
-    NodeAssetName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
+      format: date-time
     NodePackageVersion:
       type: string
       pattern: ^([0-9]+)\.([0-9]+)$
       minLength: 1
       maxLength: 255
-    NodeId:
+    PortName:
       type: string
-      pattern: ^[a-zA-Z0-9\-\_\.]+$
+      pattern: ^[a-zA-Z0-9\_]+$
+      minLength: 1
+      maxLength: 50
+    NodePackageArn:
+      type: string
       minLength: 1
       maxLength: 255
+    PackageOwnerAccount:
+      type: string
+      pattern: ^[0-9a-z\_]+$
+      minLength: 1
+      maxLength: 12
     NodeInterface:
       type: object
       required:
@@ -637,9 +599,47 @@ components:
           - $ref: '#/components/schemas/OutputPortList'
           - description: The node interface's outputs.
       description: A node interface.
+    MaxConnections:
+      type: integer
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    NodeName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    NodeInputPort:
+      type: object
+      properties:
+        DefaultValue:
+          allOf:
+          - $ref: '#/components/schemas/PortDefaultValue'
+          - description: The input port's default value.
+        Description:
+          allOf:
+          - $ref: '#/components/schemas/Description'
+          - description: The input port's description.
+        MaxConnections:
+          allOf:
+          - $ref: '#/components/schemas/MaxConnections'
+          - description: The input port's max connections.
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/PortName'
+          - description: The input port's name.
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/PortType'
+          - description: The input port's type.
+      description: A node input port.
+    NodePackagePatchVersion:
+      type: string
+      pattern: ^[a-z0-9]+$
+      minLength: 1
+      maxLength: 255
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -650,14 +650,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -668,14 +662,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
