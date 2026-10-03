@@ -341,7 +341,61 @@ paths:
       tags:
       - Nodes
 components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    InternalServerException: {}
+    NodeId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_\.]+$
+      minLength: 1
+      maxLength: 255
+    NodeName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
     ListNodesResponse:
       type: object
       properties:
@@ -353,26 +407,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/NodesList'
           - description: A list of nodes.
-    InternalServerException: {}
-    Token:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 4096
-    ValidationException: {}
-    NodeId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_\.]+$
-      minLength: 1
-      maxLength: 255
-    InputPortList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NodeInputPort'
-    NodesList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Node'
     PortType:
       type: string
       enum:
@@ -381,36 +415,13 @@ components:
       - INT32
       - FLOAT32
       - MEDIA
-    NodeCategory:
-      type: string
-      enum:
-      - BUSINESS_LOGIC
-      - ML_MODEL
-      - MEDIA_SOURCE
-      - MEDIA_SINK
-    OutputPortList:
-      type: array
-      items:
-        $ref: '#/components/schemas/NodeOutputPort'
-    NodePackageName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 128
-    Description:
-      type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 255
-    ConflictException: {}
     NodePackageId:
       type: string
       pattern: ^[a-zA-Z0-9\-\_\/]+$
       minLength: 1
       maxLength: 255
-    NodeAssetName:
+    NodePackageArn:
       type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
       minLength: 1
       maxLength: 255
     DescribeNodeResponse:
@@ -485,6 +496,42 @@ components:
           allOf:
           - $ref: '#/components/schemas/NodePackagePatchVersion'
           - description: The node's patch version.
+    NodesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Node'
+    PortName:
+      type: string
+      pattern: ^[a-zA-Z0-9\_]+$
+      minLength: 1
+      maxLength: 50
+    MaxConnections:
+      type: integer
+    OutputPortList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeOutputPort'
+    NodeInterface:
+      type: object
+      required:
+      - Inputs
+      - Outputs
+      properties:
+        Inputs:
+          allOf:
+          - $ref: '#/components/schemas/InputPortList'
+          - description: The node interface's inputs.
+        Outputs:
+          allOf:
+          - $ref: '#/components/schemas/OutputPortList'
+          - description: The node interface's outputs.
+      description: A node interface.
+    ValidationException: {}
+    NodeAssetName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
     Node:
       type: object
       required:
@@ -542,10 +589,32 @@ components:
           - $ref: '#/components/schemas/NodePackagePatchVersion'
           - description: The node's patch version.
       description: An application node that represents a camera stream, a model, code, or output.
-    PortDefaultValue:
+    Token:
       type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 4096
+    NodePackagePatchVersion:
+      type: string
+      pattern: ^[a-z0-9]+$
       minLength: 1
       maxLength: 255
+    AccessDeniedException: {}
+    TimeStamp:
+      type: string
+      format: date-time
+    Description:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 255
+    NodeCategory:
+      type: string
+      enum:
+      - BUSINESS_LOGIC
+      - ML_MODEL
+      - MEDIA_SOURCE
+      - MEDIA_SINK
     NodeOutputPort:
       type: object
       properties:
@@ -562,52 +631,30 @@ components:
           - $ref: '#/components/schemas/PortType'
           - description: The output port's type.
       description: A node output port.
-    TimeStamp:
-      type: string
-      format: date-time
-    NodePackageVersion:
-      type: string
-      pattern: ^([0-9]+)\.([0-9]+)$
-      minLength: 1
-      maxLength: 255
-    PortName:
-      type: string
-      pattern: ^[a-zA-Z0-9\_]+$
-      minLength: 1
-      maxLength: 50
-    NodePackageArn:
-      type: string
-      minLength: 1
-      maxLength: 255
     PackageOwnerAccount:
       type: string
       pattern: ^[0-9a-z\_]+$
       minLength: 1
       maxLength: 12
-    NodeInterface:
-      type: object
-      required:
-      - Inputs
-      - Outputs
-      properties:
-        Inputs:
-          allOf:
-          - $ref: '#/components/schemas/InputPortList'
-          - description: The node interface's inputs.
-        Outputs:
-          allOf:
-          - $ref: '#/components/schemas/OutputPortList'
-          - description: The node interface's outputs.
-      description: A node interface.
-    MaxConnections:
-      type: integer
-    ResourceNotFoundException: {}
-    AccessDeniedException: {}
-    NodeName:
+    InputPortList:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeInputPort'
+    NodePackageVersion:
+      type: string
+      pattern: ^([0-9]+)\.([0-9]+)$
+      minLength: 1
+      maxLength: 255
+    NodePackageName:
       type: string
       pattern: ^[a-zA-Z0-9\-\_]+$
       minLength: 1
       maxLength: 128
+    PortDefaultValue:
+      type: string
+      minLength: 1
+      maxLength: 255
+    ConflictException: {}
     NodeInputPort:
       type: object
       properties:
@@ -632,54 +679,7 @@ components:
           - $ref: '#/components/schemas/PortType'
           - description: The input port's type.
       description: A node input port.
-    NodePackagePatchVersion:
-      type: string
-      pattern: ^[a-z0-9]+$
-      minLength: 1
-      maxLength: 255
-  parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
+    ResourceNotFoundException: {}
   securitySchemes:
     hmac:
       type: apiKey
