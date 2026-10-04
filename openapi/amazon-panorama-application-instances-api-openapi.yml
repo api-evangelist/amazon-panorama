@@ -794,43 +794,91 @@ paths:
       - Application Instances
 components:
   schemas:
+    TimeStamp:
+      type: string
+      format: date-time
+    Description:
+      type: string
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 255
+    PackageObject:
+      type: object
+      required:
+      - Name
+      - PackageVersion
+      - PatchVersion
+      properties:
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The object's name.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The object's package version.
+        PatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The object's patch version.
+      description: A package object.
+    NodeSignalValue:
+      type: string
+      enum:
+      - PAUSE
+      - RESUME
+    TagMap:
+      type: object
+      minProperties: 0
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    ListApplicationInstancesResponse:
+      type: object
+      properties:
+        ApplicationInstances:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstances'
+          - description: A list of application instances.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+    InternalServerException: {}
+    NodeInstances:
+      type: array
+      items:
+        $ref: '#/components/schemas/NodeInstance'
+    RemoveApplicationInstanceResponse:
+      type: object
+      properties: {}
+    DesiredState:
+      type: string
+      enum:
+      - RUNNING
+      - STOPPED
+      - REMOVED
+    ApplicationInstanceHealthStatus:
+      type: string
+      enum:
+      - RUNNING
+      - ERROR
+      - NOT_AVAILABLE
     DefaultRuntimeContextDevice:
       type: string
       pattern: ^[a-zA-Z0-9\-\_]+$
       minLength: 1
       maxLength: 255
-    SignalApplicationInstanceNodeInstancesResponse:
-      type: object
-      required:
-      - ApplicationInstanceId
-      properties:
-        ApplicationInstanceId:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationInstanceId'
-          - description: An application instance ID.
-    ApplicationInstanceStatus:
+    NodeId:
       type: string
-      enum:
-      - DEPLOYMENT_PENDING
-      - DEPLOYMENT_REQUESTED
-      - DEPLOYMENT_IN_PROGRESS
-      - DEPLOYMENT_ERROR
-      - DEPLOYMENT_SUCCEEDED
-      - REMOVAL_PENDING
-      - REMOVAL_REQUESTED
-      - REMOVAL_IN_PROGRESS
-      - REMOVAL_FAILED
-      - REMOVAL_SUCCEEDED
-      - DEPLOYMENT_FAILED
-    TagValue:
-      type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 256
-    ApplicationInstanceArn:
-      type: string
+      pattern: ^[a-zA-Z0-9\-\_\.]+$
       minLength: 1
       maxLength: 255
+    ManifestPayloadData:
+      type: string
+      pattern: ^.+$
+      minLength: 1
+      maxLength: 51200
     DescribeApplicationInstanceResponse:
       type: object
       properties:
@@ -894,89 +942,12 @@ components:
           allOf:
           - $ref: '#/components/schemas/TagMap'
           - description: The application instance's tags.
-    NodeSignal:
-      type: object
-      required:
-      - NodeInstanceId
-      - Signal
-      properties:
-        NodeInstanceId:
-          allOf:
-          - $ref: '#/components/schemas/NodeInstanceId'
-          - description: The camera node's name, from the application manifest.
-        Signal:
-          allOf:
-          - $ref: '#/components/schemas/NodeSignalValue'
-          - description: The signal value.
-      description: A signal to a camera node to start or stop processing video.
-    DesiredState:
-      type: string
-      enum:
-      - RUNNING
-      - STOPPED
-      - REMOVED
-    NodeId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_\.]+$
-      minLength: 1
-      maxLength: 255
-    InternalServerException: {}
-    ApplicationInstances:
-      type: array
-      items:
-        $ref: '#/components/schemas/ApplicationInstance'
-    ManifestOverridesPayloadData:
-      type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 51200
-    NextToken:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 4096
-    ManifestPayload:
-      type: object
-      properties:
-        PayloadData:
-          allOf:
-          - $ref: '#/components/schemas/ManifestPayloadData'
-          - description: The application manifest.
-      description: A application verion's manifest file. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the application manifest (<code>graph.json</code>). This file is located in the <code>graphs</code> folder in your application source.
-    TagMap:
-      type: object
-      minProperties: 0
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    NodeName:
+    ResourceNotFoundException: {}
+    ApplicationInstanceName:
       type: string
       pattern: ^[a-zA-Z0-9\-\_]+$
       minLength: 1
-      maxLength: 128
-    CreateApplicationInstanceResponse:
-      type: object
-      required:
-      - ApplicationInstanceId
-      properties:
-        ApplicationInstanceId:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationInstanceId'
-          - description: The application instance's ID.
-    DeviceReportedStatus:
-      type: string
-      enum:
-      - STOPPING
-      - STOPPED
-      - STOP_ERROR
-      - REMOVAL_FAILED
-      - REMOVAL_IN_PROGRESS
-      - STARTING
-      - RUNNING
-      - INSTALL_ERROR
-      - LAUNCHED
-      - LAUNCH_ERROR
-      - INSTALL_IN_PROGRESS
+      maxLength: 255
     DescribeApplicationInstanceDetailsResponse:
       type: object
       properties:
@@ -1012,108 +983,96 @@ components:
           allOf:
           - $ref: '#/components/schemas/ApplicationInstanceName'
           - description: The application instance's name.
-    NodeInstances:
-      type: array
-      items:
-        $ref: '#/components/schemas/NodeInstance'
+    ApplicationInstanceStatus:
+      type: string
+      enum:
+      - DEPLOYMENT_PENDING
+      - DEPLOYMENT_REQUESTED
+      - DEPLOYMENT_IN_PROGRESS
+      - DEPLOYMENT_ERROR
+      - DEPLOYMENT_SUCCEEDED
+      - REMOVAL_PENDING
+      - REMOVAL_REQUESTED
+      - REMOVAL_IN_PROGRESS
+      - REMOVAL_FAILED
+      - REMOVAL_SUCCEEDED
+      - DEPLOYMENT_FAILED
+    NodePackagePatchVersion:
+      type: string
+      pattern: ^[a-z0-9]+$
+      minLength: 1
+      maxLength: 255
+    DeviceName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 255
     RuntimeContextName:
       type: string
       pattern: ^.+$
       minLength: 1
       maxLength: 255
-    ApplicationInstanceId:
+    TagValue:
       type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 256
+    ValidationException: {}
+    RuntimeRoleArn:
+      type: string
+      pattern: ^arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:role/.+$
       minLength: 1
       maxLength: 255
-    PackageObjects:
-      type: array
-      items:
-        $ref: '#/components/schemas/PackageObject'
-    ListApplicationInstancesResponse:
+    ApplicationInstanceArn:
+      type: string
+      minLength: 1
+      maxLength: 255
+    NodeSignal:
+      type: object
+      required:
+      - NodeInstanceId
+      - Signal
+      properties:
+        NodeInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/NodeInstanceId'
+          - description: The camera node's name, from the application manifest.
+        Signal:
+          allOf:
+          - $ref: '#/components/schemas/NodeSignalValue'
+          - description: The signal value.
+      description: A signal to a camera node to start or stop processing video.
+    CreateApplicationInstanceResponse:
+      type: object
+      required:
+      - ApplicationInstanceId
+      properties:
+        ApplicationInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: The application instance's ID.
+    ListApplicationInstanceNodeInstancesResponse:
       type: object
       properties:
-        ApplicationInstances:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationInstances'
-          - description: A list of application instances.
         NextToken:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: A pagination token that's included if more results are available.
-    PackageObject:
+        NodeInstances:
+          allOf:
+          - $ref: '#/components/schemas/NodeInstances'
+          - description: A list of node instances.
+    ListApplicationInstanceDependenciesResponse:
       type: object
-      required:
-      - Name
-      - PackageVersion
-      - PatchVersion
       properties:
-        Name:
+        NextToken:
           allOf:
-          - $ref: '#/components/schemas/NodePackageName'
-          - description: The object's name.
-        PackageVersion:
+          - $ref: '#/components/schemas/NextToken'
+          - description: A pagination token that's included if more results are available.
+        PackageObjects:
           allOf:
-          - $ref: '#/components/schemas/NodePackageVersion'
-          - description: The object's package version.
-        PatchVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackagePatchVersion'
-          - description: The object's patch version.
-      description: A package object.
-    RemoveApplicationInstanceResponse:
-      type: object
-      properties: {}
-    ApplicationInstanceName:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
-    ValidationException: {}
-    NodeSignalValue:
-      type: string
-      enum:
-      - PAUSE
-      - RESUME
-    NodeInstance:
-      type: object
-      required:
-      - CurrentStatus
-      - NodeInstanceId
-      properties:
-        CurrentStatus:
-          allOf:
-          - $ref: '#/components/schemas/NodeInstanceStatus'
-          - description: The instance's current status.
-        NodeId:
-          allOf:
-          - $ref: '#/components/schemas/NodeId'
-          - description: The node's ID.
-        NodeInstanceId:
-          allOf:
-          - $ref: '#/components/schemas/NodeInstanceId'
-          - description: The instance's ID.
-        NodeName:
-          allOf:
-          - $ref: '#/components/schemas/NodeName'
-          - description: The instance's name.
-        PackageName:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageName'
-          - description: The instance's package name.
-        PackagePatchVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackagePatchVersion'
-          - description: The instance's package patch version.
-        PackageVersion:
-          allOf:
-          - $ref: '#/components/schemas/NodePackageVersion'
-          - description: The instance's package version.
-      description: A node instance.
-    ApplicationInstanceStatusDescription:
-      type: string
-      minLength: 1
-      maxLength: 255
+          - $ref: '#/components/schemas/PackageObjects'
+          - description: A list of package objects.
     ManifestOverridesPayload:
       type: object
       properties:
@@ -1122,6 +1081,37 @@ components:
           - $ref: '#/components/schemas/ManifestOverridesPayloadData'
           - description: The overrides document.
       description: Parameter overrides for an application instance. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the overrides document.
+    ManifestPayload:
+      type: object
+      properties:
+        PayloadData:
+          allOf:
+          - $ref: '#/components/schemas/ManifestPayloadData'
+          - description: The application manifest.
+      description: A application verion's manifest file. This is a JSON document that has a single key (<code>PayloadData</code>) where the value is an escaped string representation of the application manifest (<code>graph.json</code>). This file is located in the <code>graphs</code> folder in your application source.
+    ApplicationInstanceStatusDescription:
+      type: string
+      minLength: 1
+      maxLength: 255
+    NodeInstanceId:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    NodeName:
+      type: string
+      pattern: ^[a-zA-Z0-9\-\_]+$
+      minLength: 1
+      maxLength: 128
+    NodePackageVersion:
+      type: string
+      pattern: ^([0-9]+)\.([0-9]+)$
+      minLength: 1
+      maxLength: 255
+    PackageObjects:
+      type: array
+      items:
+        $ref: '#/components/schemas/PackageObject'
     ApplicationInstance:
       type: object
       properties:
@@ -1174,11 +1164,57 @@ components:
           - $ref: '#/components/schemas/TagMap'
           - description: The application instance's tags.
       description: An application instance on a device.
-    RuntimeRoleArn:
+    AccessDeniedException: {}
+    ManifestOverridesPayloadData:
       type: string
-      pattern: ^arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:role/.+$
+      pattern: ^.*$
+      minLength: 0
+      maxLength: 51200
+    NextToken:
+      type: string
+      pattern: ^.+$
       minLength: 1
-      maxLength: 255
+      maxLength: 4096
+    ReportedRuntimeContextStates:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReportedRuntimeContextState'
+    NodeInstance:
+      type: object
+      required:
+      - CurrentStatus
+      - NodeInstanceId
+      properties:
+        CurrentStatus:
+          allOf:
+          - $ref: '#/components/schemas/NodeInstanceStatus'
+          - description: The instance's current status.
+        NodeId:
+          allOf:
+          - $ref: '#/components/schemas/NodeId'
+          - description: The node's ID.
+        NodeInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/NodeInstanceId'
+          - description: The instance's ID.
+        NodeName:
+          allOf:
+          - $ref: '#/components/schemas/NodeName'
+          - description: The instance's name.
+        PackageName:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageName'
+          - description: The instance's package name.
+        PackagePatchVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackagePatchVersion'
+          - description: The instance's package patch version.
+        PackageVersion:
+          allOf:
+          - $ref: '#/components/schemas/NodePackageVersion'
+          - description: The instance's package version.
+      description: A node instance.
+    ConflictException: {}
     ReportedRuntimeContextState:
       type: object
       required:
@@ -1204,31 +1240,20 @@ components:
           - $ref: '#/components/schemas/RuntimeContextName'
           - description: The device's name.
       description: An application instance's state.
-    DeviceName:
+    DeviceReportedStatus:
       type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 255
-    NodePackagePatchVersion:
-      type: string
-      pattern: ^[a-z0-9]+$
-      minLength: 1
-      maxLength: 255
-    AccessDeniedException: {}
-    TimeStamp:
-      type: string
-      format: date-time
-    ServiceQuotaExceededException: {}
-    Description:
-      type: string
-      pattern: ^.*$
-      minLength: 0
-      maxLength: 255
-    NodeInstanceId:
-      type: string
-      pattern: ^[a-zA-Z0-9\-\_]+$
-      minLength: 1
-      maxLength: 128
+      enum:
+      - STOPPING
+      - STOPPED
+      - STOP_ERROR
+      - REMOVAL_FAILED
+      - REMOVAL_IN_PROGRESS
+      - STARTING
+      - RUNNING
+      - INSTALL_ERROR
+      - LAUNCHED
+      - LAUNCH_ERROR
+      - INSTALL_IN_PROGRESS
     NodeInstanceStatus:
       type: string
       enum:
@@ -1236,56 +1261,37 @@ components:
       - ERROR
       - NOT_AVAILABLE
       - PAUSED
-    ApplicationInstanceHealthStatus:
+    ApplicationInstances:
+      type: array
+      items:
+        $ref: '#/components/schemas/ApplicationInstance'
+    ServiceQuotaExceededException: {}
+    ApplicationInstanceId:
       type: string
-      enum:
-      - RUNNING
-      - ERROR
-      - NOT_AVAILABLE
-    NodePackageVersion:
-      type: string
-      pattern: ^([0-9]+)\.([0-9]+)$
+      pattern: ^[a-zA-Z0-9\-\_]+$
       minLength: 1
       maxLength: 255
+    SignalApplicationInstanceNodeInstancesResponse:
+      type: object
+      required:
+      - ApplicationInstanceId
+      properties:
+        ApplicationInstanceId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationInstanceId'
+          - description: An application instance ID.
     NodePackageName:
       type: string
       pattern: ^[a-zA-Z0-9\-\_]+$
       minLength: 1
       maxLength: 128
-    ListApplicationInstanceDependenciesResponse:
-      type: object
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A pagination token that's included if more results are available.
-        PackageObjects:
-          allOf:
-          - $ref: '#/components/schemas/PackageObjects'
-          - description: A list of package objects.
-    ConflictException: {}
-    ListApplicationInstanceNodeInstancesResponse:
-      type: object
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: A pagination token that's included if more results are available.
-        NodeInstances:
-          allOf:
-          - $ref: '#/components/schemas/NodeInstances'
-          - description: A list of node instances.
-    ResourceNotFoundException: {}
-    ReportedRuntimeContextStates:
-      type: array
-      items:
-        $ref: '#/components/schemas/ReportedRuntimeContextState'
-    ManifestPayloadData:
-      type: string
-      pattern: ^.+$
-      minLength: 1
-      maxLength: 51200
   parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
@@ -1298,26 +1304,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Signature:
       name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
