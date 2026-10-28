@@ -1,4 +1,4 @@
-# Amazon Panorama (amazon-panorama)
+# Amazon Panorama
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,78 +64,217 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
+> **No longer operating.** This company or product has shut down, been discontinued, or been deprecated. This profile is kept as a historical record and is not maintained or rated.
+
 AWS Panorama is a machine learning appliance and software development kit (SDK) that brings computer vision to on-premises cameras. It allows organizations to automate visual inspection tasks, such as gauging production line efficiency or identifying bottlenecks in industrial operations.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/amazon-panorama/refs/heads/main/apis.yml)
+**Areas:** AWS · Camera · Computer Vision · Edge ML · Industrial IoT
 
-## Scope
+## Amazon Panorama on APIs.io (historical record)
 
-- **Type:** Index
+Everything profiled for Amazon Panorama is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-panorama/](https://apis.io/providers/amazon-panorama/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- AWS
-- Cameras
-- Computer Vision
-- Edge ML
-- Industrial IoT
+- [Amazon Panorama Application Instances API](https://apis.io/apis/amazon-panorama/amazon-panorama-application-instances-api/) — The Application Instances API from Amazon Panorama — 6 operation(s) for application instances.
+- [Amazon Panorama Devices API](https://apis.io/apis/amazon-panorama/amazon-panorama-devices-api/) — The Devices API from Amazon Panorama — 2 operation(s) for devices.
+- [Amazon Panorama Jobs API](https://apis.io/apis/amazon-panorama/amazon-panorama-jobs-api/) — The Jobs API from Amazon Panorama — 2 operation(s) for jobs.
+- [Amazon Panorama Nodes API](https://apis.io/apis/amazon-panorama/amazon-panorama-nodes-api/) — The Nodes API from Amazon Panorama — 2 operation(s) for nodes.
+- [Amazon Panorama Packages API](https://apis.io/apis/amazon-panorama/amazon-panorama-packages-api/) — The Packages API from Amazon Panorama — 9 operation(s) for packages.
+- [Amazon Panorama Tags API](https://apis.io/apis/amazon-panorama/amazon-panorama-tags-api/) — The Tags API from Amazon Panorama — 2 operation(s) for tags.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### AWS Panorama API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The AWS Panorama API provides programmatic access to create and manage appliances, application instances, packages, nodes, and device jobs for deploying computer vision applications to edge cameras.
+- [Amazon Panorama Agentic Access](https://apis.io/agentic-access/amazon-panorama/amazon-panorama-agentic-access/)
 
-- **Human URL:** [https://aws.amazon.com/panorama/](https://aws.amazon.com/panorama/)
-- **Base URL:** `https://panorama.amazonaws.com`
+#### JSON Schema (228)
 
-#### Tags
+The data models the API reads and writes.
 
-- Computer Vision
-- Edge ML
-- Industrial IoT
+- [AccessDeniedException](https://apis.io/schemas/amazon-panorama/openapi-access-denied-exception/)
+- [AlternateSoftwareMetadata](https://apis.io/schemas/amazon-panorama/openapi-alternate-software-metadata/)
+- [AlternateSoftwares](https://apis.io/schemas/amazon-panorama/openapi-alternate-softwares/)
+- [ApplicationInstance](https://apis.io/schemas/amazon-panorama/openapi-application-instance/)
+- [ApplicationInstanceArn](https://apis.io/schemas/amazon-panorama/openapi-application-instance-arn/)
+- [ApplicationInstanceHealthStatus](https://apis.io/schemas/amazon-panorama/openapi-application-instance-health-status/)
+- [ApplicationInstanceId](https://apis.io/schemas/amazon-panorama/openapi-application-instance-id/)
+- [ApplicationInstanceName](https://apis.io/schemas/amazon-panorama/openapi-application-instance-name/)
+- [ApplicationInstanceStatus](https://apis.io/schemas/amazon-panorama/openapi-application-instance-status/)
+- [ApplicationInstanceStatusDescription](https://apis.io/schemas/amazon-panorama/openapi-application-instance-status-description/)
+- [ApplicationInstances](https://apis.io/schemas/amazon-panorama/openapi-application-instances/)
+- [Boolean](https://apis.io/schemas/amazon-panorama/openapi-boolean/)
+- [Bucket](https://apis.io/schemas/amazon-panorama/openapi-bucket/)
+- [BucketName](https://apis.io/schemas/amazon-panorama/openapi-bucket-name/)
+- [Certificates](https://apis.io/schemas/amazon-panorama/openapi-certificates/)
+- [ClientToken](https://apis.io/schemas/amazon-panorama/openapi-client-token/)
+- [ConflictException](https://apis.io/schemas/amazon-panorama/openapi-conflict-exception/)
+- [ConnectionType](https://apis.io/schemas/amazon-panorama/openapi-connection-type/)
+- [CreateApplicationInstanceRequest](https://apis.io/schemas/amazon-panorama/openapi-create-application-instance-request/)
+- [CreateApplicationInstanceResponse](https://apis.io/schemas/amazon-panorama/openapi-create-application-instance-response/)
+- [CreateJobForDevicesRequest](https://apis.io/schemas/amazon-panorama/openapi-create-job-for-devices-request/)
+- [CreateJobForDevicesResponse](https://apis.io/schemas/amazon-panorama/openapi-create-job-for-devices-response/)
+- [CreateNodeFromTemplateJobRequest](https://apis.io/schemas/amazon-panorama/openapi-create-node-from-template-job-request/)
+- [CreateNodeFromTemplateJobResponse](https://apis.io/schemas/amazon-panorama/openapi-create-node-from-template-job-response/)
+- [CreatePackageImportJobRequest](https://apis.io/schemas/amazon-panorama/openapi-create-package-import-job-request/)
+- …and 203 more published on APIs.io
 
-#### Properties
+#### JSON Structure (228)
 
-- [Documentation](https://docs.aws.amazon.com/panorama/latest/api/Welcome.html)
-- [OpenAPI](openapi/amazon-panorama-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/amazon-panorama.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-panorama.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Getting Started](https://aws.amazon.com/panorama/getting-started/)
-- [Pricing](https://aws.amazon.com/panorama/pricing/)
-- [F A Q](https://aws.amazon.com/panorama/faqs/)
+Data models expressed in JSON Structure.
 
-## Common Properties
+- [Openapi Access Denied Exception Structure](https://apis.io/json-structure/amazon-panorama/openapi-access-denied-exception-structure/)
+- [Openapi Alternate Software Metadata Structure](https://apis.io/json-structure/amazon-panorama/openapi-alternate-software-metadata-structure/)
+- [Openapi Alternate Softwares Structure](https://apis.io/json-structure/amazon-panorama/openapi-alternate-softwares-structure/)
+- [Openapi Application Instance Arn Structure](https://apis.io/json-structure/amazon-panorama/openapi-application-instance-arn-structure/)
+- [Openapi Application Instance Health Status Structure](https://apis.io/json-structure/amazon-panorama/openapi-application-instance-health-status-structure/)
+- [Openapi Application Instance Id Structure](https://apis.io/json-structure/amazon-panorama/openapi-application-instance-id-structure/)
+- [Openapi Application Instance Name Structure](https://apis.io/json-structure/amazon-panorama/openapi-application-instance-name-structure/)
+- [Openapi Application Instance Status Description Structure](https://apis.io/json-structure/amazon-panorama/openapi-application-instance-status-description-structure/)
+- [Openapi Application Instance Status Structure](https://apis.io/json-structure/amazon-panorama/openapi-application-instance-status-structure/)
+- [Openapi Application Instance Structure](https://apis.io/json-structure/amazon-panorama/openapi-application-instance-structure/)
+- [Openapi Application Instances Structure](https://apis.io/json-structure/amazon-panorama/openapi-application-instances-structure/)
+- [Openapi Boolean Structure](https://apis.io/json-structure/amazon-panorama/openapi-boolean-structure/)
+- [Openapi Bucket Name Structure](https://apis.io/json-structure/amazon-panorama/openapi-bucket-name-structure/)
+- [Openapi Bucket Structure](https://apis.io/json-structure/amazon-panorama/openapi-bucket-structure/)
+- [Openapi Certificates Structure](https://apis.io/json-structure/amazon-panorama/openapi-certificates-structure/)
+- [Openapi Client Token Structure](https://apis.io/json-structure/amazon-panorama/openapi-client-token-structure/)
+- [Openapi Conflict Exception Structure](https://apis.io/json-structure/amazon-panorama/openapi-conflict-exception-structure/)
+- [Openapi Connection Type Structure](https://apis.io/json-structure/amazon-panorama/openapi-connection-type-structure/)
+- [Openapi Create Application Instance Request Structure](https://apis.io/json-structure/amazon-panorama/openapi-create-application-instance-request-structure/)
+- [Openapi Create Application Instance Response Structure](https://apis.io/json-structure/amazon-panorama/openapi-create-application-instance-response-structure/)
+- [Openapi Create Job For Devices Request Structure](https://apis.io/json-structure/amazon-panorama/openapi-create-job-for-devices-request-structure/)
+- [Openapi Create Job For Devices Response Structure](https://apis.io/json-structure/amazon-panorama/openapi-create-job-for-devices-response-structure/)
+- [Openapi Create Node From Template Job Request Structure](https://apis.io/json-structure/amazon-panorama/openapi-create-node-from-template-job-request-structure/)
+- [Openapi Create Node From Template Job Response Structure](https://apis.io/json-structure/amazon-panorama/openapi-create-node-from-template-job-response-structure/)
+- [Openapi Create Package Import Job Request Structure](https://apis.io/json-structure/amazon-panorama/openapi-create-package-import-job-request-structure/)
+- …and 203 more published on APIs.io
 
-- [Portal](https://aws.amazon.com/panorama/)
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Panorama Openapi Context](https://apis.io/jsonld/amazon-panorama/amazon-panorama-openapi-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Panorama Vocabulary](https://apis.io/vocabularies/amazon-panorama/amazon-panorama-vocabulary/)
+
+#### Examples (207)
+
+Example requests and responses.
+
+- [Openapi Access Denied Exception Example](https://apis.io/examples/amazon-panorama/openapi-access-denied-exception-example/)
+- [Openapi Alternate Software Metadata Example](https://apis.io/examples/amazon-panorama/openapi-alternate-software-metadata-example/)
+- [Openapi Application Instance Arn Example](https://apis.io/examples/amazon-panorama/openapi-application-instance-arn-example/)
+- [Openapi Application Instance Example](https://apis.io/examples/amazon-panorama/openapi-application-instance-example/)
+- [Openapi Application Instance Health Status Example](https://apis.io/examples/amazon-panorama/openapi-application-instance-health-status-example/)
+- [Openapi Application Instance Id Example](https://apis.io/examples/amazon-panorama/openapi-application-instance-id-example/)
+- [Openapi Application Instance Name Example](https://apis.io/examples/amazon-panorama/openapi-application-instance-name-example/)
+- [Openapi Application Instance Status Description Example](https://apis.io/examples/amazon-panorama/openapi-application-instance-status-description-example/)
+- [Openapi Application Instance Status Example](https://apis.io/examples/amazon-panorama/openapi-application-instance-status-example/)
+- [Openapi Boolean Example](https://apis.io/examples/amazon-panorama/openapi-boolean-example/)
+- [Openapi Bucket Example](https://apis.io/examples/amazon-panorama/openapi-bucket-example/)
+- [Openapi Bucket Name Example](https://apis.io/examples/amazon-panorama/openapi-bucket-name-example/)
+- [Openapi Certificates Example](https://apis.io/examples/amazon-panorama/openapi-certificates-example/)
+- [Openapi Client Token Example](https://apis.io/examples/amazon-panorama/openapi-client-token-example/)
+- [Openapi Conflict Exception Example](https://apis.io/examples/amazon-panorama/openapi-conflict-exception-example/)
+- [Openapi Connection Type Example](https://apis.io/examples/amazon-panorama/openapi-connection-type-example/)
+- [Openapi Create Application Instance Request Example](https://apis.io/examples/amazon-panorama/openapi-create-application-instance-request-example/)
+- [Openapi Create Application Instance Response Example](https://apis.io/examples/amazon-panorama/openapi-create-application-instance-response-example/)
+- [Openapi Create Job For Devices Request Example](https://apis.io/examples/amazon-panorama/openapi-create-job-for-devices-request-example/)
+- [Openapi Create Job For Devices Response Example](https://apis.io/examples/amazon-panorama/openapi-create-job-for-devices-response-example/)
+- [Openapi Create Node From Template Job Request Example](https://apis.io/examples/amazon-panorama/openapi-create-node-from-template-job-request-example/)
+- [Openapi Create Node From Template Job Response Example](https://apis.io/examples/amazon-panorama/openapi-create-node-from-template-job-response-example/)
+- [Openapi Create Package Import Job Request Example](https://apis.io/examples/amazon-panorama/openapi-create-package-import-job-request-example/)
+- [Openapi Create Package Import Job Response Example](https://apis.io/examples/amazon-panorama/openapi-create-package-import-job-response-example/)
+- [Openapi Create Package Request Example](https://apis.io/examples/amazon-panorama/openapi-create-package-request-example/)
+- …and 182 more published on APIs.io
+
+#### Collections (13)
+
+Postman and Open Collection request collections.
+
+- [AWS Panorama](https://apis.io/collections/amazon-panorama/open-amazon-panorama/)
+- [AWS Panorama Application Instances API](https://apis.io/collections/amazon-panorama/open-amazon-panorama-application-instances-api/)
+- [AWS Panorama Application Instances Devices API](https://apis.io/collections/amazon-panorama/open-amazon-panorama-devices-api/)
+- [AWS Panorama Application Instances Jobs API](https://apis.io/collections/amazon-panorama/open-amazon-panorama-jobs-api/)
+- [AWS Panorama Application Instances Nodes API](https://apis.io/collections/amazon-panorama/open-amazon-panorama-nodes-api/)
+- [AWS Panorama Application Instances Packages API](https://apis.io/collections/amazon-panorama/open-amazon-panorama-packages-api/)
+- [AWS Panorama Application Instances Tags API](https://apis.io/collections/amazon-panorama/open-amazon-panorama-tags-api/)
+- [AWS Panorama Application Instances API](https://apis.io/collections/amazon-panorama/postman-amazon-panorama-application-instances-api/)
+- [AWS Panorama Application Instances Devices API](https://apis.io/collections/amazon-panorama/postman-amazon-panorama-devices-api/)
+- [AWS Panorama Application Instances Jobs API](https://apis.io/collections/amazon-panorama/postman-amazon-panorama-jobs-api/)
+- [AWS Panorama Application Instances Nodes API](https://apis.io/collections/amazon-panorama/postman-amazon-panorama-nodes-api/)
+- [AWS Panorama Application Instances Packages API](https://apis.io/collections/amazon-panorama/postman-amazon-panorama-packages-api/)
+- [AWS Panorama Application Instances Tags API](https://apis.io/collections/amazon-panorama/postman-amazon-panorama-tags-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Panorama — jsonschema rules](https://apis.io/rules/amazon-panorama/amazon-panorama-jsonschema-spectral-rules/)
+- [Amazon Panorama API Rules](https://apis.io/rules/amazon-panorama/amazon-panorama-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Panorama Authentication](https://apis.io/security/amazon-panorama/amazon-panorama-authentication/)
+- [Amazon Panorama Domain Security](https://apis.io/security/amazon-panorama/amazon-panorama-domain-security/)
+- [Amazon Panorama Trust Center](https://apis.io/security/amazon-panorama/amazon-panorama-trust-center/)
+- [Amazon Panorama Vulnerability Disclosure](https://apis.io/security/amazon-panorama/amazon-panorama-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Panorama Plans Pricing](https://apis.io/plans/amazon-panorama/amazon-panorama-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Panorama Rate Limits](https://apis.io/rate-limits/amazon-panorama/amazon-panorama-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Panorama Finops](https://apis.io/finops/amazon-panorama/amazon-panorama-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://aws.amazon.com/panorama/)
 - [Documentation](https://docs.aws.amazon.com/panorama/)
-- [Terms of Service](https://aws.amazon.com/service-terms/)
-- [Privacy Policy](https://aws.amazon.com/privacy/)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/machine-learning/tag/aws-panorama/)
-- [GitHub Organization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/panorama/)
-- [Sign Up](https://portal.aws.amazon.com/billing/signup)
-- [Login](https://signin.aws.amazon.com/)
-- [Status Page](https://health.aws.amazon.com/health/status)
-- [Contact](https://aws.amazon.com/contact-us/)
-- [Spectral Rules](rules/amazon-panorama-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-panorama-vocabulary.yaml)
-- [JSON-LD](json-ld/amazon-panorama-openapi-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/openapi-access-denied-exception-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/openapi-alternate-software-metadata-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/openapi-alternate-softwares-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/openapi-application-instance-arn-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/openapi-application-instance-health-status-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Integrations](https://aws.amazon.com/marketplace/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Not rated** — this company is recorded as no longer operating, so no score is published. If it is in fact operating, say so on this repository and it will be re-profiled.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Panorama: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-panorama/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
